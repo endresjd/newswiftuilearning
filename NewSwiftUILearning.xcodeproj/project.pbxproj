@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		456800802B05372C001A5789 /* TextEditorExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4568007F2B05372C001A5789 /* TextEditorExample.swift */; };
+		456800822B053F5C001A5789 /* TextFieldExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456800812B053F5C001A5789 /* TextFieldExample.swift */; };
+		456800842B0543AB001A5789 /* TimelineViewExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456800832B0543AB001A5789 /* TimelineViewExample.swift */; };
+		457255F22B0D2375007C7C2E /* ToggleExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 457255F12B0D2375007C7C2E /* ToggleExample.swift */; };
+		457255F42B0D2408007C7C2E /* TransformedShapeExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 457255F32B0D2408007C7C2E /* TransformedShapeExample.swift */; };
 		45DFA86C2AFFEC6A003A1F54 /* NewSwiftUILearningApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45DFA86B2AFFEC6A003A1F54 /* NewSwiftUILearningApp.swift */; };
 		45DFA86E2AFFEC6A003A1F54 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45DFA86D2AFFEC6A003A1F54 /* ContentView.swift */; };
 		45DFA8702AFFEC6B003A1F54 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 45DFA86F2AFFEC6B003A1F54 /* Assets.xcassets */; };
@@ -95,6 +100,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4568007F2B05372C001A5789 /* TextEditorExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextEditorExample.swift; sourceTree = "<group>"; };
+		456800812B053F5C001A5789 /* TextFieldExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldExample.swift; sourceTree = "<group>"; };
+		456800832B0543AB001A5789 /* TimelineViewExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineViewExample.swift; sourceTree = "<group>"; };
+		457255F12B0D2375007C7C2E /* ToggleExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleExample.swift; sourceTree = "<group>"; };
+		457255F32B0D2408007C7C2E /* TransformedShapeExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransformedShapeExample.swift; sourceTree = "<group>"; };
 		45DFA8682AFFEC6A003A1F54 /* NewSwiftUILearning.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NewSwiftUILearning.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		45DFA86B2AFFEC6A003A1F54 /* NewSwiftUILearningApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewSwiftUILearningApp.swift; sourceTree = "<group>"; };
 		45DFA86D2AFFEC6A003A1F54 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -216,11 +226,6 @@
 		45DFA86A2AFFEC6A003A1F54 /* NewSwiftUILearning */ = {
 			isa = PBXGroup;
 			children = (
-				45EA943E2B03F264008988C3 /* ScaledShapeExample.swift */,
-				45EA94402B03F31F008988C3 /* ScrollViewReaderExample.swift */,
-				45EA94422B03F49C008988C3 /* SectionExample.swift */,
-				45EA94442B03F613008988C3 /* SecureFieldExample.swift */,
-				45EA943C2B03F165008988C3 /* RoundedRectangleExample.swift */,
 				45F877062B000EE600422884 /* AngularGradientExample.swift */,
 				45F877082B000F7400422884 /* AnyShapeExample.swift */,
 				45F877022AFFF0A100422884 /* AsyncImageExample.swift */,
@@ -266,19 +271,29 @@
 				45EA94282B02BA24008988C3 /* OutlineGroupExample.swift */,
 				45EA942A2B03B8D8008988C3 /* PasteButtonExample.swift */,
 				45EA942C2B03BAAE008988C3 /* PathExample.swift */,
-				45EA942E2B03BE94008988C3 /* ShapeExample.swift */,
 				45EA94302B03DA9A008988C3 /* PhaseAnimatorExample.swift */,
 				45EA94322B03E119008988C3 /* PickerExample.swift */,
 				45EA94342B03E330008988C3 /* ProgressViewExample.swift */,
 				45EA94362B03E511008988C3 /* RadialGradientExample.swift */,
 				45EA94382B03E673008988C3 /* RenameButtonExample.swift */,
 				45EA943A2B03EF80008988C3 /* RotatedShapeExample.swift */,
-				45DFA8952AFFECB0003A1F54 /* ViewRouter.swift */,
-				45EA94502B04020E008988C3 /* TabViewExample.swift */,
-				45EA94522B0408A2008988C3 /* TableExample.swift */,
+				45EA943C2B03F165008988C3 /* RoundedRectangleExample.swift */,
+				45EA943E2B03F264008988C3 /* ScaledShapeExample.swift */,
+				45EA94402B03F31F008988C3 /* ScrollViewReaderExample.swift */,
+				45EA94422B03F49C008988C3 /* SectionExample.swift */,
+				45EA94442B03F613008988C3 /* SecureFieldExample.swift */,
+				45EA942E2B03BE94008988C3 /* ShapeExample.swift */,
+				45EA94482B03F7AC008988C3 /* ShareLinkExample.swift */,
 				45EA944A2B03FB4F008988C3 /* SliderExample.swift */,
 				45EA944C2B03FCCA008988C3 /* StepperExample.swift */,
-				45EA94482B03F7AC008988C3 /* ShareLinkExample.swift */,
+				45EA94522B0408A2008988C3 /* TableExample.swift */,
+				45EA94502B04020E008988C3 /* TabViewExample.swift */,
+				4568007F2B05372C001A5789 /* TextEditorExample.swift */,
+				456800812B053F5C001A5789 /* TextFieldExample.swift */,
+				456800832B0543AB001A5789 /* TimelineViewExample.swift */,
+				457255F12B0D2375007C7C2E /* ToggleExample.swift */,
+				457255F32B0D2408007C7C2E /* TransformedShapeExample.swift */,
+				45DFA8952AFFECB0003A1F54 /* ViewRouter.swift */,
 				45DFA86F2AFFEC6B003A1F54 /* Assets.xcassets */,
 				45DFA8712AFFEC6B003A1F54 /* Preview Content */,
 			);
@@ -450,6 +465,7 @@
 				45EA94272B02B6EC008988C3 /* OffsetShapeExample.swift in Sources */,
 				45F877352B026FD500422884 /* GroupExample.swift in Sources */,
 				45F877272B003DB700422884 /* EquatableViewExample.swift in Sources */,
+				456800802B05372C001A5789 /* TextEditorExample.swift in Sources */,
 				45F877152B00166000422884 /* ContainerRelativeShapeExample.swift in Sources */,
 				45F877212B003B7C00422884 /* DividerExample.swift in Sources */,
 				45EA94532B0408A2008988C3 /* TableExample.swift in Sources */,
@@ -464,10 +480,12 @@
 				45F877432B02836F00422884 /* LazyVGridExample.swift in Sources */,
 				45EA94292B02BA24008988C3 /* OutlineGroupExample.swift in Sources */,
 				45EA943D2B03F165008988C3 /* RoundedRectangleExample.swift in Sources */,
+				457255F22B0D2375007C7C2E /* ToggleExample.swift in Sources */,
 				45F877412B02830500422884 /* LazyHStackExample.swift in Sources */,
 				45F877072B000EE700422884 /* AngularGradientExample.swift in Sources */,
 				45F8774F2B028A3900422884 /* MultiDatePickerExample.swift in Sources */,
 				45EA942B2B03B8D8008988C3 /* PasteButtonExample.swift in Sources */,
+				457255F42B0D2408007C7C2E /* TransformedShapeExample.swift in Sources */,
 				45F8772B2B00430700422884 /* ForEachExample.swift in Sources */,
 				45EA942D2B03BAAE008988C3 /* PathExample.swift in Sources */,
 				45F877492B02863500422884 /* LinkExample.swift in Sources */,
@@ -488,6 +506,7 @@
 				45EA94452B03F613008988C3 /* SecureFieldExample.swift in Sources */,
 				45F877092B000F7400422884 /* AnyShapeExample.swift in Sources */,
 				45F877252B003C9400422884 /* EllipseExample.swift in Sources */,
+				456800822B053F5C001A5789 /* TextFieldExample.swift in Sources */,
 				45EA94512B04020E008988C3 /* TabViewExample.swift in Sources */,
 				45F8770B2B00113100422884 /* CanvasExample.swift in Sources */,
 				45F877332B02686700422884 /* GridViewExample.swift in Sources */,
@@ -496,6 +515,7 @@
 				45EA943B2B03EF80008988C3 /* RotatedShapeExample.swift in Sources */,
 				45DFA86E2AFFEC6A003A1F54 /* ContentView.swift in Sources */,
 				45F8774B2B0287AD00422884 /* ListExample.swift in Sources */,
+				456800842B0543AB001A5789 /* TimelineViewExample.swift in Sources */,
 				45DFA86C2AFFEC6A003A1F54 /* NewSwiftUILearningApp.swift in Sources */,
 				45F877452B0283DD00422884 /* LazyVStackExample.swift in Sources */,
 				45F8771B2B001BC800422884 /* ControlGroupExample.swift in Sources */,

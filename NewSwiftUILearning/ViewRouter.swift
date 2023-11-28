@@ -83,6 +83,11 @@ enum ViewRouter: String, CaseIterable {
     case subscriptionView = "SubscriptionView (13)"
     case table = "Table (16)"
     case tabView = "TabView (13)"
+    case textEditor = "TextEditor (14)"
+    case textField = "TextField (13)"
+    case timelineView = "TimelineView (15)"
+    case toggle = "Toggle (13)"
+    case transformedShape = "TransformedShape (13)"
     
     /// Name to use when all these are displayed in a list in the interface
     var name: String {
@@ -217,6 +222,16 @@ enum ViewRouter: String, CaseIterable {
             TableExample()
         case .tabView:
             TabViewExample()
+        case .textEditor:
+            TextEditorExample()
+        case .textField:
+            TextFieldExample()
+        case .timelineView:
+            TimelineViewExample()
+        case .toggle:
+            ToggleExample()
+        case .transformedShape:
+            TransformedShapeExample()
         }
     }
 }
