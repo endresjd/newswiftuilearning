@@ -21,6 +21,9 @@
 		45DFA8892AFFEC6B003A1F54 /* NewSwiftUILearningUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45DFA8882AFFEC6B003A1F54 /* NewSwiftUILearningUITestsLaunchTests.swift */; };
 		45DFA8962AFFECB0003A1F54 /* ViewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45DFA8952AFFECB0003A1F54 /* ViewRouter.swift */; };
 		45DFA8982AFFEDAA003A1F54 /* GroupBoxExampleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45DFA8972AFFEDAA003A1F54 /* GroupBoxExampleView.swift */; };
+		45E9C3692B2A0B0000876E31 /* WeatherKitExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E9C3682B2A0B0000876E31 /* WeatherKitExample.swift */; };
+		45E9C36B2B2A10EB00876E31 /* LocationManagerExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E9C36A2B2A10EB00876E31 /* LocationManagerExample.swift */; };
+		45E9C36F2B2A4C4500876E31 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E9C36E2B2A4C4500876E31 /* LocationManager.swift */; };
 		45EA94252B02B5EF008988C3 /* NavigationViewExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45EA94242B02B5EF008988C3 /* NavigationViewExample.swift */; };
 		45EA94272B02B6EC008988C3 /* OffsetShapeExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45EA94262B02B6EC008988C3 /* OffsetShapeExample.swift */; };
 		45EA94292B02BA24008988C3 /* OutlineGroupExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45EA94282B02BA24008988C3 /* OutlineGroupExample.swift */; };
@@ -117,6 +120,9 @@
 		45DFA8882AFFEC6B003A1F54 /* NewSwiftUILearningUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewSwiftUILearningUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		45DFA8952AFFECB0003A1F54 /* ViewRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewRouter.swift; sourceTree = "<group>"; };
 		45DFA8972AFFEDAA003A1F54 /* GroupBoxExampleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupBoxExampleView.swift; sourceTree = "<group>"; };
+		45E9C3682B2A0B0000876E31 /* WeatherKitExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherKitExample.swift; sourceTree = "<group>"; };
+		45E9C36A2B2A10EB00876E31 /* LocationManagerExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManagerExample.swift; sourceTree = "<group>"; };
+		45E9C36E2B2A4C4500876E31 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		45EA94242B02B5EF008988C3 /* NavigationViewExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationViewExample.swift; sourceTree = "<group>"; };
 		45EA94262B02B6EC008988C3 /* OffsetShapeExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OffsetShapeExample.swift; sourceTree = "<group>"; };
 		45EA94282B02BA24008988C3 /* OutlineGroupExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutlineGroupExample.swift; sourceTree = "<group>"; };
@@ -226,6 +232,43 @@
 		45DFA86A2AFFEC6A003A1F54 /* NewSwiftUILearning */ = {
 			isa = PBXGroup;
 			children = (
+				45E9C36D2B2A48FB00876E31 /* Utilities */,
+				45E9C36C2B2A48CD00876E31 /* Views */,
+				45DFA8952AFFECB0003A1F54 /* ViewRouter.swift */,
+				45DFA86F2AFFEC6B003A1F54 /* Assets.xcassets */,
+				45DFA8712AFFEC6B003A1F54 /* Preview Content */,
+			);
+			path = NewSwiftUILearning;
+			sourceTree = "<group>";
+		};
+		45DFA8712AFFEC6B003A1F54 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				45DFA8722AFFEC6B003A1F54 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		45DFA87B2AFFEC6B003A1F54 /* NewSwiftUILearningTests */ = {
+			isa = PBXGroup;
+			children = (
+				45DFA87C2AFFEC6B003A1F54 /* NewSwiftUILearningTests.swift */,
+			);
+			path = NewSwiftUILearningTests;
+			sourceTree = "<group>";
+		};
+		45DFA8852AFFEC6B003A1F54 /* NewSwiftUILearningUITests */ = {
+			isa = PBXGroup;
+			children = (
+				45DFA8862AFFEC6B003A1F54 /* NewSwiftUILearningUITests.swift */,
+				45DFA8882AFFEC6B003A1F54 /* NewSwiftUILearningUITestsLaunchTests.swift */,
+			);
+			path = NewSwiftUILearningUITests;
+			sourceTree = "<group>";
+		};
+		45E9C36C2B2A48CD00876E31 /* Views */ = {
+			isa = PBXGroup;
+			children = (
 				45F877062B000EE600422884 /* AngularGradientExample.swift */,
 				45F877082B000F7400422884 /* AnyShapeExample.swift */,
 				45F877022AFFF0A100422884 /* AsyncImageExample.swift */,
@@ -262,6 +305,7 @@
 				45F877462B02849600422884 /* LinearGradientExample.swift */,
 				45F877482B02863500422884 /* LinkExample.swift */,
 				45F8774A2B0287AD00422884 /* ListExample.swift */,
+				45E9C36A2B2A10EB00876E31 /* LocationManagerExample.swift */,
 				45F8774E2B028A3900422884 /* MultiDatePickerExample.swift */,
 				45F877522B029E1000422884 /* NavigationSlitViewExample.swift */,
 				45F877502B0292D400422884 /* NavigationStackExample.swift */,
@@ -293,36 +337,17 @@
 				456800832B0543AB001A5789 /* TimelineViewExample.swift */,
 				457255F12B0D2375007C7C2E /* ToggleExample.swift */,
 				457255F32B0D2408007C7C2E /* TransformedShapeExample.swift */,
-				45DFA8952AFFECB0003A1F54 /* ViewRouter.swift */,
-				45DFA86F2AFFEC6B003A1F54 /* Assets.xcassets */,
-				45DFA8712AFFEC6B003A1F54 /* Preview Content */,
+				45E9C3682B2A0B0000876E31 /* WeatherKitExample.swift */,
 			);
-			path = NewSwiftUILearning;
+			path = Views;
 			sourceTree = "<group>";
 		};
-		45DFA8712AFFEC6B003A1F54 /* Preview Content */ = {
+		45E9C36D2B2A48FB00876E31 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				45DFA8722AFFEC6B003A1F54 /* Preview Assets.xcassets */,
+				45E9C36E2B2A4C4500876E31 /* LocationManager.swift */,
 			);
-			path = "Preview Content";
-			sourceTree = "<group>";
-		};
-		45DFA87B2AFFEC6B003A1F54 /* NewSwiftUILearningTests */ = {
-			isa = PBXGroup;
-			children = (
-				45DFA87C2AFFEC6B003A1F54 /* NewSwiftUILearningTests.swift */,
-			);
-			path = NewSwiftUILearningTests;
-			sourceTree = "<group>";
-		};
-		45DFA8852AFFEC6B003A1F54 /* NewSwiftUILearningUITests */ = {
-			isa = PBXGroup;
-			children = (
-				45DFA8862AFFEC6B003A1F54 /* NewSwiftUILearningUITests.swift */,
-				45DFA8882AFFEC6B003A1F54 /* NewSwiftUILearningUITestsLaunchTests.swift */,
-			);
-			path = NewSwiftUILearningUITests;
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -477,6 +502,7 @@
 				45F8773F2B02807400422884 /* LazyHGridExample.swift in Sources */,
 				45F877112B0012F500422884 /* ColorExample.swift in Sources */,
 				45EA94492B03F7AC008988C3 /* ShareLinkExample.swift in Sources */,
+				45E9C3692B2A0B0000876E31 /* WeatherKitExample.swift in Sources */,
 				45F877432B02836F00422884 /* LazyVGridExample.swift in Sources */,
 				45EA94292B02BA24008988C3 /* OutlineGroupExample.swift in Sources */,
 				45EA943D2B03F165008988C3 /* RoundedRectangleExample.swift in Sources */,
@@ -511,6 +537,7 @@
 				45F8770B2B00113100422884 /* CanvasExample.swift in Sources */,
 				45F877332B02686700422884 /* GridViewExample.swift in Sources */,
 				45F877172B0019B800422884 /* ContentUnavailableViewExample.swift in Sources */,
+				45E9C36F2B2A4C4500876E31 /* LocationManager.swift in Sources */,
 				45EA942F2B03BE95008988C3 /* ShapeExample.swift in Sources */,
 				45EA943B2B03EF80008988C3 /* RotatedShapeExample.swift in Sources */,
 				45DFA86E2AFFEC6A003A1F54 /* ContentView.swift in Sources */,
@@ -519,6 +546,7 @@
 				45DFA86C2AFFEC6A003A1F54 /* NewSwiftUILearningApp.swift in Sources */,
 				45F877452B0283DD00422884 /* LazyVStackExample.swift in Sources */,
 				45F8771B2B001BC800422884 /* ControlGroupExample.swift in Sources */,
+				45E9C36B2B2A10EB00876E31 /* LocationManagerExample.swift in Sources */,
 				45EA94312B03DA9A008988C3 /* PhaseAnimatorExample.swift in Sources */,
 				45EA944B2B03FB4F008988C3 /* SliderExample.swift in Sources */,
 				45F8771D2B0021EC00422884 /* DatePickerExample.swift in Sources */,
@@ -689,6 +717,10 @@
 				DEVELOPMENT_TEAM = WFNDASXC9R;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "To support example views";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "To support example views";
+				INFOPLIST_KEY_NSLocationUsageDescription = "To support example views";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "To support example views";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -718,6 +750,10 @@
 				DEVELOPMENT_TEAM = WFNDASXC9R;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "To support example views";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "To support example views";
+				INFOPLIST_KEY_NSLocationUsageDescription = "To support example views";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "To support example views";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

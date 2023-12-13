@@ -9,7 +9,8 @@ import SwiftUI
 
 struct ContentView: View {
     @State private var selection: ViewRouter? = nil // Nothing selected by default.
-
+    private let locationManager = LocationManager()
+    
     var body: some View {
         NavigationStack {
             List(ViewRouter.allCases.sorted()) { view in
@@ -19,6 +20,9 @@ struct ContentView: View {
                 view.view
                     .navigationTitle(view.rawValue)
             }
+        }
+        .task {
+            locationManager.requestWhenInUseAuthorization()
         }
     }
 }

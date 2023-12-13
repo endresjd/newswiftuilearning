@@ -56,6 +56,7 @@ enum ViewRouter: String, CaseIterable {
     case linearGradient = "LinearGradient (13)"
     case link = "Link (14)"
     case list = "List (13)"
+    case locationManager = "Location (2)"
     case menu = "Menu (14)"
     case multiDatePicker = "MultiDatePicker (16)"
     case navigationSplitView = "NavigationSlitView (16)"
@@ -88,6 +89,7 @@ enum ViewRouter: String, CaseIterable {
     case timelineView = "TimelineView (15)"
     case toggle = "Toggle (13)"
     case transformedShape = "TransformedShape (13)"
+    case weatherKit = "WeatherKit (16)"
     
     /// Name to use when all these are displayed in a list in the interface
     var name: String {
@@ -168,6 +170,8 @@ enum ViewRouter: String, CaseIterable {
             LinkExample()
         case .list:
             ListExample()
+        case .locationManager:
+            LocationManagerExample()
         case .menu:
             ControlGroupExample()
         case .multiDatePicker:
@@ -232,6 +236,8 @@ enum ViewRouter: String, CaseIterable {
             ToggleExample()
         case .transformedShape:
             TransformedShapeExample()
+        case .weatherKit:
+            WeatherKitExample()
         }
     }
 }
