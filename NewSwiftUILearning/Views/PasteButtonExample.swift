@@ -7,6 +7,17 @@
 
 import SwiftUI
 
+/// Shows how to use the system paste button
+///
+/// Use a paste button when you want to provide a button for pasting items from the system pasteboard into your app. The 
+/// system provides a button appearance and label appropriate to the current environment.
+///
+/// This shows 3 ways to put the button in.  The contents of the pasteboard are routed based on how you handle the
+/// data in the closure.
+///
+/// - Experiment: See if you can find examples of the right way to use this.
+/// - Important: iOS 16 minimum
+/// - Seealso: [How to let the user paste data into your app](https://www.hackingwithswift.com/quick-start/swiftui/how-to-let-the-user-paste-data-into-your-app)
 struct PasteButtonExample: View {
     @State private var pastedText: String = ""
 
@@ -32,9 +43,13 @@ struct PasteButtonExample: View {
                 .labelStyle(.iconOnly)
                 .tint(.black)
             }
+            
             Divider()
+            
             Text(contents)
+            
             Divider()
+            
             Spacer()
         }
     }

@@ -37,6 +37,12 @@ struct SmallColorSquare: View {
     }
 }
 
+/// Shows ways to use `Grid` and `GridRow`
+///
+/// SwiftUI’s Grid view lets us create a static grid of views, with precise control over what goes into each row and column. You mark out individual rows using GridRow, then optionally also configure how wide each cell should be.
+///
+/// - Important: iOS 16 minimum
+/// - Seealso: [How to position views in a fixed grid](https://www.hackingwithswift.com/quick-start/swiftui/how-to-position-views-in-a-fixed-grid)
 struct GridViewExample: View {
     var body: some View {
         List {
@@ -81,8 +87,6 @@ struct GridViewExample: View {
                     // To make a cell span columns.  Seems strange because
                     // it is no longer aligned.
                     ColorSquare(color: .yellow)
-                    //                    .gridCellColumns(2)
-                    
                     ColorSquare(color: .yellow)
                 }
                 

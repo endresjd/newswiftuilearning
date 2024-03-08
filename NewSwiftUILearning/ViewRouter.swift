@@ -11,6 +11,7 @@ import SwiftUI
 /// referenced to create the view it represents.
 enum ViewRouter: String, CaseIterable {
     case angularGradient = "AngularGradient (13)"
+    case anyLayout = "AnyLayout (16)"
     case anyShapeExample = "AnyShapeExample (16)"
     case asyncImage = "AsyncImage (15)"
     case buttonBorderShape = "ButtonBorderShape (15)"
@@ -26,6 +27,7 @@ enum ViewRouter: String, CaseIterable {
     case contentUnavailable = "ContentUnavailableView (17)"
     case controlGroup = "ControlGroup (15)"
     case datePicker = "DatePicker (13)"
+    case deferGesture = "Defer Gesture (16)"
     case disclosureGroup = "DisclosureGroup (14)"
     case divider = "Divider (13)"
     
@@ -59,7 +61,7 @@ enum ViewRouter: String, CaseIterable {
     case locationManager = "Location (2)"
     case menu = "Menu (14)"
     case multiDatePicker = "MultiDatePicker (16)"
-    case navigationSplitView = "NavigationSlitView (16)"
+    case navigationSplitView = "NavigationSplitView (16)"
     case navigationStack = "NavigationStack (16)"
     case navigationView = "NavigationViewExample (13) deprecated"
     case offsetShape = "OffsetShape (13)"
@@ -68,15 +70,20 @@ enum ViewRouter: String, CaseIterable {
     case path = "Path (13)"
     case phaseAnimator = "PhaseAnimator (17)"
     case picker = "Picker (13)"
+    case presentation = "Presentation (16)"
     case progressView = "ProgressView (14)"
     case radialGradient = "RadialGradient (13)"
     case renameButton = "RenameButton (16)"
+    case requestReview = "Request Review (16)"
     case rotatedShape = "RotatedShape (13)"
     case roundedRectangle = "RoundedRectangle (13)"
     case scaledShape = "ScaledShape (13)"
+    case scrollViewIndicators = "Scroll indicators (16)"
+    case scrollViewKeyboard = "Scroll dismiss (16)"
     case scrollViewReader = "ScrollViewReader (14)"
     case section = "Section (13)"
     case secureField = "SecureField (13)"
+    case sfSymbolColor = "SF Symbol Colors (16)"
     case shape = "Shape (13)"
     case shareLink = "ShareLink (16)"
     case slider = "Slider (13)"
@@ -84,6 +91,7 @@ enum ViewRouter: String, CaseIterable {
     case subscriptionView = "SubscriptionView (13)"
     case table = "Table (16)"
     case tabView = "TabView (13)"
+    case tappedLocation = "Tapped Location (16)"
     case textEditor = "TextEditor (14)"
     case textField = "TextField (13)"
     case timelineView = "TimelineView (15)"
@@ -96,12 +104,23 @@ enum ViewRouter: String, CaseIterable {
         rawValue.capitalized
     }
     
+    /// The number of the OS this example applies to or 0 if it could not be determined
+    var version: Int {
+        if let number = Int(rawValue.components(separatedBy: CharacterSet.decimalDigits.inverted).joined()) {
+            return number
+        }
+
+        return 0
+    }
+    
     /// The associated view that the enum value represents
     @ViewBuilder
     var view: some View {
         switch self {
         case .angularGradient:
             AngularGradientExample()
+        case .anyLayout:
+            AnyLayoutExample()
         case .anyShapeExample:
             AnyShapeExample()
         case .asyncImage:
@@ -126,6 +145,8 @@ enum ViewRouter: String, CaseIterable {
             ControlGroupExample()
         case .datePicker:
             DatePickerExample()
+        case .deferGesture:
+            DeferSystemGestures()
         case .disclosureGroup:
             DisclosureGroupExample()
         case .divider:
@@ -177,7 +198,7 @@ enum ViewRouter: String, CaseIterable {
         case .multiDatePicker:
             MultiDatePickerExample()
         case .navigationSplitView:
-            NavigationSlitViewExample()
+            NavigationSplitViewExample()
         case .navigationStack:
             NavigationStackExample()
         case .navigationView:
@@ -194,24 +215,34 @@ enum ViewRouter: String, CaseIterable {
             PhaseAnimatorExample()
         case .picker:
             PickerExample()
+        case .presentation:
+            PresentationExample()
         case .progressView:
             ProgressViewExample()
         case .radialGradient:
             RadialGradientExample()
         case .renameButton:
             RenameButtonExample()
+        case .requestReview:
+            RequestReviewExample()
         case .rotatedShape:
             RotatedShapeExample()
         case .roundedRectangle:
             RoundedRectangleExample()
         case .scaledShape:
             ScaledShapeExample()
+        case .scrollViewIndicators:
+            ScrollViewIndicatorsExample()
+        case .scrollViewKeyboard:
+            ScrollDismissesKeyboardExample()
         case .scrollViewReader:
             ScrollViewReaderExample()
         case .section:
             SectionExample()
         case .secureField:
             SecureFieldExample()
+        case .sfSymbolColor:
+            SFSymbolColor()
         case .shape:
             ShapeExample()
         case .shareLink:
@@ -226,6 +257,8 @@ enum ViewRouter: String, CaseIterable {
             TableExample()
         case .tabView:
             TabViewExample()
+        case .tappedLocation:
+            TapLocationExample()
         case .textEditor:
             TextEditorExample()
         case .textField:
