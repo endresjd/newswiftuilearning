@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct FileItem: Hashable, Identifiable, CustomStringConvertible {
+private struct FileItem: Hashable, Identifiable, CustomStringConvertible {
     var id: Self { self }
     var name: String
     var children: [FileItem]? = nil
@@ -21,17 +21,20 @@ struct FileItem: Hashable, Identifiable, CustomStringConvertible {
     }
 }
 
-struct Tree<Value: Hashable>: Hashable {
+private struct Tree<Value: Hashable>: Hashable {
     let value: Value
     var children: [Tree]? = nil
 }
 
-
-// Use an outline group when you need a view that can represent a hierarchy of data
-// by using disclosure views. This allows the user to navigate the tree structure
-// by using the disclosure views to expand and collapse branches.
+/// Shows iOS 14's `OutlineGroup` to show a simulated file and tree browser.
+///
+/// Use an outline group when you need a view that can represent a hierarchy of data
+/// by using disclosure views. This allows the user to navigate the tree structure
+/// by using the disclosure views to expand and collapse branches.
+///
+/// - Experiment: See if this came be made to look better with indentation or something
 struct OutlineGroupExample: View {
-    let data =
+    fileprivate let data =
       FileItem(name: "users", children:
         [FileItem(name: "user1234", children:
           [FileItem(name: "Photos", children:
@@ -45,7 +48,7 @@ struct OutlineGroupExample: View {
            [FileItem(name: "Documents", children: [])
            ])
         ])
-    let categories: [Tree<String>] = [
+    fileprivate let categories: [Tree<String>] = [
         .init(
             value: "Clothing",
             children: [
@@ -77,6 +80,7 @@ struct OutlineGroupExample: View {
         OutlineGroup(data, children: \.children) { item in
             Text("\(item.description)")
         }
+        .padding()
         
         Spacer()
     }

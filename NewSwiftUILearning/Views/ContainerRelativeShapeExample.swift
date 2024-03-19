@@ -7,9 +7,14 @@
 
 import SwiftUI
 
-/// SwiftUI has a number of built-in shapes that are self-explanatory, but there’s one that stands out: ContainerRelativeShape. 
+/// Shows how to use iOS 14's ContainerRelativeShape.
+///
+/// SwiftUI has a number of built-in shapes that are self-explanatory, but there’s one that stands out: ContainerRelativeShape.
 /// This isn’t a fixed shape, but is instead designed to be an insettable version of whatever shape it’s placed inside, which is
 /// particularly important when creating home screen widgets.
+///
+/// This is a  shape that is replaced by an inset version of the current container shape. If no container shape was defined,
+/// is replaced by a rectangle.  Gives a nicer look.
 ///
 /// Lets you coordinate inset curves and radii?  Most examples are around Widgets.
 struct ContainerRelativeShapeExample: View {
@@ -40,7 +45,7 @@ struct ContainerRelativeShapeExample: View {
                  .background(ContainerRelativeShape().fill(Color.yellow))
                  .padding(5)
                  .background(ContainerRelativeShape().fill(Color.blue))
-                 .background(.clear, in: RoundedRectangle(cornerRadius: 30))
+                 .background(.clear, in: RoundedRectangle(cornerRadius: 30))    // Curves
          }
          .padding()
     }

@@ -7,6 +7,15 @@
 
 import SwiftUI
 
+/// Examples of using iOS 13's DatePicker in multiple styles
+///
+/// The styles used in this example are
+///
+///     1. A graphical picker that shows the entire month
+///     2. A compact version that just shows the date with the picker in a popup
+///     3. A compact date and time picker that is limited to a certain time range.
+///
+/// - Experiment: Try these with different styles.  `.graphical` for the date/time picker, for example.
 struct DatePickerExample: View {
     @State private var date = Date()
     @State private var closedRangeDate = Date()

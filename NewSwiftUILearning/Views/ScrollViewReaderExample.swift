@@ -7,6 +7,12 @@
 
 import SwiftUI
 
+/// A scrollview that scrolls to tagged elements using iOS 14's `ScrollViewReader`.
+///
+/// The reader usese views that have `Namespace` identifiers attached to them.
+/// Think of these as bookmarks or identifiers for a view
+/// that you can use in the ScrollViewReader to scroll
+/// to that view.
 struct ScrollViewReaderExample: View {
     // Think of these as bookmarks or identifiers for a view
     // that you can use in the ScrollViewReader to scroll

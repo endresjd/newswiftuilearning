@@ -7,6 +7,11 @@
 
 import SwiftUI
 
+/// Shows iOS 13's `RadialGradient`
+///
+/// The gradient applies the color function as the distance from a center point,
+/// scaled to fit within the defined start and end radii. The gradient maps the unit
+/// space center point into the bounding rectangle of each shape filled with the gradient.
 struct RadialGradientExample: View {
     var body: some View {
         Circle()

@@ -7,9 +7,12 @@
 
 import SwiftUI
 
-/// A view that updates according to a schedule that you provide.
-/// 
-/// See [TimelineView](https://swiftwithmajid.com/2022/05/18/mastering-timelineview-in-swiftui/)
+/// Shows iOS 15's `TimelineView`
+///
+/// A view that updates according to a schedule that you provide. A timeline view acts as a container with no
+/// appearance of its own. Instead, it redraws the content it contains at scheduled points in time.
+///
+/// - SeeAlso: [TimelineView](https://swiftwithmajid.com/2022/05/18/mastering-timelineview-in-swiftui/)
 struct TimelineViewExample: View {
     var body: some View {
         Form {

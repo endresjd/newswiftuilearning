@@ -7,6 +7,13 @@
 
 import SwiftUI
 
+/// iOS 13's Form with sections for an example settings view
+///
+/// A container for grouping controls used for data entry, such as in settings or inspectors.
+///
+/// SwiftUI applies platform-appropriate styling to views contained inside a form, to group them together. Form-specific
+/// styling applies to things like buttons, toggles, labels, lists, and more. Keep in mind that these stylings may be platform-specific.
+/// For example, forms apppear as grouped lists on iOS, and as aligned vertical stacks on macOS.
 struct FormExample: View {
     enum NotifyMeAboutType {
         case directMessages
@@ -45,7 +52,8 @@ struct FormExample: View {
                         Text("Small").tag(ProfileImageSize.small)
                     }
                     
-                    Button("Clear Image Cache") {}
+                    Button("Clear Image Cache") {                        
+                    }
                 }
             }
         }

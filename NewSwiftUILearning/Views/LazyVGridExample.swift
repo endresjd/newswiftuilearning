@@ -7,6 +7,10 @@
 
 import SwiftUI
 
+/// Horizontal scrolling row of emojis and numbers using iOS 14's LazyHGrid
+///
+/// A container view that arranges its child views in a grid that grows
+/// vertically, creating items only as needed
 struct LazyVGridExample: View {
     let columns = [GridItem(.flexible()), GridItem(.flexible())]
 

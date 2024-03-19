@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+/// Shows iOS 13's `ScaledShape`
 struct ScaledShapeExample: View {
     var body: some View {
         ScaledShape(shape: Rectangle(), scale: CGSize(width: 1.25, height: 0.50))

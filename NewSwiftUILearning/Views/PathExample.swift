@@ -7,8 +7,10 @@
 
 import SwiftUI
 
-// May be more usefule when used within a Shape.  That view
-// is given the size of the view it will be drawn in.
+/// Draws a series of triangles using iOS 13's `Path`
+///
+/// A path is a representation of a 2D shape.  In this case a series of lines
+/// converging to a starting point to make triangles.
 struct PathExample: View {
     var body: some View {
         ScrollView {

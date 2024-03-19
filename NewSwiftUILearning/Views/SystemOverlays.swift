@@ -19,7 +19,7 @@ import SwiftUI
 /// * The Multi-task indicator and Picture-in-picture on iPad
 /// - Remark: This is a request to hide the overlays – it’s down to the system to decide what it actually do
 /// 
-/// - Important: iOS 16 minimum
+/// - Requires: iOS 16
 /// - Seealso: [How to hide the home indicator and other system UI](https://www.hackingwithswift.com/quick-start/swiftui/how-to-hide-the-home-indicator-and-other-system-ui)
 struct SystemOverlays: View {
     var body: some View {

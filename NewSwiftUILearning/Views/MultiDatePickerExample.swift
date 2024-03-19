@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-/// Shows how to use the `MultiDatePicker`
+/// Shows how to use iOS 16's  `MultiDatePicker`
 ///
 /// SwiftUI’s MultiDatePicker shows a calendar view where the user is able to select a variety of dates at the same time, either from any possible date or from a date range of your choosing.
 ///
@@ -16,7 +16,7 @@ import SwiftUI
 /// 2. A Date Picker with a limited range of dates to use.
 ///
 /// - Remark: Not sure if this can be told to ignore dates in a range.
-/// - Important: iOS 16 minimum
+/// - Requires: iOS 16
 /// - Seealso: [How to let the user select multiple dates](https://www.hackingwithswift.com/quick-start/swiftui/how-to-let-the-user-select-multiple-dates)
 struct MultiDatePickerExample: View {
     @Environment(\.calendar) var calendar

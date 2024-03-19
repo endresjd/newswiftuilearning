@@ -7,6 +7,11 @@
 
 import SwiftUI
 
+/// Draws a square that is offset 10 by 10 followed by a non offset one using iOS 13's `OffsetShape`.
+///
+/// I guess a way to specify a shape with a translation: A shape with a translation offset transform applied to it.
+///
+/// - Experiment: See where this would be used and why this method is better
 struct OffsetShapeExample: View {
     var body: some View {
         // Not getting this one.

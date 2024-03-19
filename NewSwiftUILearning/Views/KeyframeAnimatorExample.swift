@@ -7,14 +7,30 @@
 
 import SwiftUI
 
-// Keyframe-based animation is designed to accommodate a specific type of
-// animation where each property is animated independently. By utilizing
-// keyframes, we can animate individual properties separately, which in
-// turn offers us greater flexibility and control over our animations
+/// Bounce a bear around the screen using iOS 17's `keyframeAnimator`
+///
+/// Loops the given keyframes continuously, updating the view using the modifiers you apply in body.
+///
+/// Keyframe-based animation is designed to accommodate a specific type of animation where each property is 
+/// animated independently. By utilizing keyframes, we can animate individual properties separately, which in turn
+/// offers us greater flexibility and control over our animations
+///
+/// Frames are tracked with a set of steps.  The ones used here are:
+///
+/// **KeyframeTrack**: A sequence of keyframes animating a single property of a root type
+///
+/// **LinearKeyframe**: A keyframe that uses simple linear interpolation
+///
+/// **SpringKeyframe**: A keyframe that uses a spring function to interpolate to the given value
+///
+/// **CubicKeyframe**: A keyframe that uses a cubic curve to smoothly interpolate between values
+///
+/// - Experiment: Look into other key frames if they are there.  Understand the meaning of all.  Especially cubic curve.
+/// - ToDo: Truly look into this and try to understand how to use it.
+/// - SeeAlso: [Creating Advanced Animations with KeyframeAnimator in SwiftUI](https://www.appcoda.com/keyframeanimator/)
+/// - Requires: iOS 17
 struct KeyframeAnimatorExample: View {
-    // we begin by defining a struct that encompasses all the properties
-    // we wish to animate.  These are the initial values used in the
-    // animation.
+    /// Holds initial values for the properties we are animating.
     struct AnimationValues {
         var scale = 1.0
         var verticalStretch = 1.0

@@ -11,7 +11,7 @@ import SwiftUI
 ///
 /// Some SF Symbols support variable coloring, which means they can have different parts filled based on a fraction between 0 and 1.
 ///
-/// - Important: iOS 16 minimum
+/// - Requires: iOS 16
 /// - Seealso: [How to dynamically adjust the color of an SF Symbol](https://www.hackingwithswift.com/quick-start/swiftui/how-to-dynamically-adjust-the-color-of-an-sf-symbol)
 struct SFSymbolColor: View {
     @State private var value = 0.0

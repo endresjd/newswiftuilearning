@@ -7,6 +7,10 @@
 
 import SwiftUI
 
+/// Gets and displays the location when the view is loaded by using the `.task` modifier from iOS 15
+///
+/// LocationManager is a class in this project that puts a concurrent wrapper around the system's location
+/// manager.
 struct LocationManagerExample: View {
     private var locationManager = LocationManager()
     @State private var location = "Unknown"

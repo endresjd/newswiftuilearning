@@ -15,7 +15,7 @@ import SwiftUI
 ///
 /// - Remark: Sometimes this will be ignored depending on hardware conditions.  See the link.
 /// - Experiment: Try out different values for the modifier.  `.never` or `.visible`, for example.
-/// - Important: iOS 16 minimum
+/// - Requires: iOS 16
 /// - SeeAlso: [How to hide the scroll indicators in ScrollView, List, and more](https://www.hackingwithswift.com/quick-start/swiftui/how-to-hide-the-scroll-indicators-in-scrollview-list-and-more)
 struct ScrollViewIndicatorsExample: View {
     var body: some View {

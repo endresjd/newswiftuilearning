@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+/// iOS 13's `Slider` examples
 struct SliderExample: View {
     @State private var speed = 50.0
     @State private var isEditing = false
@@ -21,6 +22,7 @@ struct SliderExample: View {
                         isEditing = editing
                     }
                 )
+                
                 Text("\(speed)")
                     .foregroundColor(isEditing ? .red : .blue)
             }
@@ -39,6 +41,7 @@ struct SliderExample: View {
                 } onEditingChanged: { editing in
                     isEditing = editing
                 }
+                
                 Text("\(speed)")
                     .foregroundColor(isEditing ? .red : .blue)
             }

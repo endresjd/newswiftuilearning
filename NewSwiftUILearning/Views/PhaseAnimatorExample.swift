@@ -7,58 +7,27 @@
 
 import SwiftUI
 
-// SwiftUI’s PhaseAnimator view and phaseAnimator modifier allow us to perform
-// multi-step animation by cycling through animation phases of our choosing,
-// either constantly or when triggered
-//
-// https://www.hackingwithswift.com/quick-start/swiftui/how-to-create-multi-step-animations-using-phase-animators
-//
-// Creating these multi-phase animations takes three steps:
-//
-// Define the phases you’re going to work through. This can be any kind of
-// sequence, but you might find it easiest to work with a CaseIterable enum.
-//
-// Read one phase inside your phase animator, and adjust your views to match how
-// you want that phase to look.
-//
-// Optionally add a trigger to make the phase animator repeat its sequence from
-// the beginning. Without this it will cycle constantly.
-
-enum AnimationPhaseOne: Double, CaseIterable {
-    case fadingIn = 0
-    case middle = 1
-    case zoomingOut = 3
-}
-
-enum AnimationPhaseTwo: CaseIterable {
-    case start, middle, end
-}
-
-enum AnimationPhaseThree: CaseIterable {
-    case start, middle, end
-}
-
-enum AnimationPhaseClarity: CaseIterable {
-    case fadingIn, middle, zoomingOut
-
-    var scale: Double {
-        switch self {
-        case .fadingIn: 0
-        case .middle: 1
-        case .zoomingOut: 3
-        }
-    }
-
-    var opacity: Double {
-        switch self {
-        case .fadingIn: 0
-        case .middle: 1
-        case .zoomingOut: 0
-        }
-    }
-}
-
-
+/// Shows continuous animation on a view that has tappable elements using iOS 17's `phaseAnimator`.
+///
+/// `phaseAnimator` Animates effects that you apply to a view over a sequence of phases that change continuously.
+///
+/// SwiftUI’s PhaseAnimator view and phaseAnimator modifier allow us to perform
+/// multi-step animation by cycling through animation phases of our choosing,
+/// either constantly or when triggered
+///
+/// Creating these multi-phase animations takes three steps:
+///
+/// Define the phases you’re going to work through. This can be any kind of
+/// sequence, but you might find it easiest to work with a CaseIterable enum.
+///
+/// Read one phase inside your phase animator, and adjust your views to match how
+/// you want that phase to look.
+///
+/// Optionally add a trigger to make the phase animator repeat its sequence from
+/// the beginning. Without this it will cycle constantly.
+///
+/// - Requires: iOS 17
+/// - SeeAlso: [How to create multi-step animations using phase animators](https://www.hackingwithswift.com/quick-start/swiftui/how-to-create-multi-step-animations-using-phase-animators)
 struct PhaseAnimatorExample: View {
     @State private var animationStepOne = 0
     @State private var animationStepTwo = 0
@@ -137,6 +106,40 @@ struct PhaseAnimatorExample: View {
                         .scaleEffect(phase.scale)
                         .opacity(phase.opacity)
                 }
+        }
+    }
+}
+
+private enum AnimationPhaseOne: Double, CaseIterable {
+    case fadingIn = 0
+    case middle = 1
+    case zoomingOut = 3
+}
+
+private enum AnimationPhaseTwo: CaseIterable {
+    case start, middle, end
+}
+
+private enum AnimationPhaseThree: CaseIterable {
+    case start, middle, end
+}
+
+private enum AnimationPhaseClarity: CaseIterable {
+    case fadingIn, middle, zoomingOut
+
+    var scale: Double {
+        switch self {
+        case .fadingIn: 0
+        case .middle: 1
+        case .zoomingOut: 3
+        }
+    }
+
+    var opacity: Double {
+        switch self {
+        case .fadingIn: 0
+        case .middle: 1
+        case .zoomingOut: 0
         }
     }
 }

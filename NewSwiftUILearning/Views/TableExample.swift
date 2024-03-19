@@ -19,7 +19,7 @@ import SwiftUI
 /// 3. A Table with columns set to a specfic size.
 ///
 /// - Important: Choose an iPad device to see the other columns.  iOS only shows 1 column
-/// - Important: iOS 16 minimum
+/// - Requires: iOS 16
 /// - Seealso: [How to create multi-column lists using Table](https://www.hackingwithswift.com/quick-start/swiftui/how-to-create-multi-column-lists-using-table)
 struct TableExample: View {
     struct Person: Identifiable {

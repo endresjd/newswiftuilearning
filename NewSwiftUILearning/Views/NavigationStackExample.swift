@@ -20,8 +20,8 @@ import SwiftUI
 /// there – it’s a simple array, so we can append items, or insert them, remove them, or whatever else we need.
 /// In this code sample the path array starts empty, then gets added to over time by using the List or clicking buttons
 ///
-/// - Remark: The path here holds the navigation state.  That value can be saved and restored or programatically set.
-/// - Important: iOS 16 minimum
+/// - Remark: The path here holds the navigation state.  That value can be saved and restored or programmatically set.
+/// - Requires: iOS 16
 /// - Important: This example works fine in previews but not so fine in the app right now.  Embeded stacks don't work.
 /// - Important: The path parameter gives a pop to root functionality back by alterning the path.  In this case popping back by removing the last entry.
 /// - Seealso: [How to use programmatic navigation in SwiftUI](https://www.hackingwithswift.com/quick-start/swiftui/how-to-use-programmatic-navigation-in-swiftui)

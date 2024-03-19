@@ -7,6 +7,13 @@
 
 import SwiftUI
 
+/// Shows a simple use of iOS 13's ForEach structure
+///
+/// ForEach is a structure that computes views on demand from an underlying collection of identified data.  The
+/// data given to the structure must be identifiable in some way.  This way conforms the underlying struct
+/// to `Identifiable`, but the id can also be passed to the `ForEach` struct's initializer.
+///
+/// - Remark: This example is from Apple
 struct ForEachExample: View {
     private struct NamedFont: Identifiable {
         let name: String

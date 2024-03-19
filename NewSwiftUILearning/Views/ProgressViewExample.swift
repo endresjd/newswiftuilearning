@@ -7,15 +7,11 @@
 
 import SwiftUI
 
-struct PinkBorderedProgressViewStyle: ProgressViewStyle {
-    func makeBody(configuration: Configuration) -> some View {
-        ProgressView(configuration)
-            .padding(4)
-            .border(.pink, width: 3)
-            .cornerRadius(4)
-    }
-}
-
+/// A collection of examples of iOS 14's `ProgressView`
+///
+/// Use a progress view to show that a task is incomplete but advancing '
+/// toward completion. A progress view can show both determinate (percentage
+/// complete) and indeterminate (progressing or not) types of progress.
 struct ProgressViewExample: View {
     @State private var progress = 0.5
     let workoutDateRange = Date()...Date().addingTimeInterval(5*60)
@@ -53,6 +49,15 @@ struct ProgressViewExample: View {
             ProgressView(value: progress)
                 .progressViewStyle(.linear)
         }
+    }
+}
+
+private struct PinkBorderedProgressViewStyle: ProgressViewStyle {
+    func makeBody(configuration: Configuration) -> some View {
+        ProgressView(configuration)
+            .padding(4)
+            .border(.pink, width: 3)
+            .cornerRadius(4)
     }
 }
 

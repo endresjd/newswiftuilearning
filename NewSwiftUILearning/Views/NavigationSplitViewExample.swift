@@ -22,7 +22,7 @@ import SwiftUI
 /// the view to show on top of this single stack, based on the content of the
 /// split view’s columns
 ///
-/// - Important: iOS 16 minimum
+/// - Requires: iOS 16
 /// - SeeAlso: [NavigationSplitView](https://developer.apple.com/documentation/swiftui/navigationsplitview)
 struct NavigationSplitViewExample: View {
     @State private var selection: ViewRouter? = nil // Nothing selected by default.

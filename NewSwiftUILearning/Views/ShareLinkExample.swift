@@ -15,7 +15,7 @@ import SwiftUI
 /// The link can share any content that is Transferable. Many framework types, like URL, already
 /// conform to this protocol. You can also make your own types transferable.
 ///
-/// - Important: iOS 16 minimum
+/// - Requires: iOS 16
 struct Photo: Transferable {
     static var transferRepresentation: some TransferRepresentation {
         ProxyRepresentation(exporting: \.image)
@@ -32,7 +32,7 @@ struct Photo: Transferable {
 /// * SwiftUI’s ShareLink view makes it easy to share any kind of data from your app, as long as it conforms to the Transferable protocol.
 /// * This shows how to share a picture of a cute dog like the late Goldie.
 ///
-/// - Important: iOS 16 minimum
+/// - Requires: iOS 16
 /// - Seealso: [How to let users share content using the system share sheet](https://www.hackingwithswift.com/quick-start/swiftui/how-to-let-users-share-content-using-the-system-share-sheet)
 struct ShareLinkExample: View {
     let photo = Photo(image: Image("dog"), caption: "Dog")

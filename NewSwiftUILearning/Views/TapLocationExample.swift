@@ -17,7 +17,7 @@ import SwiftUI
 /// should add the coordinateSpace parameter like to the `.onTapGesture` modifier.
 ///
 /// - Experiment: Experiment with the `coordinateSpace` parameter to get different results.
-/// - Important: iOS 16 minimum
+/// - Requires: iOS 16
 /// - Seealso: [How to detect the location of a tap inside a view](https://www.hackingwithswift.com/quick-start/swiftui/how-to-detect-the-location-of-a-tap-inside-a-view)
 struct TapLocationExample: View {
     /// The last tap in the view

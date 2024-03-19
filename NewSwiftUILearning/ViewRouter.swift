@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-/// A simple attempt at gettng programattic navigation.  Each case on here can be
+/// A simple attempt at gettng programmatic navigation.  Each case on here can be
 /// referenced to create the view it represents.
 enum ViewRouter: String, CaseIterable {
     case angularGradient = "AngularGradient (13)"
@@ -15,10 +15,7 @@ enum ViewRouter: String, CaseIterable {
     case anyShapeExample = "AnyShapeExample (16)"
     case asyncImage = "AsyncImage (15)"
     case buttonBorderShape = "ButtonBorderShape (15)"
-    
-    /// Use a canvas to draw rich and dynamic 2D graphics inside a SwiftUI view
     case canvas = "Canvas (15)"
-    
     case capsule = "Capsule (13)"
     case circle = "Circle (13)"
     case color = "Color (13)"
@@ -30,13 +27,7 @@ enum ViewRouter: String, CaseIterable {
     case deferGesture = "Defer Gesture (16)"
     case disclosureGroup = "DisclosureGroup (14)"
     case divider = "Divider (13)"
-    
-    /// Shows GroupBox view.
-    ///
-    /// See [GroupBox](https://developer.apple.com/documentation/swiftui/groupbox)
-    /// See [GroupBox](https://www.hackingwithswift.com/quick-start/swiftui/how-to-group-views-visually-using-groupbox)
     case groupBox = "GroupBox (14)"
-    
     case editButton = "EditButton (13)"
     case ellipse = "Ellipse (13)"
     case ellipticalGradient = "EllipticalGradient (15)"
@@ -84,7 +75,6 @@ enum ViewRouter: String, CaseIterable {
     case section = "Section (13)"
     case secureField = "SecureField (13)"
     case sfSymbolColor = "SF Symbol Colors (16)"
-    case shape = "Shape (13)"
     case shareLink = "ShareLink (16)"
     case slider = "Slider (13)"
     case stepper = "Stepper (13)"
@@ -243,8 +233,6 @@ enum ViewRouter: String, CaseIterable {
             SecureFieldExample()
         case .sfSymbolColor:
             SFSymbolColor()
-        case .shape:
-            ShapeExample()
         case .shareLink:
             ShareLinkExample()
         case .slider:

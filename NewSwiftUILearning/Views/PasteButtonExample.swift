@@ -16,7 +16,7 @@ import SwiftUI
 /// data in the closure.
 ///
 /// - Experiment: See if you can find examples of the right way to use this.
-/// - Important: iOS 16 minimum
+/// - Requires: iOS 16
 /// - Seealso: [How to let the user paste data into your app](https://www.hackingwithswift.com/quick-start/swiftui/how-to-let-the-user-paste-data-into-your-app)
 struct PasteButtonExample: View {
     @State private var pastedText: String = ""

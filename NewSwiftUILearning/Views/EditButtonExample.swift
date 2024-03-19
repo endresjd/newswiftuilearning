@@ -7,6 +7,10 @@
 
 import SwiftUI
 
+/// Shows how to add iOS 13's edit button to the toolbar.
+///
+/// This sets up a NavigationView with an edit button in its toolbar
+/// that allows moving and deletion of items.
 struct EditButtonExample: View {
     @State private var fruits = [
         "Apple",

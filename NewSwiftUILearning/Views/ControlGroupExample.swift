@@ -7,26 +7,42 @@
 
 import SwiftUI
 
-/// The ControlGroup view displays semantically-related controls in a visually appropriate manner for the context
+/// Shows different uses of iOS 15's ControlGroup, including the fancy popup menus
 ///
-/// See [ControlGroup](https://swiftwithmajid.com/2021/10/21/mastering-controlgroup-in-swiftui/)
+/// The ControlGroup view displays semantically-related controls in a visually appropriate manner for the context.
+/// The display of the group depends on the environment, and it will match the correct way.  This can be
+/// seen with `.compactMenu` and `.navigation`
+///
+/// - SeeAlso: [ControlGroup](https://swiftwithmajid.com/2021/10/21/mastering-controlgroup-in-swiftui/)
 struct ControlGroupExample: View {
     var body: some View {
         VStack(spacing:50){
             Menu {
                 ControlGroup{
-                    Button(action: {}, label: {
+                    Button {
+                    } label: {
                         Image(systemName: "scissors")
-                    })
-                    Button(action: {}, label: {
+                    }
+
+                    Button {
+                    } label: {
+                        Image(systemName: "scissors")
+                    }
+                    
+                    Button {
+                    } label: {
                         Image(systemName: "doc.on.doc")
-                    })
-                    Button(action: {}, label: {
+                    }
+                    
+                    Button {
+                    } label: {
                         Image(systemName: "doc.on.clipboard")
-                    })
-                    Button(action: {}, label: {
+                    }
+                    
+                    Button {
+                    } label: {
                         Image(systemName: "doc.text.magnifyingglass")
-                    })
+                    }
                 }
                 .controlGroupStyle(.compactMenu)
                 
@@ -43,51 +59,60 @@ struct ControlGroupExample: View {
             
             Menu {
                 ControlGroup{
-                    Button(action: {}, label: {
+                    Button {
+                    } label: {
                         Label("Cut", systemImage: "scissors")
-                    })
+                    }
                     
-                    Button(action: {}, label: {
+                    Button {
+                    } label: {
                         Label("Copy", systemImage: "doc.on.doc")
-                    })
+                    }
                     
                     Button(action: {}, label: {
                         Label("Paste", systemImage: "doc.on.clipboard")
                     })
                 }.controlGroupStyle(.menu)
                 
-                Button(action: {}, label: {
+                Button {
+                } label: {
                     Label("Look Up", systemImage: "doc.text.magnifyingglass")
-                })
+                }
                 
-                Button(action: {}, label: {
+                Button {
+                } label: {
                     Label("Translate", systemImage: "text.bubble")
-                })
+                }
                 
-                Button(action: {}, label: {
+                Button {
+                } label: {
                     Label("Share", systemImage: "square.and.arrow.up")
-                })
+                }
                 
             } label: {
                 Text("Menu 2")
             }
 
             ControlGroup {
-                Button(action: {}) {
+                Button {
+                } label: {
                     Label("Decrease", systemImage: "minus")
                 }
                 
-                Button(action: {}) {
+                Button {
+                } label: {
                     Label("Increase", systemImage: "plus")
                 }
             }
             
             ControlGroup {
-                Button(action: {}) {
+                Button {
+                } label: {
                     Label("Decrease", systemImage: "minus")
                 }
                 
-                Button(action: {}) {
+                Button {
+                } label: {
                     Label("Increase", systemImage: "plus")
                 }
             }

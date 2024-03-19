@@ -9,6 +9,11 @@ import SwiftUI
 import WeatherKit
 import CoreLocation
 
+/// Uses iOS 16's `WeatherService` to print weather for the current location.
+///
+/// `WeatherService` provides an interface for obtaining weather data
+///
+/// - Requires: iOS 16
 struct WeatherKitExample: View {
     private var locationManager = LocationManager()
     @State private var location: CLLocation?

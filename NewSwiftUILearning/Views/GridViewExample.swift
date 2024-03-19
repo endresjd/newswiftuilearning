@@ -7,41 +7,21 @@
 
 import SwiftUI
 
-// A Grid view arranges child views in rows and columns. This table-like
-// structure makes a layout that is hard to do in vertical and horizontal
-// stacks become easier
-//
-// The big different between Grid and HStack/VStack is that each cell/column
-// of HStack isn't related to other rows
-//
-// The grid sets the width of all the cells in a column to match the needs 
-// of the column's widest cell.
-// The gird sets the height of the entire row to match the tallest cell in
-// that particular row.
-
-struct ColorSquare: View {
-    let color: Color
-    
-    var body: some View {
-        color
-        .frame(width: 50, height: 50)
-    }
-}
-
-struct SmallColorSquare: View {
-    let color: Color
-    
-    var body: some View {
-        color
-        .frame(width: 10, height: 10)
-    }
-}
-
-/// Shows ways to use `Grid` and `GridRow`
+/// Several variations of iOS 16's `Grid` and `GridRow`
 ///
-/// SwiftUI’s Grid view lets us create a static grid of views, with precise control over what goes into each row and column. You mark out individual rows using GridRow, then optionally also configure how wide each cell should be.
+/// SwiftUI’s Grid view lets us create a static grid of views, with precise control over what goes into each row and column. You mark 
+/// out individual rows using GridRow, then optionally also configure how wide each cell should be.
 ///
-/// - Important: iOS 16 minimum
+/// A Grid view arranges child views in rows and columns. This table-like
+/// structure makes a layout that is hard to do in vertical and horizontal
+/// stacks become easier
+///
+/// The big different between Grid and HStack/VStack is that each cell/column of HStack isn't related to other rows
+///
+/// The grid sets the width of all the cells in a column to match the needs of the column's widest cell.
+/// The gird sets the height of the entire row to match the tallest cell in that particular row.
+///
+/// - Requires: iOS 16
 /// - Seealso: [How to position views in a fixed grid](https://www.hackingwithswift.com/quick-start/swiftui/how-to-position-views-in-a-fixed-grid)
 struct GridViewExample: View {
     var body: some View {
@@ -241,6 +221,24 @@ struct GridViewExample: View {
                 }
             }
         }
+    }
+}
+
+private struct ColorSquare: View {
+    let color: Color
+    
+    var body: some View {
+        color
+        .frame(width: 50, height: 50)
+    }
+}
+
+private struct SmallColorSquare: View {
+    let color: Color
+    
+    var body: some View {
+        color
+        .frame(width: 10, height: 10)
     }
 }
 

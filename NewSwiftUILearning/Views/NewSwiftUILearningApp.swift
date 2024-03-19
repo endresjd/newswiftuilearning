@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+/// Main entry point
 @main
 struct NewSwiftUILearningApp: App {
     var body: some Scene {

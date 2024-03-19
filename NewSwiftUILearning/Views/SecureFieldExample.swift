@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+/// A sample login form with iOS 13's `SecureField`
 struct SecureFieldExample: View {
     @State private var username: String = ""
     @State private var password: String = ""

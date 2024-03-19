@@ -7,7 +7,13 @@
 
 import SwiftUI
 
-struct MyClippedView: View {
+/// Shows how to dynamically switch between shape types in iOS 16
+///
+/// A green rectangle view that will be clipped based on its property
+///
+/// - Requires: iOS 16
+private struct MyClippedView: View {
+    /// True if the clip shape should be a cirlce, false if it should be a capsule
     var isCircular: Bool
 
     var body: some View {
@@ -18,6 +24,9 @@ struct MyClippedView: View {
     }
 }
 
+/// Shows 2 versions of the clipped view using AnyShape.
+///
+/// - Requires: iOS 16
 struct AnyShapeExample: View {
     var body: some View {
         MyClippedView(isCircular: false)

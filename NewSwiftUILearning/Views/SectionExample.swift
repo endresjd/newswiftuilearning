@@ -7,8 +7,10 @@
 
 import SwiftUI
 
-// Use Section instances in views like List, Picker, and Form to organize content into
-// separate sections
+/// Shows iOS 13's `Section` view
+///
+/// Use Section instances in views like List, Picker, and Form to organize content into
+/// separate sections
 struct SectionExample: View {
     var body: some View {
         List {

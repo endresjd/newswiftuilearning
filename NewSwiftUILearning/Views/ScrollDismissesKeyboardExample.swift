@@ -17,7 +17,7 @@ import SwiftUI
 ///
 /// - Remark: This example does not seem to dismiss the way I would expect.
 /// - Experiment: Try out different values for the modifier.  `.immediate`, for example.
-/// - Important: iOS 16 minimum
+/// - Requires: iOS 16
 /// - Seealso: [How to dismiss the keyboard when the user scrolls](https://www.hackingwithswift.com/quick-start/swiftui/how-to-dismiss-the-keyboard-when-the-user-scrolls)
 struct ScrollDismissesKeyboardExample: View {
     @State private var username = "Anonymous"

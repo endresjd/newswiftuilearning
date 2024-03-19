@@ -16,7 +16,7 @@ import SwiftUI
 /// This seems to not really work in landscape.  Need to figure out how to close the sheet then.
 ///
 /// - Warning: Using these, and this may be sheets in general, gives no way to drag the sheet closed when in landscape/compact mode
-/// - Important: iOS 16 minimum
+/// - Requires: iOS 16
 /// - SeeAlso: [How to display a bottom sheet](https://www.hackingwithswift.com/quick-start/swiftui/how-to-display-a-bottom-sheet)
 struct PresentationExample: View {
     @State private var showingCredits = false

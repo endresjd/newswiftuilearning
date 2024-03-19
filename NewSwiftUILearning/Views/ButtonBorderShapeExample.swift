@@ -7,31 +7,33 @@
 
 import SwiftUI
 
+/// Examples of applying a button shape to a button in iOS 15.
+///
+/// The button seems to need a button style to give it some color.  Without that color
+/// the shape will not display to the screen.  This also shows how to use a group to
+/// apply one set of modifiers to a group of views.  More clear.
 struct ButtonBorderShapeExample: View {
     var body: some View {
-        Button("Capsule") {}
-            .tint(.green)
-            .buttonStyle(.bordered)
+        Group {
+            Button("Capsule") {
+            }
             .buttonBorderShape(.capsule)
-            .controlSize(.large)
-
-        Button("Circle") {}
-            .tint(.green)
-            .buttonStyle(.bordered)
+            
+            Button("Circle") {
+            }
             .buttonBorderShape(.circle)
-            .controlSize(.large)
-
-        Button("Rounded Rectangle") {}
-            .tint(.green)
-            .buttonStyle(.bordered)
+            
+            Button("Rounded Rectangle") {
+            }
             .buttonBorderShape(.roundedRectangle)
-            .controlSize(.large)
-
-        Button("Rounded Rectangle Radius") {}
-            .tint(.green)
-            .buttonStyle(.bordered)
+            
+            Button("Rounded Rectangle Radius") {
+            }
             .buttonBorderShape(.roundedRectangle(radius: 45))
-            .controlSize(.large)
+        }
+        .tint(.green)
+        .buttonStyle(.bordered)
+        .controlSize(.large)
     }
 }
 

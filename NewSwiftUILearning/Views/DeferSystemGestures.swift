@@ -17,7 +17,7 @@ import SwiftUI
 /// at the screen edges
 ///
 /// - Remark: Important for games.  Maybe camera stuff?
-/// - Important: iOS 16 minimum
+/// - Requires: iOS 16
 /// - Seealso: [How to stop system gestures from interfering with your own](https://www.hackingwithswift.com/quick-start/swiftui/how-to-stop-system-gestures-from-interfering-with-your-own)
 struct DeferSystemGestures: View {
     @State private var input = 0.0

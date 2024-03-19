@@ -7,8 +7,10 @@
 
 import SwiftUI
 
-// If you need several views to act as one – for example, to transition
-// together – then you should use SwiftUI’s Group view.
+/// Using iOS 13's Group to act on a set of Text views as if they were a single unit.
+///
+/// If you need several views to act as one – for example, to transition together – then you should use SwiftUI’s Group view.
+/// This example has 2 groups.  The second has `.foregroundColor` applied to it.
 struct GroupExample: View {
     var body: some View {
         // Note: the limit to the static views in something like a VStack

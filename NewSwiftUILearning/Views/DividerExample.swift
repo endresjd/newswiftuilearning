@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+/// Shows iOS 13's Divders in different orientations.
 struct DividerExample: View {
     var body: some View {
         VStack {

@@ -16,7 +16,7 @@ import SwiftUI
 /// 3. Uses `NavigationStack` for navigation using `.navigationDestination` with the router's enum value.
 /// 4. Shows how to run a `Task` before the view first loads.
 ///
-/// - Important: iOS 16 minimum
+/// - Requires: iOS 16
 /// - Seealso: [How to add a search bar to filter your data](https://www.hackingwithswift.com/quick-start/swiftui/how-to-add-a-search-bar-to-filter-your-data)
 /// - Seealso: [How to use programmatic navigation in SwiftUI](https://www.hackingwithswift.com/quick-start/swiftui/how-to-use-programmatic-navigation-in-swiftui)
 struct ContentView: View {

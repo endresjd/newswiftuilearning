@@ -8,8 +8,9 @@
 import Foundation
 import CoreLocation
 
-/// Concurrent wrapper around Location Manager for getting the current location.  Has
-/// 2 functions -- request authorization and the concurrent `currentLocation`
+/// Concurrent wrapper around Location Manager for getting the current location.  
+///
+/// Has 2 functions -- request authorization and the concurrent `currentLocation`
 /// property to return the current location, if known.
 class LocationManager: NSObject {
     /// Instance of the LocationManager from the system.  An instance of this class will

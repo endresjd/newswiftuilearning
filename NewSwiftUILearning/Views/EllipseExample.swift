@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+/// Shows iOS 13's Ellipse filled with iOS 15's EllipticalGradient
 struct EllipseExample: View {
     var body: some View {
         Ellipse()

@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+/// iOS 13's `TabView` example with badges
 struct TabViewExample: View {
     var body: some View {
         TabView {
