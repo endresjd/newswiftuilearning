@@ -39,6 +39,7 @@ enum ViewRouter: String, CaseIterable {
     case gridRow = "GridRow (16)"
     case group = "Group (13)"
     case guage = "Guage (16)"
+    case httpTypes = "HTTPTypes (13)"
     case keyFrameAnimator = "KeyFrameAnimator (17)"
     case label = "Label (14)"
     case labeledContent = "LabeledContent (16)"
@@ -161,6 +162,8 @@ enum ViewRouter: String, CaseIterable {
             GuageExample()
         case .group:
             GroupExample()
+        case .httpTypes:
+            HTTPTypesExample()
         case .keyFrameAnimator:
             KeyframeAnimatorExample()
         case .label:

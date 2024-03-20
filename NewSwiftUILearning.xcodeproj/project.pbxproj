@@ -15,6 +15,9 @@
 		30EE01662B9A6DF200E396AC /* TapLocationExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30EE01652B9A6DF200E396AC /* TapLocationExample.swift */; };
 		30EE01682B9B5BD600E396AC /* RequestReviewExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30EE01672B9B5BD600E396AC /* RequestReviewExample.swift */; };
 		30EE016C2B9B7EE200E396AC /* ScrollDismissesKeyboardExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30EE016B2B9B7EE200E396AC /* ScrollDismissesKeyboardExample.swift */; };
+		454CF1D02BAB6FF500A6AA80 /* HTTPTypesExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454CF1CF2BAB6FF500A6AA80 /* HTTPTypesExample.swift */; };
+		454CF1D22BAB711F00A6AA80 /* HTTPTypes in Frameworks */ = {isa = PBXBuildFile; productRef = 454CF1D12BAB711F00A6AA80 /* HTTPTypes */; };
+		454CF1D42BAB711F00A6AA80 /* HTTPTypesFoundation in Frameworks */ = {isa = PBXBuildFile; productRef = 454CF1D32BAB711F00A6AA80 /* HTTPTypesFoundation */; };
 		456800802B05372C001A5789 /* TextEditorExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4568007F2B05372C001A5789 /* TextEditorExample.swift */; };
 		456800822B053F5C001A5789 /* TextFieldExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456800812B053F5C001A5789 /* TextFieldExample.swift */; };
 		456800842B0543AB001A5789 /* TimelineViewExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456800832B0543AB001A5789 /* TimelineViewExample.swift */; };
@@ -121,6 +124,7 @@
 		30EE01652B9A6DF200E396AC /* TapLocationExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapLocationExample.swift; sourceTree = "<group>"; };
 		30EE01672B9B5BD600E396AC /* RequestReviewExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestReviewExample.swift; sourceTree = "<group>"; };
 		30EE016B2B9B7EE200E396AC /* ScrollDismissesKeyboardExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollDismissesKeyboardExample.swift; sourceTree = "<group>"; };
+		454CF1CF2BAB6FF500A6AA80 /* HTTPTypesExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPTypesExample.swift; sourceTree = "<group>"; };
 		4568007F2B05372C001A5789 /* TextEditorExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextEditorExample.swift; sourceTree = "<group>"; };
 		456800812B053F5C001A5789 /* TextFieldExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldExample.swift; sourceTree = "<group>"; };
 		456800832B0543AB001A5789 /* TimelineViewExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineViewExample.swift; sourceTree = "<group>"; };
@@ -207,6 +211,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				454CF1D22BAB711F00A6AA80 /* HTTPTypes in Frameworks */,
+				454CF1D42BAB711F00A6AA80 /* HTTPTypesFoundation in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -252,11 +258,12 @@
 		45DFA86A2AFFEC6A003A1F54 /* NewSwiftUILearning */ = {
 			isa = PBXGroup;
 			children = (
-				45E9C36D2B2A48FB00876E31 /* Utilities */,
-				45E9C36C2B2A48CD00876E31 /* Views */,
+				45DFA86B2AFFEC6A003A1F54 /* NewSwiftUILearningApp.swift */,
 				45DFA8952AFFECB0003A1F54 /* ViewRouter.swift */,
 				45DFA86F2AFFEC6B003A1F54 /* Assets.xcassets */,
 				45DFA8712AFFEC6B003A1F54 /* Preview Content */,
+				45E9C36D2B2A48FB00876E31 /* Utilities */,
+				45E9C36C2B2A48CD00876E31 /* Views */,
 			);
 			path = NewSwiftUILearning;
 			sourceTree = "<group>";
@@ -331,7 +338,6 @@
 				45F877522B029E1000422884 /* NavigationSplitViewExample.swift */,
 				45F877502B0292D400422884 /* NavigationStackExample.swift */,
 				45EA94242B02B5EF008988C3 /* NavigationViewExample.swift */,
-				45DFA86B2AFFEC6A003A1F54 /* NewSwiftUILearningApp.swift */,
 				45EA94262B02B6EC008988C3 /* OffsetShapeExample.swift */,
 				45EA94282B02BA24008988C3 /* OutlineGroupExample.swift */,
 				45EA942A2B03B8D8008988C3 /* PasteButtonExample.swift */,
@@ -366,6 +372,7 @@
 				457255F32B0D2408007C7C2E /* TransformedShapeExample.swift */,
 				45E9C3682B2A0B0000876E31 /* WeatherKitExample.swift */,
 				45C970912BA2AA47008980D7 /* AnyLayoutExample.swift */,
+				454CF1CF2BAB6FF500A6AA80 /* HTTPTypesExample.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -394,6 +401,10 @@
 			dependencies = (
 			);
 			name = NewSwiftUILearning;
+			packageProductDependencies = (
+				454CF1D12BAB711F00A6AA80 /* HTTPTypes */,
+				454CF1D32BAB711F00A6AA80 /* HTTPTypesFoundation */,
+			);
 			productName = NewSwiftUILearning;
 			productReference = 45DFA8682AFFEC6A003A1F54 /* NewSwiftUILearning.app */;
 			productType = "com.apple.product-type.application";
@@ -466,6 +477,9 @@
 				Base,
 			);
 			mainGroup = 45DFA85F2AFFEC6A003A1F54;
+			packageReferences = (
+				454CF1CE2BAB6F8900A6AA80 /* XCRemoteSwiftPackageReference "swift-http-types" */,
+			);
 			productRefGroup = 45DFA8692AFFEC6A003A1F54 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -510,6 +524,7 @@
 			files = (
 				45F877532B029E1000422884 /* NavigationSplitViewExample.swift in Sources */,
 				45EA94332B03E119008988C3 /* PickerExample.swift in Sources */,
+				454CF1D02BAB6FF500A6AA80 /* HTTPTypesExample.swift in Sources */,
 				45F8770D2B0011F000422884 /* CapsuleExample.swift in Sources */,
 				45F8773B2B0278BD00422884 /* LabelExample.swift in Sources */,
 				30EE01682B9B5BD600E396AC /* RequestReviewExample.swift in Sources */,
@@ -924,6 +939,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		454CF1CE2BAB6F8900A6AA80 /* XCRemoteSwiftPackageReference "swift-http-types" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apple/swift-http-types";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.3;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		454CF1D12BAB711F00A6AA80 /* HTTPTypes */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 454CF1CE2BAB6F8900A6AA80 /* XCRemoteSwiftPackageReference "swift-http-types" */;
+			productName = HTTPTypes;
+		};
+		454CF1D32BAB711F00A6AA80 /* HTTPTypesFoundation */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 454CF1CE2BAB6F8900A6AA80 /* XCRemoteSwiftPackageReference "swift-http-types" */;
+			productName = HTTPTypesFoundation;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 45DFA8602AFFEC6A003A1F54 /* Project object */;
 }
