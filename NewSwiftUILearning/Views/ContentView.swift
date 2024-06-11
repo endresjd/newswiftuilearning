@@ -53,22 +53,86 @@ struct ContentView: View {
         return results
     }
     
-    var body: some View {
+    /// Contents for a navigation view that isn't selection based
+    var contents: some View {
+        // List doesn't need selection because the next column is determined
+        // by the navigationDestination modifier.
+        List(searchResults) { view in
+            NavigationLink(view.rawValue, value: view)
+        }
+        .listStyle(.plain)
+        .searchable(text: $searchTerm)
+        .navigationDestination(for: ViewRouter.self) { selectedView in
+            selectedView
+                .view
+                .navigationTitle(selectedView.name)
+        }
+        .task {
+            locationManager.requestWhenInUseAuthorization()
+        }
+    }
+    
+    /// Wrapped in just a NavigationStack
+    var oldBody: some View {
         NavigationStack(path: $navPath) {
-            List(searchResults) { view in
-                NavigationLink(view.rawValue, value: view)
+            contents
+        }
+    }
+    
+    /// Split view where detail is determined by selection
+    var selectionBody: some View {
+        // A selection based split view
+        NavigationSplitView {
+            // List needs the selection for the next column
+            List(selection: $selection) {
+                ForEach(searchResults, id: \.self) { view in
+                    NavigationLink(view.rawValue, value: view)
+                }
             }
             .listStyle(.plain)
             .searchable(text: $searchTerm)
-            .navigationDestination(for: ViewRouter.self) { selectedView in
-                selectedView
-                    .view
-                    .navigationTitle(selectedView.name)
+        } detail: {
+            NavigationStack {
+                if let selection {
+                    Text("John")
+                    selection
+                        .view
+                        .navigationTitle(selection.name)
+                } else {
+                    ContentUnavailableView("Use sidebar navigation", systemImage: "sidebar.left")
+                }
             }
         }
         .task {
             locationManager.requestWhenInUseAuthorization()
         }
+    }
+    
+    /// Adaptive navigation
+    ///
+    /// Selection-based list is not the only way to navigate through columns of the split view. You
+    /// can provide destination points by using the navigationDestination view modifier. In this case,
+    /// SwiftUI will navigate to the particular view in the column coming next to the one with the
+    /// navigationDestination view modifier. But make sure, you don’t embed the view with navigationDestination
+    /// view modifier into the NavigationStack, because in this case it will push the view to the current
+    /// NavigationStack.
+    ///
+    /// - Important: It feels weird for this because the row doesn't select in the first column
+    var adaptiveBody: some View {
+        NavigationSplitView {
+            contents
+        } detail: {
+            // Detail is handled through navigationDestination except for this edge case
+            if selection == nil {
+                ContentUnavailableView("Use sidebar navigation", systemImage: "sidebar.left")
+            }
+        }
+    }
+    
+    var body: some View {
+        selectionBody
+        // adaptiveBody
+        // oldBody
     }
 }
 
