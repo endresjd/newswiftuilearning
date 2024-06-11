@@ -94,7 +94,6 @@ struct ContentView: View {
         } detail: {
             NavigationStack {
                 if let selection {
-                    Text("John")
                     selection
                         .view
                         .navigationTitle(selection.name)
