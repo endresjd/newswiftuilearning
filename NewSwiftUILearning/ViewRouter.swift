@@ -22,7 +22,9 @@ enum ViewRouter: String, CaseIterable {
     case colorPicker = "ColorPicker (14)"
     case containerRelativeShape = "ContainerRelativeShape (14)"
     case contentUnavailable = "ContentUnavailableView (17)"
+    case controls = "Controls (18)"
     case controlGroup = "ControlGroup (15)"
+    case customContainer = "Custom Container View (18)"
     case datePicker = "DatePicker (13)"
     case deferGesture = "Defer Gesture (16)"
     case disclosureGroup = "DisclosureGroup (14)"
@@ -34,6 +36,7 @@ enum ViewRouter: String, CaseIterable {
     case equatableView = "EquatableView (13)"
     case forEach = "ForEach (13)"
     case form = "Form (13)"
+    case functionPlotting = "Function Plotting (18)"
     case geometryReader = "GeometryReader (13)"
     case grid = "Grid (16)"
     case gridRow = "GridRow (16)"
@@ -52,6 +55,7 @@ enum ViewRouter: String, CaseIterable {
     case list = "List (13)"
     case locationManager = "Location (2)"
     case menu = "Menu (14)"
+    case meshGradient = "MeshGradient (18)"
     case multiDatePicker = "MultiDatePicker (16)"
     case navigationSplitView = "NavigationSplitView (16)"
     case navigationStack = "NavigationStack (16)"
@@ -63,6 +67,7 @@ enum ViewRouter: String, CaseIterable {
     case phaseAnimator = "PhaseAnimator (17)"
     case picker = "Picker (13)"
     case presentation = "Presentation (16)"
+    case presentationStyle = "Presentation (18)"
     case progressView = "ProgressView (14)"
     case radialGradient = "RadialGradient (13)"
     case renameButton = "RenameButton (16)"
@@ -81,7 +86,9 @@ enum ViewRouter: String, CaseIterable {
     case stepper = "Stepper (13)"
     case subscriptionView = "SubscriptionView (13)"
     case table = "Table (16)"
+    case tableColumns = "Table (18)"
     case tabView = "TabView (13)"
+    case tabView18 = "TabView (18)"
     case tappedLocation = "Tapped Location (16)"
     case textEditor = "TextEditor (14)"
     case textField = "TextField (13)"
@@ -89,6 +96,7 @@ enum ViewRouter: String, CaseIterable {
     case toggle = "Toggle (13)"
     case transformedShape = "TransformedShape (13)"
     case weatherKit = "WeatherKit (16)"
+    case zoomNavigationTransition = "Zoom Navigation Transition (18)"
     
     /// Name to use when all these are displayed in a list in the interface
     var name: String {
@@ -134,6 +142,10 @@ enum ViewRouter: String, CaseIterable {
             ContentUnavailableViewExample()
         case .controlGroup:
             ControlGroupExample()
+        case .controls:
+            ControlExample()
+        case .customContainer:
+            CustomeContainerView()
         case .datePicker:
             DatePickerExample()
         case .deferGesture:
@@ -154,6 +166,8 @@ enum ViewRouter: String, CaseIterable {
             ForEachExample()
         case .form:
             FormExample()
+        case .functionPlotting:
+            FunctionPlottingExample()
         case .geometryReader:
             GeometryReaderExample()
         case .grid, .gridRow:
@@ -188,6 +202,8 @@ enum ViewRouter: String, CaseIterable {
             LocationManagerExample()
         case .menu:
             ControlGroupExample()
+        case .meshGradient:
+            MeshGradientExample()
         case .multiDatePicker:
             MultiDatePickerExample()
         case .navigationSplitView:
@@ -210,6 +226,8 @@ enum ViewRouter: String, CaseIterable {
             PickerExample()
         case .presentation:
             PresentationExample()
+        case .presentationStyle:
+            PresentationStylingExample()
         case .progressView:
             ProgressViewExample()
         case .radialGradient:
@@ -246,8 +264,20 @@ enum ViewRouter: String, CaseIterable {
             Text("Same as .onReceive() view modifier")
         case .table:
             TableExample()
+        case .tableColumns:
+            SongCountsTable()   // TODO: Rename?
         case .tabView:
             TabViewExample()
+        case .tabView18:
+            if #available(iOS 18, *) {
+                TabView18Example()
+            } else {
+                ContentUnavailableView(
+                    "iOS 18 only",
+                    systemImage: "peacesign",
+                    description: Text("Will need a device with the new OS")
+                )
+            }
         case .tappedLocation:
             TapLocationExample()
         case .textEditor:
@@ -262,6 +292,8 @@ enum ViewRouter: String, CaseIterable {
             TransformedShapeExample()
         case .weatherKit:
             WeatherKitExample()
+        case .zoomNavigationTransition:
+            ZoomNavigationTransitionExample()
         }
     }
 }
