@@ -31,6 +31,7 @@
 		45B4AD202C18BFB800552EFF /* TableColumnsExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B4AD1F2C18BFB800552EFF /* TableColumnsExample.swift */; };
 		45B4AD222C18C22B00552EFF /* MeshGradientExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B4AD212C18C22B00552EFF /* MeshGradientExample.swift */; };
 		45B4AD242C18CB9F00552EFF /* CustomeContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B4AD232C18CB9F00552EFF /* CustomeContainerView.swift */; };
+		45B4AD272C1A13B600552EFF /* MacPlugins in Frameworks */ = {isa = PBXBuildFile; productRef = 45B4AD262C1A13B600552EFF /* MacPlugins */; };
 		45C970922BA2AA47008980D7 /* AnyLayoutExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C970912BA2AA47008980D7 /* AnyLayoutExample.swift */; };
 		45DFA86C2AFFEC6A003A1F54 /* NewSwiftUILearningApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45DFA86B2AFFEC6A003A1F54 /* NewSwiftUILearningApp.swift */; };
 		45DFA86E2AFFEC6A003A1F54 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45DFA86D2AFFEC6A003A1F54 /* ContentView.swift */; };
@@ -229,6 +230,7 @@
 			files = (
 				454CF1D22BAB711F00A6AA80 /* HTTPTypes in Frameworks */,
 				454CF1D42BAB711F00A6AA80 /* HTTPTypesFoundation in Frameworks */,
+				45B4AD272C1A13B600552EFF /* MacPlugins in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -428,6 +430,7 @@
 			packageProductDependencies = (
 				454CF1D12BAB711F00A6AA80 /* HTTPTypes */,
 				454CF1D32BAB711F00A6AA80 /* HTTPTypesFoundation */,
+				45B4AD262C1A13B600552EFF /* MacPlugins */,
 			);
 			productName = NewSwiftUILearning;
 			productReference = 45DFA8682AFFEC6A003A1F54 /* NewSwiftUILearning.app */;
@@ -477,7 +480,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1500;
-				LastUpgradeCheck = 1500;
+				LastUpgradeCheck = 1600;
 				TargetAttributes = {
 					45DFA8672AFFEC6A003A1F54 = {
 						CreatedOnToolsVersion = 15.0.1;
@@ -503,6 +506,7 @@
 			mainGroup = 45DFA85F2AFFEC6A003A1F54;
 			packageReferences = (
 				454CF1CE2BAB6F8900A6AA80 /* XCRemoteSwiftPackageReference "swift-http-types" */,
+				45B4AD252C1A13B600552EFF /* XCRemoteSwiftPackageReference "macplugins" */,
 			);
 			productRefGroup = 45DFA8692AFFEC6A003A1F54 /* Products */;
 			projectDirPath = "";
@@ -862,7 +866,6 @@
 		45DFA8902AFFEC6B003A1F54 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -882,7 +885,6 @@
 		45DFA8912AFFEC6B003A1F54 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -902,7 +904,6 @@
 		45DFA8932AFFEC6B003A1F54 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = WFNDASXC9R;
@@ -920,7 +921,6 @@
 		45DFA8942AFFEC6B003A1F54 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = WFNDASXC9R;
@@ -985,6 +985,14 @@
 				minimumVersion = 1.0.3;
 			};
 		};
+		45B4AD252C1A13B600552EFF /* XCRemoteSwiftPackageReference "macplugins" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://endres@bitbucket.org/endres/macplugins.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.2;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -997,6 +1005,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 454CF1CE2BAB6F8900A6AA80 /* XCRemoteSwiftPackageReference "swift-http-types" */;
 			productName = HTTPTypesFoundation;
+		};
+		45B4AD262C1A13B600552EFF /* MacPlugins */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 45B4AD252C1A13B600552EFF /* XCRemoteSwiftPackageReference "macplugins" */;
+			productName = MacPlugins;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
