@@ -29,6 +29,7 @@ enum ViewRouter: String, CaseIterable {
     case deferGesture = "Defer Gesture (16)"
     case disclosureGroup = "DisclosureGroup (14)"
     case divider = "Divider (13)"
+    case entryMacro = "Entry Macro (18)"
     case groupBox = "GroupBox (14)"
     case editButton = "EditButton (13)"
     case ellipse = "Ellipse (13)"
@@ -42,6 +43,7 @@ enum ViewRouter: String, CaseIterable {
     case gridRow = "GridRow (16)"
     case group = "Group (13)"
     case guage = "Guage (16)"
+    case heroAnimation = "Hero Animation (18)"
     case httpTypes = "HTTPTypes (13)"
     case keyFrameAnimator = "KeyFrameAnimator (17)"
     case label = "Label (14)"
@@ -54,6 +56,7 @@ enum ViewRouter: String, CaseIterable {
     case link = "Link (14)"
     case list = "List (13)"
     case locationManager = "Location (2)"
+    case keyboardExamples = "Keyboard (17ish)"
     case menu = "Menu (14)"
     case meshGradient = "MeshGradient (18)"
     case multiDatePicker = "MultiDatePicker (16)"
@@ -68,6 +71,7 @@ enum ViewRouter: String, CaseIterable {
     case picker = "Picker (13)"
     case presentation = "Presentation (16)"
     case presentationStyle = "Presentation (18)"
+    case previewableState = "Previews (18)"
     case progressView = "ProgressView (14)"
     case radialGradient = "RadialGradient (13)"
     case renameButton = "RenameButton (16)"
@@ -75,6 +79,7 @@ enum ViewRouter: String, CaseIterable {
     case rotatedShape = "RotatedShape (13)"
     case roundedRectangle = "RoundedRectangle (13)"
     case scaledShape = "ScaledShape (13)"
+    case scrollPosition = "ScrollPosition (18)"
     case scrollViewIndicators = "Scroll indicators (16)"
     case scrollViewKeyboard = "Scroll dismiss (16)"
     case scrollViewReader = "ScrollViewReader (14)"
@@ -87,6 +92,7 @@ enum ViewRouter: String, CaseIterable {
     case subscriptionView = "SubscriptionView (13)"
     case table = "Table (16)"
     case tableColumns = "Table (18)"
+    case tabSection = "TabSection (18)"
     case tabView = "TabView (13)"
     case tabView18 = "TabView (18)"
     case tappedLocation = "Tapped Location (16)"
@@ -154,6 +160,8 @@ enum ViewRouter: String, CaseIterable {
             DisclosureGroupExample()
         case .divider:
             DividerExample()
+        case .entryMacro:
+            EntryMacroView()
         case .groupBox:
             GroupBoxExampleView()
         case .editButton:
@@ -176,6 +184,8 @@ enum ViewRouter: String, CaseIterable {
             GuageExample()
         case .group:
             GroupExample()
+        case .heroAnimation:
+            HeroAnimationView()
         case .httpTypes:
             HTTPTypesExample()
         case .keyFrameAnimator:
@@ -200,6 +210,8 @@ enum ViewRouter: String, CaseIterable {
             ListExample()
         case .locationManager:
             LocationManagerExample()
+        case .keyboardExamples:
+            KeyboardExample()
         case .menu:
             ControlGroupExample()
         case .meshGradient:
@@ -228,6 +240,8 @@ enum ViewRouter: String, CaseIterable {
             PresentationExample()
         case .presentationStyle:
             PresentationStylingExample()
+        case .previewableState:
+            PreviewStateExample()
         case .progressView:
             ProgressViewExample()
         case .radialGradient:
@@ -242,6 +256,12 @@ enum ViewRouter: String, CaseIterable {
             RoundedRectangleExample()
         case .scaledShape:
             ScaledShapeExample()
+        case .scrollPosition:
+            if #available(iOS 18, *) {
+                ScrollPositionExampleView()
+            } else {
+                FutureFeatureView()
+            }
         case .scrollViewIndicators:
             ScrollViewIndicatorsExample()
         case .scrollViewKeyboard:
@@ -266,17 +286,13 @@ enum ViewRouter: String, CaseIterable {
             TableExample()
         case .tableColumns:
             SongCountsTable()   // TODO: Rename?
-        case .tabView:
+        case .tabSection, .tabView:
             TabViewExample()
         case .tabView18:
             if #available(iOS 18, *) {
                 TabView18Example()
             } else {
-                ContentUnavailableView(
-                    "iOS 18 only",
-                    systemImage: "peacesign",
-                    description: Text("Will need a device with the new OS")
-                )
+                FutureFeatureView()
             }
         case .tappedLocation:
             TapLocationExample()

@@ -25,11 +25,7 @@ struct MeshGradientExample: View {
                 ]
             )
         } else {
-            ContentUnavailableView(
-                "iOS 18 only",
-                systemImage: "peacesign",
-                description: Text("Will need a device with the new OS")
-            )
+            FutureFeatureView()
         }
     }
 }

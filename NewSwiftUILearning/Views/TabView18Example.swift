@@ -24,15 +24,17 @@ struct TabView18Example: View {
             }
             .customizationID("karaoke.tab.planning")
             
-            Tab("Attendance", systemImage: "person.3") {
-                AttendanceView()
+            TabSection("John") {
+                Tab("Attendance", systemImage: "person.3") {
+                    AttendanceView()
+                }
+                .customizationID("karaoke.tab.attendance")
+                
+                Tab("Song List", systemImage: "music.note.list") {
+                    SongListView()
+                }
+                .customizationID("karaoke.tab.songlist")
             }
-            .customizationID("karaoke.tab.attendance")
-            
-            Tab("Song List", systemImage: "music.note.list") {
-                SongListView()
-            }
-            .customizationID("karaoke.tab.songlist")
         }
         .tabViewStyle(.sidebarAdaptable)
         .tabViewCustomization($customization)
@@ -64,11 +66,7 @@ struct AttendanceView: View {
             .chartXScale(domain: 1...10)
             .chartYScale(domain: 1...100)
         } else {
-            ContentUnavailableView(
-                "iOS 18 only",
-                systemImage: "peacesign",
-                description: Text("Will need a device with the new OS")
-            )
+            FutureFeatureView()
         }
     }
 }

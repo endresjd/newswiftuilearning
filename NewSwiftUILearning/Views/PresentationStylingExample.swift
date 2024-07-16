@@ -19,11 +19,7 @@ struct PresentationStylingExample: View {
                         .presentationSizing(.form)
                 }
         } else {
-            ContentUnavailableView(
-                "iOS 18 only",
-                systemImage: "peacesign",
-                description: Text("Will need a device with the new OS")
-            )
+            FutureFeatureView()
         }
     }
 }
@@ -54,10 +50,6 @@ struct AddPartyView: View {
     if #available(iOS 18, *) {
         PresentationStylingExample()
     } else {
-        ContentUnavailableView(
-            "iOS 18 only",
-            systemImage: "peacesign",
-            description: Text("Will need a device with the new OS")
-        )
+        FutureFeatureView()
     }
 }

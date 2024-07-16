@@ -1,13 +1,13 @@
 {
-  "originHash" : "e9fe0680cfb8706e2d4d6b37d5edc777b3d65e8107b545470fb384fc8057ebcf",
+  "originHash" : "e32025d77bef986a34d87fbf9226d0c6f767c9a3288a4668bd2d62b9c5105d9c",
   "pins" : [
     {
       "identity" : "macplugins",
       "kind" : "remoteSourceControl",
       "location" : "https://endres@bitbucket.org/endres/macplugins.git",
       "state" : {
-        "revision" : "4f7ae0f29ad1e1e5ec31b30ff052b2e5e53d3b61",
-        "version" : "1.0.2"
+        "revision" : "a813ba4df85b0dd5fb676a143628f412a484f7bf",
+        "version" : "1.0.3"
       }
     },
     {
@@ -24,8 +24,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/apple/swift-http-types",
       "state" : {
-        "revision" : "12358d55a3824bd5fed310b999ea8cf83a9a1a65",
-        "version" : "1.0.3"
+        "revision" : "9bee2fdb79cc740081abd8ebd80738063d632286",
+        "version" : "1.1.0"
       }
     },
     {
