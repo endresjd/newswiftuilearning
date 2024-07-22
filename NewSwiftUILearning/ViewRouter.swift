@@ -57,6 +57,7 @@ enum ViewRouter: String, CaseIterable {
     case list = "List (13)"
     case locationManager = "Location (2)"
     case keyboardExamples = "Keyboard (17ish)"
+    case measurements = "Measurement (10)"
     case menu = "Menu (14)"
     case meshGradient = "MeshGradient (18)"
     case multiDatePicker = "MultiDatePicker (16)"
@@ -212,6 +213,8 @@ enum ViewRouter: String, CaseIterable {
             LocationManagerExample()
         case .keyboardExamples:
             KeyboardExample()
+        case .measurements:
+            MeasurementExamples()
         case .menu:
             ControlGroupExample()
         case .meshGradient:
