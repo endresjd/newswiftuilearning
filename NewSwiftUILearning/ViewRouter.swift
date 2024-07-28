@@ -99,6 +99,7 @@ enum ViewRouter: String, CaseIterable {
     case tappedLocation = "Tapped Location (16)"
     case textEditor = "TextEditor (14)"
     case textField = "TextField (13)"
+    case textSelection = "Text selection/subviewsOf (18)"
     case timelineView = "TimelineView (15)"
     case toggle = "Toggle (13)"
     case transformedShape = "TransformedShape (13)"
@@ -303,6 +304,12 @@ enum ViewRouter: String, CaseIterable {
             TextEditorExample()
         case .textField:
             TextFieldExample()
+        case .textSelection:
+            if #available(iOS 18, *) {
+                TextSelectionExample()
+            } else {
+                FutureFeatureView()
+            }
         case .timelineView:
             TimelineViewExample()
         case .toggle:
