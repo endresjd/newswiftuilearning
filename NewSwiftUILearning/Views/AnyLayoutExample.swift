@@ -32,7 +32,10 @@ struct AnyLayoutExample: View {
 
         ScrollView {
             Text(horizontalSizeClass == .regular ? "Regular" : "Compact")
+            Text("\(dynamicTypeSize)")
             
+            Divider()
+
             layout {
                 Image(systemName: "1.circle")
                 Image(systemName: "2.circle")
