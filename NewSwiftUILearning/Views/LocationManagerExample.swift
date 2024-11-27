@@ -12,9 +12,10 @@ import SwiftUI
 /// LocationManager is a class in this project that puts a concurrent wrapper around the system's location
 /// manager.
 struct LocationManagerExample: View {
-    private var locationManager = LocationManager()
     @State private var location = "Unknown"
     @State private var error = ""
+
+    private let locationManager = LocationManager()
 
     var body: some View {
         VStack {

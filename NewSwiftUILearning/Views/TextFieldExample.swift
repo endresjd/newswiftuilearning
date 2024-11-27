@@ -8,15 +8,14 @@
 import SwiftUI
 
 /// Examples of iOS 13's `TextField` control.
-///
 struct TextFieldExample: View {
-    @State private var username: String = ""
+    @State private var username = ""
     @FocusState private var emailFieldIsFocused: Bool
     @State private var nameComponents = PersonNameComponents()
-    @State private var login: String = ""
-    @State private var password: String = ""
-    @State private var givenName: String = ""
-    @State private var familyName: String = ""
+    @State private var login = ""
+    @State private var password = ""
+    @State private var givenName = ""
+    @State private var familyName = ""
     
     var body: some View {
         Form {

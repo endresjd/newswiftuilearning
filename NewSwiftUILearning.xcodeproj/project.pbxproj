@@ -33,6 +33,8 @@
 		459A7B2C2C4DFA2800BBB02A /* HeroAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459A7B272C4DFA2800BBB02A /* HeroAnimationView.swift */; };
 		459A7B2E2C4DFA8000BBB02A /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459A7B2D2C4DFA8000BBB02A /* CardView.swift */; };
 		459A7B302C4DFAA900BBB02A /* CreateAlbumIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459A7B2F2C4DFAA900BBB02A /* CreateAlbumIntent.swift */; };
+		45AB42382C652FB400F319FE /* StringTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45AB42372C652FB400F319FE /* StringTests.swift */; };
+		45B353F22CF6582000F7C2BD /* ImageRendererExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B353F12CF6582000F7C2BD /* ImageRendererExample.swift */; };
 		45B4AD162C18B18C00552EFF /* TabView18Example.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B4AD152C18B18C00552EFF /* TabView18Example.swift */; };
 		45B4AD182C18B53100552EFF /* PresentationStylingExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B4AD172C18B53100552EFF /* PresentationStylingExample.swift */; };
 		45B4AD1A2C18B80D00552EFF /* ZoomNavigationTransitionExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B4AD192C18B80D00552EFF /* ZoomNavigationTransitionExample.swift */; };
@@ -158,6 +160,8 @@
 		459A7B282C4DFA2800BBB02A /* KeyboardExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardExample.swift; sourceTree = "<group>"; };
 		459A7B2D2C4DFA8000BBB02A /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		459A7B2F2C4DFAA900BBB02A /* CreateAlbumIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAlbumIntent.swift; sourceTree = "<group>"; };
+		45AB42372C652FB400F319FE /* StringTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StringTests.swift; path = ../../StringTests.swift; sourceTree = "<group>"; };
+		45B353F12CF6582000F7C2BD /* ImageRendererExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageRendererExample.swift; sourceTree = "<group>"; };
 		45B4AD152C18B18C00552EFF /* TabView18Example.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabView18Example.swift; sourceTree = "<group>"; };
 		45B4AD172C18B53100552EFF /* PresentationStylingExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationStylingExample.swift; sourceTree = "<group>"; };
 		45B4AD192C18B80D00552EFF /* ZoomNavigationTransitionExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoomNavigationTransitionExample.swift; sourceTree = "<group>"; };
@@ -334,6 +338,7 @@
 			isa = PBXGroup;
 			children = (
 				45DFA87C2AFFEC6B003A1F54 /* NewSwiftUILearningTests.swift */,
+				45AB42372C652FB400F319FE /* StringTests.swift */,
 			);
 			path = NewSwiftUILearningTests;
 			sourceTree = "<group>";
@@ -386,6 +391,7 @@
 				459A7B272C4DFA2800BBB02A /* HeroAnimationView.swift */,
 				454CF1CF2BAB6FF500A6AA80 /* HTTPTypesExample.swift */,
 				459A7B282C4DFA2800BBB02A /* KeyboardExample.swift */,
+				45B353F12CF6582000F7C2BD /* ImageRendererExample.swift */,
 				45F877382B02715900422884 /* KeyframeAnimatorExample.swift */,
 				45F8773C2B027CB600422884 /* LabeledContentExample.swift */,
 				45F8773A2B0278BD00422884 /* LabelExample.swift */,
@@ -594,6 +600,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				45F877532B029E1000422884 /* NavigationSplitViewExample.swift in Sources */,
+				45B353F22CF6582000F7C2BD /* ImageRendererExample.swift in Sources */,
 				45EA94332B03E119008988C3 /* PickerExample.swift in Sources */,
 				454CF1D02BAB6FF500A6AA80 /* HTTPTypesExample.swift in Sources */,
 				45F8770D2B0011F000422884 /* CapsuleExample.swift in Sources */,
@@ -698,6 +705,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				45AB42382C652FB400F319FE /* StringTests.swift in Sources */,
 				45DFA87D2AFFEC6B003A1F54 /* NewSwiftUILearningTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -787,6 +795,19 @@
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_STRICT_CONCURRENCY = complete;
+				SWIFT_UPCOMING_FEATURE_CONCISE_MAGIC_FILE = YES;
+				SWIFT_UPCOMING_FEATURE_DEPRECATE_APPLICATION_MAIN = YES;
+				SWIFT_UPCOMING_FEATURE_DISABLE_OUTWARD_ACTOR_ISOLATION = YES;
+				SWIFT_UPCOMING_FEATURE_EXISTENTIAL_ANY = YES;
+				SWIFT_UPCOMING_FEATURE_FORWARD_TRAILING_CLOSURES = YES;
+				SWIFT_UPCOMING_FEATURE_GLOBAL_CONCURRENCY = YES;
+				SWIFT_UPCOMING_FEATURE_IMPLICIT_OPEN_EXISTENTIALS = YES;
+				SWIFT_UPCOMING_FEATURE_IMPORT_OBJC_FORWARD_DECLS = YES;
+				SWIFT_UPCOMING_FEATURE_INFER_SENDABLE_FROM_CAPTURES = YES;
+				SWIFT_UPCOMING_FEATURE_INTERNAL_IMPORTS_BY_DEFAULT = YES;
+				SWIFT_UPCOMING_FEATURE_ISOLATED_DEFAULT_VALUES = YES;
+				SWIFT_UPCOMING_FEATURE_REGION_BASED_ISOLATION = YES;
 			};
 			name = Debug;
 		};
@@ -842,6 +863,19 @@
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_STRICT_CONCURRENCY = complete;
+				SWIFT_UPCOMING_FEATURE_CONCISE_MAGIC_FILE = YES;
+				SWIFT_UPCOMING_FEATURE_DEPRECATE_APPLICATION_MAIN = YES;
+				SWIFT_UPCOMING_FEATURE_DISABLE_OUTWARD_ACTOR_ISOLATION = YES;
+				SWIFT_UPCOMING_FEATURE_EXISTENTIAL_ANY = YES;
+				SWIFT_UPCOMING_FEATURE_FORWARD_TRAILING_CLOSURES = YES;
+				SWIFT_UPCOMING_FEATURE_GLOBAL_CONCURRENCY = YES;
+				SWIFT_UPCOMING_FEATURE_IMPLICIT_OPEN_EXISTENTIALS = YES;
+				SWIFT_UPCOMING_FEATURE_IMPORT_OBJC_FORWARD_DECLS = YES;
+				SWIFT_UPCOMING_FEATURE_INFER_SENDABLE_FROM_CAPTURES = YES;
+				SWIFT_UPCOMING_FEATURE_INTERNAL_IMPORTS_BY_DEFAULT = YES;
+				SWIFT_UPCOMING_FEATURE_ISOLATED_DEFAULT_VALUES = YES;
+				SWIFT_UPCOMING_FEATURE_REGION_BASED_ISOLATION = YES;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -866,7 +900,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -901,7 +935,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -924,7 +958,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = WFNDASXC9R;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.macplugins.NewSwiftUILearningTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -932,6 +966,7 @@
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NewSwiftUILearning.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/NewSwiftUILearning";
+				_EXPERIMENTAL_SWIFT_EXPLICIT_MODULES = YES;
 			};
 			name = Debug;
 		};
@@ -943,7 +978,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = WFNDASXC9R;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.macplugins.NewSwiftUILearningTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -951,6 +986,7 @@
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NewSwiftUILearning.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/NewSwiftUILearning";
+				_EXPERIMENTAL_SWIFT_EXPLICIT_MODULES = YES;
 			};
 			name = Release;
 		};
@@ -961,6 +997,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = WFNDASXC9R;
 				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.macplugins.NewSwiftUILearningUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -978,6 +1015,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = WFNDASXC9R;
 				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.macplugins.NewSwiftUILearningUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";

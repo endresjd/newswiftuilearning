@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-import WeatherKit
+@preconcurrency import WeatherKit
 import CoreLocation
 
 /// Uses iOS 16's `WeatherService` to print weather for the current location.
@@ -21,7 +21,7 @@ struct WeatherKitExample: View {
     
     func weatherStuff(location: CLLocation) async throws {
         let weatherService = WeatherService()
-        let weather = try await weatherService.weather(for: location)
+        let weather = try await weatherService.weather(for: location)   // @preconcurrency solved this warning
         let temperature = weather.currentWeather.temperature
         let uvIndex = weather.currentWeather.uvIndex
         

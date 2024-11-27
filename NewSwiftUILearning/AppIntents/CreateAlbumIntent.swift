@@ -13,13 +13,13 @@ import AppIntents
 /// photos is the domain
 /// createAlbum is the schema
 /// meta data is provided by the schema and provided at compile time
-@available(iOS 18.0, *)
-@AssistantIntent(schema: .system.search)
-struct SystemSearchIntent {
-    static var searchScopes: [StringSearchScope] = [.general]
-    var criteria: StringSearchCriteria
-    
-    func perform() async throws -> some IntentResult {
-        .result()
-    }
-}
+//@available(iOS 18.0, *)
+//@AssistantIntent(schema: .system.search)
+//struct SystemSearchIntent {
+//    static var searchScopes: [StringSearchScope] = [.general]
+//    var criteria: StringSearchCriteria
+//    
+//    func perform() async throws -> some IntentResult {
+//        .result()
+//    }
+//}

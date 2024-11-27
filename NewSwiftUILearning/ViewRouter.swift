@@ -9,6 +9,7 @@ import SwiftUI
 
 /// A simple attempt at gettng programmatic navigation.  Each case on here can be
 /// referenced to create the view it represents.
+@MainActor
 enum ViewRouter: String, CaseIterable {
     case angularGradient = "AngularGradient (13)"
     case anyLayout = "AnyLayout (16)"
@@ -45,6 +46,7 @@ enum ViewRouter: String, CaseIterable {
     case guage = "Guage (16)"
     case heroAnimation = "Hero Animation (18)"
     case httpTypes = "HTTPTypes (13)"
+    case imageRenderer = "ImageRenderer (16)"
     case keyFrameAnimator = "KeyFrameAnimator (17)"
     case label = "Label (14)"
     case labeledContent = "LabeledContent (16)"
@@ -190,6 +192,8 @@ enum ViewRouter: String, CaseIterable {
             HeroAnimationView()
         case .httpTypes:
             HTTPTypesExample()
+        case .imageRenderer:
+            ImageRendererExample()
         case .keyFrameAnimator:
             KeyframeAnimatorExample()
         case .label:
@@ -325,14 +329,14 @@ enum ViewRouter: String, CaseIterable {
 }
 
 extension ViewRouter: Comparable {
-    static func < (lhs: ViewRouter, rhs: ViewRouter) -> Bool {
+    nonisolated static func < (lhs: ViewRouter, rhs: ViewRouter) -> Bool {
         lhs.rawValue < rhs.rawValue
     }
 }
 
 extension ViewRouter: Identifiable {
     /// To make this unique so it is easier to use in List.
-    var id: Self {
+    nonisolated var id: Self {
         self
     }
 }

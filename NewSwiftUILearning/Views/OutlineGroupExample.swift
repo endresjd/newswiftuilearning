@@ -21,7 +21,8 @@ private struct FileItem: Hashable, Identifiable, CustomStringConvertible {
     }
 }
 
-private struct Tree<Value: Hashable>: Hashable {
+// To be Sendable, the value must be Sendable
+private struct Tree<Value>: Hashable where Value: Hashable, Value: Sendable {
     let value: Value
     var children: [Tree]? = nil
 }
@@ -34,53 +35,52 @@ private struct Tree<Value: Hashable>: Hashable {
 ///
 /// - Experiment: See if this came be made to look better with indentation or something
 struct OutlineGroupExample: View {
-    fileprivate let data =
-      FileItem(name: "users", children:
-        [FileItem(name: "user1234", children:
-          [FileItem(name: "Photos", children:
-            [FileItem(name: "photo001.jpg"),
-             FileItem(name: "photo002.jpg")]),
-           FileItem(name: "Movies", children:
-             [FileItem(name: "movie001.mp4")]),
-              FileItem(name: "Documents", children: [])
-          ]),
-         FileItem(name: "newuser", children:
-           [FileItem(name: "Documents", children: [])
-           ])
-        ])
+    fileprivate let data = FileItem(name: "users", children:
+                [FileItem(name: "user1234", children:
+                            [FileItem(name: "Photos", children:
+                                        [FileItem(name: "photo001.jpg"),
+                                         FileItem(name: "photo002.jpg")]),
+                             FileItem(name: "Movies", children:
+                                        [FileItem(name: "movie001.mp4")]),
+                             FileItem(name: "Documents", children: [])
+                            ]),
+                 FileItem(name: "newuser", children:
+                            [FileItem(name: "Documents", children: [])
+                            ])
+                ])
     fileprivate let categories: [Tree<String>] = [
-        .init(
+        Tree(
             value: "Clothing",
             children: [
-                .init(value: "Hoodies"),
-                .init(value: "Jackets"),
-                .init(value: "Joggers"),
-                .init(value: "Jumpers"),
-                .init(
+                Tree(value: "Hoodies"),
+                Tree(value: "Jackets"),
+                Tree(value: "Joggers"),
+                Tree(value: "Jumpers"),
+                Tree(
                     value: "Jeans",
                     children: [
-                        .init(value: "Regular"),
-                        .init(value: "Slim")
+                        Tree(value: "Regular"),
+                        Tree(value: "Slim")
                     ]
                 ),
             ]
         ),
-        .init(
+        Tree(
             value: "Shoes",
             children: [
-                .init(value: "Boots"),
-                .init(value: "Sliders"),
-                .init(value: "Sandals"),
-                .init(value: "Trainers"),
+                Tree(value: "Boots"),
+                Tree(value: "Sliders"),
+                Tree(value: "Sandals"),
+                Tree(value: "Trainers"),
             ]
         )
     ]
 
     var body: some View {
-        OutlineGroup(data, children: \.children) { item in
-            Text("\(item.description)")
-        }
-        .padding()
+//        OutlineGroup(data, children: \.children) { item in
+//            Text("\(item.description)")
+//        }
+//        .padding()
         
         Spacer()
     }

@@ -85,7 +85,7 @@ private struct CalendarView: View {
 }
 
 extension CalendarView: Equatable {
-    static func == (lhs: Self, rhs: Self) -> Bool {
+    nonisolated static func == (lhs: Self, rhs: Self) -> Bool {
         lhs.sleeps.count == rhs.sleeps.count
     }
 }

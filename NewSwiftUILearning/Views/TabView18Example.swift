@@ -80,7 +80,9 @@ struct SongListView: View {
 struct Party {
     var name: String
     var id = UUID()
-    static var all: [Party] = []
+    
+    // TODO: what if I want this mutable?  If it is var (not let) then this will be a concurrency error in Swift 6
+    static let all: [Party] = []
 }
 
 #Preview {

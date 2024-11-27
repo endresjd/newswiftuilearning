@@ -45,7 +45,7 @@ struct DisplayBoard<Content: View>: View {
         List {
             Section("ForEach(subviewOf:)") {
                 // These is a declared subview.  Iterates over the subviews.
-                ForEach(subviewOf: content) { subview in
+                ForEach(subviews: content) { subview in
                     let values = subview.containerValues
                     
                     // What's here are called the resolved subviews
@@ -59,7 +59,7 @@ struct DisplayBoard<Content: View>: View {
                 // input and resolves its subviews.  But instead of iterating over them one
                 // at a time, the Group(subviewsOf:) API passes back a collection, of all
                 // of the resolved subviews.
-                Group(subviewsOf: content) { subviews in
+                Group(subviews: content) { subviews in
                     Text("Count: **\(subviews.count)**")
                     
                     ForEach(subviews) { subview in
@@ -72,7 +72,7 @@ struct DisplayBoard<Content: View>: View {
             }
             
             Section("ForEach(sectionOf:).") {
-                ForEach(sectionOf: content) { section in
+                ForEach(sections: content) { section in
                     Group {
                         if section.header.isEmpty {
                             Text("No section header")
@@ -84,7 +84,7 @@ struct DisplayBoard<Content: View>: View {
                     .bold()
                     
                     // This is a SubviewsCollection
-                    ForEach(subviewOf: section.content) { subview in
+                    ForEach(section.content) { subview in
                         // Supposed to get the container value attached to a subview
                         // but is not working in this example
                         let values = subview.containerValues

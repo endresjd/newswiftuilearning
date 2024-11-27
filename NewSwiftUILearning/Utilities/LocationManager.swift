@@ -18,12 +18,17 @@ class LocationManager: NSObject {
     private let locationManager = CLLocationManager()
     
     /// Bridging instance between the delegate/callback code and Swift
-    private var continuation: CheckedContinuation<CLLocation, Error>?
+    private var continuation: CheckedContinuation<CLLocation, any Error>?
     
     /// Either returns the current location of the device or throws an error with information
     /// about why it couldn't be determined
+    @MainActor
     var location: CLLocation {
         get async throws {
+            // Gets rid of a concurrency warning becasue the change is now isolated
+            // to this block
+            locationManager.delegate = self
+
             return try await withCheckedThrowingContinuation { continuation in
                 self.continuation = continuation
                 
@@ -34,8 +39,6 @@ class LocationManager: NSObject {
 
     override init() {
         super.init()
-        
-        locationManager.delegate = self
     }
     
     /// Uses the underlying CLLocationManager to request an "When in use" authorization for
@@ -70,7 +73,7 @@ extension LocationManager: CLLocationManagerDelegate {
     /// - Parameters:
     ///   - manager: current system location manager
     ///   - error: error returned when trying to determine location
-    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: any Error) {
         continuation?.resume(throwing: error)
 
         continuation = nil
