@@ -18,6 +18,7 @@ enum ViewRouter: String, CaseIterable {
     case buttonBorderShape = "ButtonBorderShape (15)"
     case canvas = "Canvas (15)"
     case capsule = "Capsule (13)"
+    case chartsProgressView = "Charts Progress View (16)"
     case circle = "Circle (13)"
     case color = "Color (13)"
     case colorPicker = "ColorPicker (14)"
@@ -46,6 +47,7 @@ enum ViewRouter: String, CaseIterable {
     case guage = "Guage (16)"
     case heroAnimation = "Hero Animation (18)"
     case httpTypes = "HTTPTypes (13)"
+    case inspector = "Inspector (17)"
     case imageRenderer = "ImageRenderer (16)"
     case keyFrameAnimator = "KeyFrameAnimator (17)"
     case label = "Label (14)"
@@ -101,6 +103,7 @@ enum ViewRouter: String, CaseIterable {
     case tappedLocation = "Tapped Location (16)"
     case textEditor = "TextEditor (14)"
     case textField = "TextField (13)"
+    case textRenderer = "TextRenderer (17)"
     case textSelection = "Text selection/subviewsOf (18)"
     case timelineView = "TimelineView (15)"
     case toggle = "Toggle (13)"
@@ -140,6 +143,8 @@ enum ViewRouter: String, CaseIterable {
             CanvasExample()
         case .capsule:
             CapsuleExample()
+        case .chartsProgressView:
+            PieChartProgressExampleView()
         case .circle:
             CircleExample()
         case .containerRelativeShape:
@@ -192,6 +197,8 @@ enum ViewRouter: String, CaseIterable {
             HeroAnimationView()
         case .httpTypes:
             HTTPTypesExample()
+        case .inspector:
+            InspectorExample()
         case .imageRenderer:
             ImageRendererExample()
         case .keyFrameAnimator:
@@ -308,6 +315,8 @@ enum ViewRouter: String, CaseIterable {
             TextEditorExample()
         case .textField:
             TextFieldExample()
+        case .textRenderer:
+            TextRendererExample()
         case .textSelection:
             if #available(iOS 18, *) {
                 TextSelectionExample()

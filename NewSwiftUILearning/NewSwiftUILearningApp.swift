@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import TipKit
 
 /// Main entry point
 @main
@@ -14,5 +15,10 @@ struct NewSwiftUILearningApp: App {
         WindowGroup {
             ContentView()
         }
+    }
+    
+    init() {
+      // Configure Tip's data container
+      try? Tips.configure()
     }
 }
