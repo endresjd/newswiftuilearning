@@ -11,10 +11,12 @@ import SwiftUI
 /// referenced to create the view it represents.
 @MainActor
 enum ViewRouter: String, CaseIterable {
+    case alert = "Alert (15)"
     case angularGradient = "AngularGradient (13)"
     case anyLayout = "AnyLayout (16)"
     case anyShapeExample = "AnyShapeExample (16)"
     case asyncImage = "AsyncImage (15)"
+    case bindingExtension = "Binding Extension (13)"
     case buttonBorderShape = "ButtonBorderShape (15)"
     case canvas = "Canvas (15)"
     case capsule = "Capsule (13)"
@@ -108,6 +110,7 @@ enum ViewRouter: String, CaseIterable {
     case timelineView = "TimelineView (15)"
     case toggle = "Toggle (13)"
     case transformedShape = "TransformedShape (13)"
+    case typedThrows = "Typed Throws"
     case weatherKit = "WeatherKit (16)"
     case zoomNavigationTransition = "Zoom Navigation Transition (18)"
     
@@ -129,6 +132,8 @@ enum ViewRouter: String, CaseIterable {
     @ViewBuilder
     var view: some View {
         switch self {
+        case .alert:
+            BindingExtensions()
         case .angularGradient:
             AngularGradientExample()
         case .anyLayout:
@@ -137,6 +142,8 @@ enum ViewRouter: String, CaseIterable {
             AnyShapeExample()
         case .asyncImage:
             AsyncImageExample()
+        case .bindingExtension:
+            BindingExtensions()
         case .buttonBorderShape:
             ButtonBorderShapeExample()
         case .canvas:
@@ -329,6 +336,8 @@ enum ViewRouter: String, CaseIterable {
             ToggleExample()
         case .transformedShape:
             TransformedShapeExample()
+        case .typedThrows:
+            TypedThrowsView()
         case .weatherKit:
             WeatherKitExample()
         case .zoomNavigationTransition:
