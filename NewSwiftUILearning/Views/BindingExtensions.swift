@@ -6,10 +6,12 @@
 //
 
 import SwiftUI
+import Macplugins
 
 /// Shows how to extend Bindings to reduce boilerplat code in views.
 ///
-/// Also shows how to use the non-deprecated alert modifier
+/// Also shows how to use the non-deprecated alert modifier.  The modified code from the article
+/// was moved into the Macplugins package.
 ///
 /// - SeeAlso: [Binding extensions in SwiftUI](https://blog.stackademic.com/binding-extensions-in-swiftui-00065ebbd531)
 struct BindingExtensions: View {
@@ -72,7 +74,7 @@ struct BindingExtensions: View {
             }
             .alert(
                 "Says",
-                isPresented: $message.matches(to: "Hello, World!"),
+                isPresented: $message.matches("Hello, World!"),
                 presenting: message,
                 actions: { message in
                     // Interesting that if these are Text elements there
@@ -113,68 +115,4 @@ struct BindingExtensions: View {
 
 #Preview {
     BindingExtensions()
-}
-
-extension Binding {
-    /// Present alert when a binding is not nil
-    ///
-    /// Let’s say you want to present an alert if the error has a non-nil value. Fairly easy task, you
-    /// can create a binding that checks if error != nil and pass that to the .alert() modifier.
-    /// However, repeating this for several views in your app is inefficient.
-    ///
-    /// - Returns: A binding around the nullable value
-    /// - SeeAlso: [Binding extensions in SwiftUI](https://blog.stackademic.com/binding-extensions-in-swiftui-00065ebbd531)
-    func hasValue<T>() -> Binding<Bool> where T? == Value, T: Sendable {
-        Binding<Bool>(
-            get: {
-                wrappedValue != nil
-            },
-            set: { newValue in
-                if !newValue {
-                    wrappedValue = nil
-                }
-            }
-        )
-    }
-    
-    /// Show an alert only if State matches the given value
-    ///
-    /// Building on the previous scenario, let’s say you want to present an alert only if the error is a networkError .
-    /// This time, we don’t need to check if the property is nil or not; we actually need to compare it’s value against a target value.
-    /// I think this assumes an Optional State variable
-    ///
-    /// - Parameters:
-    ///   - value: State we are comparing things to
-    /// - Returns: Binding that will be true if the values match
-    /// - SeeAlso: [Binding extensions in SwiftUI](https://blog.stackademic.com/binding-extensions-in-swiftui-00065ebbd531)
-    func matches<T>(to value: T?) -> Binding<Bool> where T? == Value, T: Equatable, T: Sendable {
-        Binding<Bool>(
-            get: {
-                wrappedValue == value
-            },
-            set: { newValue in
-                wrappedValue = newValue ? value : nil
-            }
-        )
-    }
-    
-    /// Use a Binding if its value is nil.
-    ///
-    ///
-    /// if you have an optional property, but want a binding that has a default value, this extension would
-    /// be useful. A simple use case would be passing an optional to a Text() view, since it does not accept optional values
-    ///
-    /// - Parameter defaultValue: Default value for a nil property
-    /// - Returns: Binding with either the actual value or the default given here
-    /// - SeeAlso: [Binding extensions in SwiftUI](https://blog.stackademic.com/binding-extensions-in-swiftui-00065ebbd531)
-    func unwrapped<T>(defaultValue: T) -> Binding<T> where T? == Value, T: Sendable {
-        Binding<T>(
-            get: {
-                wrappedValue ?? defaultValue
-            },
-            set: {
-                wrappedValue = $0
-            }
-        )
-    }
 }

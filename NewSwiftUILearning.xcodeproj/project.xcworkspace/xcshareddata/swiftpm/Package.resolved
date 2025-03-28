@@ -1,13 +1,13 @@
 {
-  "originHash" : "e32025d77bef986a34d87fbf9226d0c6f767c9a3288a4668bd2d62b9c5105d9c",
+  "originHash" : "4a0ef19230a5632dc524f1e1d8b43cbb7f87f94de08bb85a6d31d2f11936e846",
   "pins" : [
     {
       "identity" : "macplugins",
       "kind" : "remoteSourceControl",
-      "location" : "https://endres@bitbucket.org/endres/macplugins.git",
+      "location" : "https://bitbucket.org/endres/macplugins.git",
       "state" : {
-        "revision" : "a813ba4df85b0dd5fb676a143628f412a484f7bf",
-        "version" : "1.0.3"
+        "revision" : "f7be14f12d90041f40f3373a7443c67cabb128e1",
+        "version" : "1.0.8"
       }
     },
     {

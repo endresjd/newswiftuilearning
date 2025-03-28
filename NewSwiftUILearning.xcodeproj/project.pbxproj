@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		454CF1D22BAB711F00A6AA80 /* HTTPTypes in Frameworks */ = {isa = PBXBuildFile; productRef = 454CF1D12BAB711F00A6AA80 /* HTTPTypes */; };
 		454CF1D42BAB711F00A6AA80 /* HTTPTypesFoundation in Frameworks */ = {isa = PBXBuildFile; productRef = 454CF1D32BAB711F00A6AA80 /* HTTPTypesFoundation */; };
+		457690DB2D96F26B00493941 /* Macplugins in Frameworks */ = {isa = PBXBuildFile; productRef = 457690DA2D96F26B00493941 /* Macplugins */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 			files = (
 				454CF1D22BAB711F00A6AA80 /* HTTPTypes in Frameworks */,
 				454CF1D42BAB711F00A6AA80 /* HTTPTypesFoundation in Frameworks */,
+				457690DB2D96F26B00493941 /* Macplugins in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -69,6 +71,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		457690D92D96F26B00493941 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		45DFA85F2AFFEC6A003A1F54 = {
 			isa = PBXGroup;
 			children = (
@@ -77,6 +86,7 @@
 				45B355282CF7A11700F7C2BD /* NewSwiftUILearning */,
 				45B354B62CF7A10A00F7C2BD /* NewSwiftUILearningTests */,
 				45B354BB2CF7A11200F7C2BD /* NewSwiftUILearningUITests */,
+				457690D92D96F26B00493941 /* Frameworks */,
 				45DFA8692AFFEC6A003A1F54 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -113,6 +123,7 @@
 			packageProductDependencies = (
 				454CF1D12BAB711F00A6AA80 /* HTTPTypes */,
 				454CF1D32BAB711F00A6AA80 /* HTTPTypesFoundation */,
+				457690DA2D96F26B00493941 /* Macplugins */,
 			);
 			productName = NewSwiftUILearning;
 			productReference = 45DFA8682AFFEC6A003A1F54 /* NewSwiftUILearning.app */;
@@ -630,6 +641,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 454CF1CE2BAB6F8900A6AA80 /* XCRemoteSwiftPackageReference "swift-http-types" */;
 			productName = HTTPTypesFoundation;
+		};
+		457690DA2D96F26B00493941 /* Macplugins */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 45B4AD252C1A13B600552EFF /* XCRemoteSwiftPackageReference "macplugins" */;
+			productName = Macplugins;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

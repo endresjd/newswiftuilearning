@@ -52,7 +52,7 @@ struct UsernameValidator {
             case .emptyName:
                 print("You've submitted an empty name!")
             case .nameTooShort(let nameLength):
-                print("The submitted name is too short!")
+                print("The submitted name is too short! (\(nameLength))")
             }
         }
         
@@ -64,7 +64,7 @@ struct UsernameValidator {
             case .emptyName:
                 print("You've submitted an empty name!")
             case .nameTooShort(let nameLength):
-                print("The submitted name is too short!")
+                print("The submitted name is too short! (\(nameLength))")
             }
         }
     }
