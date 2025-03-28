@@ -43,7 +43,7 @@ struct BindingExtensions: View {
             }
             .alert(
                 "Something went wrong",
-                isPresented: $error.notNil(),
+                isPresented: $error.hasValue(),
                 // This is `argument` in the closures, and must not be nil
                 presenting: error,
                 actions: { argument in
@@ -72,7 +72,7 @@ struct BindingExtensions: View {
             }
             .alert(
                 "Says",
-                isPresented: $message.isEquivalent(to: "Hello, World!"),
+                isPresented: $message.matches(to: "Hello, World!"),
                 presenting: message,
                 actions: { message in
                     // Interesting that if these are Text elements there
@@ -124,7 +124,7 @@ extension Binding {
     ///
     /// - Returns: A binding around the nullable value
     /// - SeeAlso: [Binding extensions in SwiftUI](https://blog.stackademic.com/binding-extensions-in-swiftui-00065ebbd531)
-    func notNil<T>() -> Binding<Bool> where T? == Value, T: Sendable {
+    func hasValue<T>() -> Binding<Bool> where T? == Value, T: Sendable {
         Binding<Bool>(
             get: {
                 wrappedValue != nil
@@ -147,7 +147,7 @@ extension Binding {
     ///   - value: State we are comparing things to
     /// - Returns: Binding that will be true if the values match
     /// - SeeAlso: [Binding extensions in SwiftUI](https://blog.stackademic.com/binding-extensions-in-swiftui-00065ebbd531)
-    func isEquivalent<T>(to value: T?) -> Binding<Bool> where T? == Value, T: Equatable, T: Sendable {
+    func matches<T>(to value: T?) -> Binding<Bool> where T? == Value, T: Equatable, T: Sendable {
         Binding<Bool>(
             get: {
                 wrappedValue == value
@@ -177,5 +177,4 @@ extension Binding {
             }
         )
     }
-
 }
