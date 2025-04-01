@@ -16,7 +16,7 @@ import SwiftUI
 /// This can help with performance by avoiding unneeded redraws.
 ///
 /// As you remember, we already talked about diffing in SwiftUI, but let me remind how it works.
-/// Whenever you change the source of truth for your views like @State or @ObservableObject,
+/// Whenever you change the source of truth for your views,
 /// SwiftUI runs body property of your view to generate a new one. As the last step, SwiftUI
 /// renders a new view if something changed. The process of calculating a new body depends
 /// on how deep is your view hierarchy. Happily, we can replace SwiftUI diffing with our simplified
@@ -42,20 +42,36 @@ import SwiftUI
 /// - Remark: Comments here are from the article from the link
 /// - SeeAlso: [Optimizing views in SwiftUI using EquatableView](https://swiftwithmajid.com/2020/01/22/optimizing-views-in-swiftui-using-equatableview/)
 struct EquatableViewExample: View {
+    private let sleepData = [
+        "one":[
+            Date()
+        ],
+        "two":[
+            Date()
+        ]
+    ]
+    private let sleepKeys = [
+        "one",
+        "two"
+    ]
+    
     var body: some View {
         // This will use the Equatable conformance's function to
         // determine if the view has changed or not, which will
         // then lead to redraw if the are not.
-        EquatableView(content: CalendarView(sleeps: ["one":[Date()]], dates: ["one"]))
+        EquatableView(content: CalendarView(sleeps: sleepData, dates: sleepKeys))
         
         // The other way
-        CalendarView(sleeps: ["one":[Date()]], dates: ["one"])
+        CalendarView(sleeps: sleepData, dates: sleepKeys)
             .equatable()
     }
 }
 
+/// Sleep Data
+///
 /// Used in the example to populate the list
-private class Sleep: ObservableObject {
+@Observable
+private class Sleep {
     var first: String
     var second: String
     

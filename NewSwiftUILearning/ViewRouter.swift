@@ -71,6 +71,7 @@ enum ViewRouter: String, CaseIterable {
     case navigationSplitView = "NavigationSplitView (16)"
     case navigationStack = "NavigationStack (16)"
     case navigationView = "NavigationViewExample (13) deprecated"
+    case observation = "Observation Framework (17)"
     case offsetShape = "OffsetShape (13)"
     case outlineGroup = "OutlineGroup (14)"
     case pasteButton = "PasteButton (16)"
@@ -251,6 +252,8 @@ enum ViewRouter: String, CaseIterable {
             NavigationStackExample()
         case .navigationView:
             NavigationViewExample()
+        case .observation:
+            LibraryView()
         case .offsetShape:
             OffsetShapeExample()
         case .outlineGroup:

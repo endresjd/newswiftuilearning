@@ -16,10 +16,14 @@ struct NewSwiftUILearningApp: App {
     /// To illustrate how to pass into the environment using the Observation framework
     @State private var shared = SharedContent()
     
+    /// Library for Apple Observation Example
+    @State private var library = Library()
+
     var body: some Scene {
         WindowGroup {
             ContentView()
                 .environment(shared)
+                .environment(library)
         }
     }
     

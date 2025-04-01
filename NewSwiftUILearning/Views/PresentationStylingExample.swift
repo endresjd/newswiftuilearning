@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct PresentationStylingExample: View {
-    @State var showAddSheet: Bool = true
+    @State var showAddSheet = true
     var parties: [Party] = []
     
     var body: some View {
