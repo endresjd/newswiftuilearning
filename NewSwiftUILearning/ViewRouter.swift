@@ -34,6 +34,7 @@ enum ViewRouter: String, CaseIterable {
     case disclosureGroup = "DisclosureGroup (14)"
     case divider = "Divider (13)"
     case entryMacro = "Entry Macro (18)"
+    case environment = "Environment (17)"
     case groupBox = "GroupBox (14)"
     case editButton = "EditButton (13)"
     case ellipse = "Ellipse (13)"
@@ -76,6 +77,7 @@ enum ViewRouter: String, CaseIterable {
     case path = "Path (13)"
     case phaseAnimator = "PhaseAnimator (17)"
     case picker = "Picker (13)"
+    case playground = "Playground (all)"
     case presentation = "Presentation (16)"
     case presentationStyle = "Presentation (18)"
     case previewableState = "Previews (18)"
@@ -90,6 +92,7 @@ enum ViewRouter: String, CaseIterable {
     case scrollViewIndicators = "Scroll indicators (16)"
     case scrollViewKeyboard = "Scroll dismiss (16)"
     case scrollViewReader = "ScrollViewReader (14)"
+    case scrollViewVisibility = "ScrollView Visibility (18)"
     case section = "Section (13)"
     case secureField = "SecureField (13)"
     case sfSymbolColor = "SF Symbol Colors (16)"
@@ -178,6 +181,8 @@ enum ViewRouter: String, CaseIterable {
             DividerExample()
         case .entryMacro:
             EntryMacroView()
+        case .environment:
+            EnvironmentExample()
         case .groupBox:
             GroupBoxExampleView()
         case .editButton:
@@ -258,6 +263,8 @@ enum ViewRouter: String, CaseIterable {
             PhaseAnimatorExample()
         case .picker:
             PickerExample()
+        case .playground:
+            PlaygoundView()
         case .presentation:
             PresentationExample()
         case .presentationStyle:
@@ -290,6 +297,8 @@ enum ViewRouter: String, CaseIterable {
             ScrollDismissesKeyboardExample()
         case .scrollViewReader:
             ScrollViewReaderExample()
+        case .scrollViewVisibility:
+            ScrollViewVisibility()
         case .section:
             SectionExample()
         case .secureField:

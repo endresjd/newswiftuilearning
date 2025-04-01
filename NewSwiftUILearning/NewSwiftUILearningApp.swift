@@ -11,9 +11,15 @@ import TipKit
 /// Main entry point
 @main
 struct NewSwiftUILearningApp: App {
+    /// App wide shared content
+    ///
+    /// To illustrate how to pass into the environment using the Observation framework
+    @State private var shared = SharedContent()
+    
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environment(shared)
         }
     }
     

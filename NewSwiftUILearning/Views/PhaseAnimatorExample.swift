@@ -27,7 +27,7 @@ import SwiftUI
 /// the beginning. Without this it will cycle constantly.
 ///
 /// - Requires: iOS 17
-/// - SeeAlso: [How to create multi-step animations using phase animators](https://www.hackingwithswift.com/quick-start/swiftui/how-to-create-multi-step-animations-using-phase-animators)
+/// - SeeAlso: [How to create multi-step animations using phase animators](https://www.hackingwithswift.com/quick-start/swiftui/how-to-create-multi-step-animations-using-phase-animators), [Using multi-step animations in SwiftUI](https://www.createwithswift.com/using-multi-step-animations-in-swiftui/?utm_campaign=This%2BWeek%2Bin%2BSwift&utm_medium=email&utm_source=This_Week_in_Swift_171)
 struct PhaseAnimatorExample: View {
     @State private var animationStepOne = 0
     @State private var animationStepTwo = 0
