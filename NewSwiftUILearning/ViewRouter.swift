@@ -17,6 +17,7 @@ enum ViewRouter: String, CaseIterable {
     case anyShapeExample = "AnyShapeExample (16)"
     case asyncImage = "AsyncImage (15)"
     case bindingExtension = "Binding Extension (13)"
+    case blendModes = "Blend Modes (13)"
     case buttonBorderShape = "ButtonBorderShape (15)"
     case canvas = "Canvas (15)"
     case capsule = "Capsule (13)"
@@ -148,6 +149,8 @@ enum ViewRouter: String, CaseIterable {
             AsyncImageExample()
         case .bindingExtension:
             BindingExtensions()
+        case .blendModes:
+            BlendModeExamples()
         case .buttonBorderShape:
             ButtonBorderShapeExample()
         case .canvas:
