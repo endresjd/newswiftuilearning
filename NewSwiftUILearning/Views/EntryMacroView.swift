@@ -24,6 +24,8 @@ struct EntryMacroView: View {
     var body: some View {
         SubView()
             .environment(\.entryExampleValue, 42)
+
+        SubView()
     }
 }
 
