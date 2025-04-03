@@ -41,6 +41,7 @@ enum ViewRouter: String, CaseIterable {
     case ellipse = "Ellipse (13)"
     case ellipticalGradient = "EllipticalGradient (15)"
     case equatableView = "EquatableView (13)"
+    case firstAppear = "First Appear (15)"
     case forEach = "ForEach (13)"
     case form = "Form (13)"
     case functionPlotting = "Function Plotting (18)"
@@ -195,6 +196,8 @@ enum ViewRouter: String, CaseIterable {
             EllipseExample()
         case .equatableView:
             EquatableViewExample()
+        case .firstAppear:
+            FirstAppearExample();
         case .forEach:
             ForEachExample()
         case .form:
