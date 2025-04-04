@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4531D3EE2DA01AA300F3BD28 /* AsyncAlgorithms in Frameworks */ = {isa = PBXBuildFile; productRef = 4531D3ED2DA01AA300F3BD28 /* AsyncAlgorithms */; };
 		454CF1D22BAB711F00A6AA80 /* HTTPTypes in Frameworks */ = {isa = PBXBuildFile; productRef = 454CF1D12BAB711F00A6AA80 /* HTTPTypes */; };
 		454CF1D42BAB711F00A6AA80 /* HTTPTypesFoundation in Frameworks */ = {isa = PBXBuildFile; productRef = 454CF1D32BAB711F00A6AA80 /* HTTPTypesFoundation */; };
 		457690DB2D96F26B00493941 /* Macplugins in Frameworks */ = {isa = PBXBuildFile; productRef = 457690DA2D96F26B00493941 /* Macplugins */; };
@@ -51,6 +52,7 @@
 				454CF1D22BAB711F00A6AA80 /* HTTPTypes in Frameworks */,
 				454CF1D42BAB711F00A6AA80 /* HTTPTypesFoundation in Frameworks */,
 				457690DB2D96F26B00493941 /* Macplugins in Frameworks */,
+				4531D3EE2DA01AA300F3BD28 /* AsyncAlgorithms in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -124,6 +126,7 @@
 				454CF1D12BAB711F00A6AA80 /* HTTPTypes */,
 				454CF1D32BAB711F00A6AA80 /* HTTPTypesFoundation */,
 				457690DA2D96F26B00493941 /* Macplugins */,
+				4531D3ED2DA01AA300F3BD28 /* AsyncAlgorithms */,
 			);
 			productName = NewSwiftUILearning;
 			productReference = 45DFA8682AFFEC6A003A1F54 /* NewSwiftUILearning.app */;
@@ -206,6 +209,7 @@
 			packageReferences = (
 				454CF1CE2BAB6F8900A6AA80 /* XCRemoteSwiftPackageReference "swift-http-types" */,
 				45B4AD252C1A13B600552EFF /* XCRemoteSwiftPackageReference "macplugins" */,
+				4531D3EC2DA01AA300F3BD28 /* XCRemoteSwiftPackageReference "swift-async-algorithms" */,
 			);
 			productRefGroup = 45DFA8692AFFEC6A003A1F54 /* Products */;
 			projectDirPath = "";
@@ -609,6 +613,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		4531D3EC2DA01AA300F3BD28 /* XCRemoteSwiftPackageReference "swift-async-algorithms" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apple/swift-async-algorithms";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.3;
+			};
+		};
 		454CF1CE2BAB6F8900A6AA80 /* XCRemoteSwiftPackageReference "swift-http-types" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/apple/swift-http-types";
@@ -628,6 +640,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		4531D3ED2DA01AA300F3BD28 /* AsyncAlgorithms */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4531D3EC2DA01AA300F3BD28 /* XCRemoteSwiftPackageReference "swift-async-algorithms" */;
+			productName = AsyncAlgorithms;
+		};
 		454CF1D12BAB711F00A6AA80 /* HTTPTypes */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 454CF1CE2BAB6F8900A6AA80 /* XCRemoteSwiftPackageReference "swift-http-types" */;
