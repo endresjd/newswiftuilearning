@@ -38,10 +38,20 @@
 		45DFA8822AFFEC6B003A1F54 /* NewSwiftUILearningUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NewSwiftUILearningUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		45ED06F32DA6BB7A005E1113 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 45DFA8672AFFEC6A003A1F54 /* NewSwiftUILearning */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		45B354B62CF7A10A00F7C2BD /* NewSwiftUILearningTests */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = NewSwiftUILearningTests; sourceTree = "<group>"; };
 		45B354BB2CF7A11200F7C2BD /* NewSwiftUILearningUITests */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = NewSwiftUILearningUITests; sourceTree = "<group>"; };
-		45B355282CF7A11700F7C2BD /* NewSwiftUILearning */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = NewSwiftUILearning; sourceTree = "<group>"; };
+		45B355282CF7A11700F7C2BD /* NewSwiftUILearning */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (45ED06F32DA6BB7A005E1113 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = NewSwiftUILearning; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -441,6 +451,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"NewSwiftUILearning/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = NewSwiftUILearning/Info.plist;
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "To support example views";
 				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "To support example views";
 				INFOPLIST_KEY_NSLocationUsageDescription = "To support example views";
@@ -475,6 +486,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"NewSwiftUILearning/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = NewSwiftUILearning/Info.plist;
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "To support example views";
 				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "To support example views";
 				INFOPLIST_KEY_NSLocationUsageDescription = "To support example views";

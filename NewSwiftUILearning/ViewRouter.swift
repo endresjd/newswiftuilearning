@@ -34,6 +34,7 @@ enum ViewRouter: String, CaseIterable {
     case deferGesture = "Defer Gesture (16)"
     case disclosureGroup = "DisclosureGroup (14)"
     case divider = "Divider (13)"
+    case dragAndDrop = "Drag and Drop (16)"
     case entryMacro = "Entry Macro (18)"
     case environment = "Environment (17)"
     case groupBox = "GroupBox (14)"
@@ -184,6 +185,8 @@ enum ViewRouter: String, CaseIterable {
             DisclosureGroupExample()
         case .divider:
             DividerExample()
+        case .dragAndDrop:
+            DragAndDropExample()
         case .entryMacro:
             EntryMacroView()
         case .environment:
