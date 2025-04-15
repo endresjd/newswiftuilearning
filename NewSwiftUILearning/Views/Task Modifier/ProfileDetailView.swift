@@ -33,6 +33,13 @@ struct ProfileDetailView: View {
         }
         .padding()
         .navigationTitle("Profile Details")
+        .task(id: error) {
+            if let error {
+                print("From task: \(error)")
+            } else {
+                print("From task: error cleared")
+            }
+        }
         
         // MARK: - Single task
 //        .task {
