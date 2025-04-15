@@ -26,6 +26,7 @@ enum ViewRouter: String, CaseIterable {
     case circle = "Circle (13)"
     case color = "Color (13)"
     case colorPicker = "ColorPicker (14)"
+    case containerRelativeFrames = "ContainerRelativeFrames (17)"
     case containerRelativeShape = "ContainerRelativeShape (14)"
     case contentUnavailable = "ContentUnavailableView (17)"
     case controls = "Controls (18)"
@@ -111,6 +112,7 @@ enum ViewRouter: String, CaseIterable {
     case tabView = "TabView (13)"
     case tabView18 = "TabView (18)"
     case tappedLocation = "Tapped Location (16)"
+    case taskModifier = "Task Modifier (15)"
     case textEditor = "TextEditor (14)"
     case textField = "TextField (13)"
     case textRenderer = "TextRenderer (17)"
@@ -166,6 +168,8 @@ enum ViewRouter: String, CaseIterable {
             PieChartProgressExampleView()
         case .circle:
             CircleExample()
+        case .containerRelativeFrames:
+            ContainerRelativeFramesExample()
         case .containerRelativeShape:
             ContainerRelativeShapeExample()
         case .color:
@@ -342,6 +346,8 @@ enum ViewRouter: String, CaseIterable {
             }
         case .tappedLocation:
             TapLocationExample()
+        case .taskModifier:
+            TaskModifierExample()
         case .textEditor:
             TextEditorExample()
         case .textField:
