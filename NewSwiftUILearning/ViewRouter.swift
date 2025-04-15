@@ -94,6 +94,7 @@ enum ViewRouter: String, CaseIterable {
     case requestReview = "Request Review (16)"
     case rotatedShape = "RotatedShape (13)"
     case roundedRectangle = "RoundedRectangle (13)"
+    case safeArea = "Safe Area (13)"
     case scaledShape = "ScaledShape (13)"
     case scrollPosition = "ScrollPosition (18)"
     case scrollViewIndicators = "Scroll indicators (16)"
@@ -305,6 +306,8 @@ enum ViewRouter: String, CaseIterable {
             RotatedShapeExample()
         case .roundedRectangle:
             RoundedRectangleExample()
+        case .safeArea:
+            SafeAreaExample()
         case .scaledShape:
             ScaledShapeExample()
         case .scrollPosition:
