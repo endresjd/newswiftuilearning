@@ -72,13 +72,6 @@ struct ContentView: View {
         }
     }
     
-    /// Wrapped in just a NavigationStack
-    var oldBody: some View {
-        NavigationStack(path: $navPath) {
-            contents
-        }
-    }
-    
     /// Split view where detail is determined by selection
     var selectionBody: some View {
         // A selection based split view
@@ -131,7 +124,6 @@ struct ContentView: View {
     var body: some View {
         selectionBody
         // adaptiveBody
-        // oldBody
     }
 }
 
