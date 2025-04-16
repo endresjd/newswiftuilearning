@@ -21,37 +21,51 @@ import SwiftUI
 ///     * [Placing UI components within the Safe Area Inset](https://www.createwithswift.com/placing-ui-components-within-the-safe-area-inset)
 ///     * [Adding a background to your view](https://www.createwithswift.com/placing-ui-components-within-the-safe-area-inset)
 struct SafeAreaExample: View {
+    @State private var ignoreSafeArea = true
+    @State private var addPadding = true
+    @State private var showTop = true
+    @State private var showBottom = true
+
     var body: some View {
         ZStack {
             LinearGradient(colors: [.blue, .purple], startPoint: .top, endPoint: .bottom)
-                .ignoresSafeArea()
+                .padding(.horizontal)
+                .if(ignoreSafeArea) { view in
+                    view
+                        .ignoresSafeArea()
+                }
             
             VStack {
-                Text("Top bar in safe area?")
-                    .font(.title)
-                    .fontWeight(.bold)
-                    .foregroundColor(.white)
+                Toggle("Ignore Safe Area", isOn: $ignoreSafeArea)
+                Toggle("Safe area padding", isOn: $addPadding)
+                Toggle("Add to top area", isOn: $showTop)
+                Toggle("Add to bottom area", isOn: $showBottom)
+
                 Spacer()
-                Text("Safe Area Insets Example")
-                    .font(.title)
-                    .fontWeight(.bold)
-                    .foregroundColor(.white)
-                Spacer()
-                Text("Bottom bar in safe area?")
-                    .font(.title)
-                    .fontWeight(.bold)
-                    .foregroundColor(.white)
+                
+                Text("Bottom of view")
             }
+            .foregroundColor(.white)
+            .padding(.horizontal)
         }
-        // Adds the provided insets into the safe area of this view.
-        .safeAreaPadding([.top, .bottom], 64.0)
-        // allows us to insert additional content along a specified edge of a view’s safe area.
-        .safeAreaInset(edge: .top, spacing: 0) {
-            safeAreaComponent(text: "Top Bar", symbolName: "globe")
+        .if(addPadding) { view in
+            // Adds the provided insets into the safe area of this view.
+            view
+                .safeAreaPadding([.top, .bottom], 64.0)
         }
-        // allows us to insert additional content along a specified edge of a view’s safe area.
-        .safeAreaInset(edge: .bottom, spacing: 0) {
-            safeAreaComponent(text: "Bottom Bar", symbolName: "star.fill")
+        .if(showTop) { view in
+            // allows us to insert additional content along a specified edge of a view’s safe area.
+            view
+                .safeAreaInset(edge: .top, spacing: 0) {
+                    safeAreaComponent(text: "Top Bar", symbolName: "globe")
+                }
+        }
+        .if(showBottom) { view in
+            // allows us to insert additional content along a specified edge of a view’s safe area.
+            view
+                .safeAreaInset(edge: .bottom, spacing: 0) {
+                    safeAreaComponent(text: "Bottom Bar", symbolName: "star.fill")
+                }
         }
     }
     
