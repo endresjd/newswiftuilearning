@@ -186,16 +186,21 @@ struct InteractiveContainerRelativeFrameExample: View {
             ScrollView(.horizontal) {
                 LazyHStack(spacing: CGFloat(stackSpacing)) {
                     ForEach(0 ..< 10) { page in
-                        Rectangle()
-                            .fill(.background)
-                            .overlay {
-                                // ROFL: Use the overlay modifier when you want the modified view to dominate the layout.
-                                Text(page, format: .number)
-                                    .font(.title)
-                                    .foregroundStyle(.red)
-                                    .padding()
-                                    .border(.green, width: 2)
-                            }
+//                        Rectangle()
+//                            .fill(.background)
+//                            .overlay {
+//                                // ROFL: Use the overlay modifier when you want the modified view to dominate the layout.
+//                                Text(page, format: .number)
+//                                    .font(.title)
+//                                    .foregroundStyle(.red)
+//                                    .padding()
+//                                    .border(.green, width: 2)
+//                            }
+                        Text(page, format: .number)
+                            .font(.title)
+                            .foregroundStyle(.red)
+                            .padding()
+                            .border(.green, width: 2)
                             .if(fixedHeight) { view in
                                 view
                                     .frame(height: 200)
