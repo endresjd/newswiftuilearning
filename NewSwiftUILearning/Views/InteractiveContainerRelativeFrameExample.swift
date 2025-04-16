@@ -9,7 +9,9 @@ import SwiftUI
 
 /// Shows how different scrollTargetBehavior and containerRelativeFrame affect view scrolling
 ///
-/// - SeeAlso: [Implementing Custom Paging](https://fatbobman.com/en/posts/mastering-swiftui-scrolling-implementing-custom-paging)
+/// - SeeAlso:
+///     * [Implementing Custom Paging](https://fatbobman.com/en/posts/mastering-swiftui-scrolling-implementing-custom-paging)
+///     * [New Features of ScrollView in SwiftUI 5](https://fatbobman.com/en/posts/new-features-of-scrollview-in-swiftui5/)
 struct InteractiveContainerRelativeFrameExample: View {
     /// Choices for the scrolling behavior picker
     private enum Behavior: String, CaseIterable {
@@ -60,11 +62,6 @@ struct InteractiveContainerRelativeFrameExample: View {
         }
     }
 
-    private enum FixedHeight: String, CaseIterable {
-        case yes
-        case no
-    }
-    
     /// Selected behavior choice
     @State private var selectedBehavior = Behavior.paging
     
@@ -81,14 +78,21 @@ struct InteractiveContainerRelativeFrameExample: View {
     @State private var stackSpacing = 0
     
     /// Whether to force a height for the view external to this modifier
-    @State private var fixedHeight = FixedHeight.yes
+    @State private var fixedHeight = true
     
     /// Whether to force a height for the ScrollView
-    @State private var fixedHeightScrollView = FixedHeight.yes
+    @State private var fixedHeightScrollView = true
     
     /// Whether to force a height for the ScrollView
-    @State private var showBorder = FixedHeight.yes
-
+    @State private var showBorder = true
+    
+    /// Whether to turn on .scrollTargetLayout(isEnabled: isEnabled)
+    ///
+    /// One of the blog posts above says this is required when the target behavior
+    /// is .viewAligned.  Observation shows that .viewAligned. .paging will scroll
+    /// one full view width at a time.
+    @State private var layoutEnable = false
+    
     /// Count value for the frame
     ///
     /// This is how many views are shown at the same time in the stack
@@ -101,6 +105,9 @@ struct InteractiveContainerRelativeFrameExample: View {
     /// This is the opposite of count, so if this was 2 and count is 1 then
     /// the element being shown would only show half at a time.
     @State private var span = 1
+    
+    /// Value for content margins
+    @State private var margins = 0
     
     /// Padding to put around the element in the scroll view
     @State private var horizontalPadding = 0.0
@@ -123,9 +130,18 @@ struct InteractiveContainerRelativeFrameExample: View {
             EnumPicker(title: "Behavior", sorted: false, selection: $selectedBehavior)
             EnumPicker(title: "Alignment", sorted: true, capitalized: true, selection: $alignment)
             EnumPicker(title: "Axis", sorted: true, capitalized: true, selection: $axis)
-            EnumPicker(title: "Fixed height", sorted: true, capitalized: true, selection: $fixedHeight)
-            EnumPicker(title: "Fixed height Scrollview", sorted: true, capitalized: true, selection: $fixedHeightScrollView)
-            EnumPicker(title: "Show border", sorted: true, capitalized: true, selection: $showBorder)
+            Toggle("Fixed height", isOn: $fixedHeight)
+            Toggle("Fixed height Scrollview", isOn: $fixedHeightScrollView)
+            Toggle("Show border", isOn: $showBorder)
+            Toggle("Layout enable", isOn: $layoutEnable)
+
+            LabeledContent {
+                Stepper(value: $margins, in: -10...10) {
+                    Text(margins.formatted(.number))
+                }
+            } label: {
+                Text("Content Margins:")
+            }
 
             LabeledContent {
                 Stepper(value: $horizontalPadding, in: -10...10) {
@@ -164,7 +180,7 @@ struct InteractiveContainerRelativeFrameExample: View {
                     Text(spacing.formatted(.number))
                 }
             } label: {
-                Text("spacing:")
+                Text("Spacing:")
             }
 
             ScrollView(.horizontal) {
@@ -180,7 +196,7 @@ struct InteractiveContainerRelativeFrameExample: View {
                                     .padding()
                                     .border(.green, width: 2)
                             }
-                            .if(fixedHeight == .yes) { view in
+                            .if(fixedHeight) { view in
                                 view
                                     .frame(height: 200)
                             }
@@ -191,14 +207,15 @@ struct InteractiveContainerRelativeFrameExample: View {
                                 spacing: CGFloat(spacing),
                                 alignment: alignment.value
                             )
-                            .if(showBorder == .yes) { view in
+                            .if(showBorder) { view in
                                 view
                                     .border(.gray, width: 2)
                             }
                             .padding(.horizontal, horizontalPadding)
                     }
                 }
-                .if(fixedHeightScrollView == .yes) { view in
+                .scrollTargetLayout(isEnabled: layoutEnable)
+                .if(fixedHeightScrollView) { view in
                     view
                         .frame(height: 200)
                 }
@@ -212,6 +229,7 @@ struct InteractiveContainerRelativeFrameExample: View {
                     .scrollTargetBehavior(.viewAligned)
             }
             // Don't know why this fails: .scrollTargetBehavior(behavior)
+            .contentMargins(.horizontal, CGFloat(margins), for: .scrollContent)
         }
     }
 }
