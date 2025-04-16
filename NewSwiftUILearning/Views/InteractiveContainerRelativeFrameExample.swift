@@ -17,6 +17,7 @@ struct InteractiveContainerRelativeFrameExample: View {
     private enum Behavior: String, CaseIterable {
         case paging = "Paging"
         case aligned = "View Aligned"
+        case byOne = "View Aligned by One"
     }
     
     private enum ExampleAlignment: String, CaseIterable {
@@ -119,7 +120,7 @@ struct InteractiveContainerRelativeFrameExample: View {
         switch selectedBehavior {
         case .paging:
             return .paging
-        case .aligned:
+        case .aligned, .byOne:
             return .viewAligned
         }
     }
@@ -232,6 +233,10 @@ struct InteractiveContainerRelativeFrameExample: View {
             .if(selectedBehavior == .aligned) { view in
                 view
                     .scrollTargetBehavior(.viewAligned)
+            }
+            .if(selectedBehavior == .byOne) { view in
+                view
+                    .scrollTargetBehavior(.viewAligned(limitBehavior: .alwaysByOne))
             }
             // Don't know why this fails: .scrollTargetBehavior(behavior)
             .contentMargins(.horizontal, CGFloat(margins), for: .scrollContent)

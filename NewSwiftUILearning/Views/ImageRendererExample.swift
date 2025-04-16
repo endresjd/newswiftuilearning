@@ -11,7 +11,7 @@ import SwiftUI
 ///
 /// The SwiftUI ImageRenderer takes any view as input and outputs a UIImage on iOS, tvOS and watchOS, and an NSImage on macOS
 ///
-/// - SeeAlso: [Using the SwiftUI 4 ImageRenderer](https://danielsaidi.com/blog/2022/06/20/using-the-swiftui-imagerenderer?utm_source=newsletter&utm_medium=email&utm_campaign=ios_cocoa_treats&utm_term=2024-11-25)
+/// - SeeAlso: [Using the SwiftUI 4 ImageRenderer](https://danielsaidi.com/blog/2022/06/20/using-the-swiftui-imagerenderer)
 struct ImageRendererExample: View {
     @State private var snapshot: UIImage?
 
