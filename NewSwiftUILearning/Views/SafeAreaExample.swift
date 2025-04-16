@@ -22,51 +22,50 @@ import SwiftUI
 ///     * [Adding a background to your view](https://www.createwithswift.com/placing-ui-components-within-the-safe-area-inset)
 struct SafeAreaExample: View {
     @State private var ignoreSafeArea = true
-    @State private var addPadding = true
+    @State private var addPadding = false
     @State private var showTop = true
     @State private var showBottom = true
-
+    
     var body: some View {
-        ZStack {
-            LinearGradient(colors: [.blue, .purple], startPoint: .top, endPoint: .bottom)
-                .padding(.horizontal)
-                .if(ignoreSafeArea) { view in
-                    view
-                        .ignoresSafeArea()
-                }
-            
-            VStack {
-                Toggle("Ignore Safe Area", isOn: $ignoreSafeArea)
-                Toggle("Safe area padding", isOn: $addPadding)
-                Toggle("Add to top area", isOn: $showTop)
-                Toggle("Add to bottom area", isOn: $showBottom)
-
-                Spacer()
-                
-                Text("Bottom of view")
-            }
-            .foregroundColor(.white)
+        LinearGradient(colors: [.blue, .purple], startPoint: .top, endPoint: .bottom)
             .padding(.horizontal)
-        }
-        .if(addPadding) { view in
-            // Adds the provided insets into the safe area of this view.
-            view
-                .safeAreaPadding([.top, .bottom], 64.0)
-        }
-        .if(showTop) { view in
-            // allows us to insert additional content along a specified edge of a view’s safe area.
-            view
-                .safeAreaInset(edge: .top, spacing: 0) {
-                    safeAreaComponent(text: "Top Bar", symbolName: "globe")
+            .if(ignoreSafeArea) { view in
+                view
+                    .ignoresSafeArea()
+            }
+            .overlay {
+                VStack {
+                    Toggle("Ignore Safe Area", isOn: $ignoreSafeArea)
+                    Toggle("Safe area padding", isOn: $addPadding)
+                    Toggle("Add to top area", isOn: $showTop)
+                    Toggle("Add to bottom area", isOn: $showBottom)
+                    
+                    Spacer()
+                    
+                    Text("Bottom of view")
                 }
-        }
-        .if(showBottom) { view in
-            // allows us to insert additional content along a specified edge of a view’s safe area.
-            view
-                .safeAreaInset(edge: .bottom, spacing: 0) {
-                    safeAreaComponent(text: "Bottom Bar", symbolName: "star.fill")
-                }
-        }
+                .foregroundColor(.white)
+                .padding(.horizontal)
+            }
+            .if(addPadding) { view in
+                // Adds the provided insets into the safe area of this view.
+                view
+                    .safeAreaPadding([.top, .bottom], 64.0)
+            }
+            .if(showTop) { view in
+                // allows us to insert additional content along a specified edge of a view’s safe area.
+                view
+                    .safeAreaInset(edge: .top, spacing: 0) {
+                        safeAreaComponent(text: "Top Safe Area", symbolName: "globe")
+                    }
+            }
+            .if(showBottom) { view in
+                // allows us to insert additional content along a specified edge of a view’s safe area.
+                view
+                    .safeAreaInset(edge: .bottom, spacing: 0) {
+                        safeAreaComponent(text: "Bottom Safe Area", symbolName: "star.fill")
+                    }
+            }
     }
     
     func safeAreaComponent(text: String, symbolName: String) -> some View {
