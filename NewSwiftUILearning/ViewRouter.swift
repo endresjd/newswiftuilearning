@@ -124,6 +124,7 @@ enum ViewRouter: String, CaseIterable {
     case timelineView = "TimelineView (15)"
     case toggle = "Toggle (13)"
     case transformedShape = "TransformedShape (13)"
+    case triggerPattern = "Trigger"
     case typedThrows = "Typed Throws"
     case weatherKit = "WeatherKit (16)"
     case zoomNavigationTransition = "Zoom Navigation Transition (18)"
@@ -378,6 +379,8 @@ enum ViewRouter: String, CaseIterable {
             ToggleExample()
         case .transformedShape:
             TransformedShapeExample()
+        case .triggerPattern:
+            TriggerPatternExample()
         case .typedThrows:
             TypedThrowsView()
         case .weatherKit:
