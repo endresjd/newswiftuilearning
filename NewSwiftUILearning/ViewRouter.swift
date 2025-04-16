@@ -55,8 +55,9 @@ enum ViewRouter: String, CaseIterable {
     case guage = "Guage (16)"
     case heroAnimation = "Hero Animation (18)"
     case httpTypes = "HTTPTypes (13)"
-    case inspector = "Inspector (17)"
     case imageRenderer = "ImageRenderer (16)"
+    case inspector = "Inspector (17)"
+    case interactiveScrollTarget = "Interactive Scrolling Frame (17)"
     case keyFrameAnimator = "KeyFrameAnimator (17)"
     case label = "Label (14)"
     case labeledContent = "LabeledContent (16)"
@@ -137,7 +138,7 @@ enum ViewRouter: String, CaseIterable {
             return number
         }
 
-        return 0
+        return 1000
     }
     
     /// The associated view that the enum value represents
@@ -316,6 +317,8 @@ enum ViewRouter: String, CaseIterable {
             } else {
                 FutureFeatureView()
             }
+        case .interactiveScrollTarget:
+            InteractiveContainerRelativeFrameExample()
         case .scrollViewIndicators:
             ScrollViewIndicatorsExample()
         case .scrollViewKeyboard:

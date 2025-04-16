@@ -41,13 +41,13 @@ struct LabeledContentExample: View {
                 Text("Count")
             }
 
-            LabeledContent("Label", value: "Content")
+            LabeledContent("Label 1", value: "Content")
                 .labeledContentStyle(.accented)
 
-            LabeledContent("Label", value: "Content")
+            LabeledContent("Label 2", value: "Content")
                 .labeledContentStyle(.vertical)
             
-            LabeledContent("Label", value: "labelsHidden Content")
+            LabeledContent("Label 3", value: "labelsHidden Content")
                 .labelsHidden()
         }
     }

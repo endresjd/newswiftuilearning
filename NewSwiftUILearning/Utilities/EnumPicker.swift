@@ -23,21 +23,40 @@ struct EnumPicker<T: RawRepresentable & CaseIterable & Hashable>: View where T.A
     /// True to sort the cases
     var sorted = false
     
+    /// If the text value should be capitalized
+    var capitalized = false
+    
     /// Holds the currently selected item
     @Binding var selection: T
     
-    var allCases: T.AllCases {
-        if sorted, let result = T.allCases.sorted(by: { $0.rawValue < $1.rawValue }) as? T.AllCases {
-            return result
+    /// Returns all cases of the enum, sorted and capitalized if needed
+    private var allCases: T.AllCases {
+        if sorted {
+            let result = T.allCases.sorted { left, right -> Bool in
+                if capitalized {
+                    return left.rawValue.capitalized < right.rawValue.capitalized
+                } else {
+                    return left.rawValue < right.rawValue
+                }
+            } as? T.AllCases
+            
+            if let result {
+                return result
+            }
         }
         
         return T.allCases
     }
     
+    @ViewBuilder
     var body: some View {
         Picker(title, selection: $selection) {
             ForEach(allCases, id: \.self) { item in
-                Text(item.rawValue)
+                if capitalized {
+                    Text(item.rawValue.capitalized)
+                } else {
+                    Text(item.rawValue)
+                }
             }
         }
     }
@@ -50,17 +69,17 @@ struct EnumPicker<T: RawRepresentable & CaseIterable & Hashable>: View where T.A
 private enum ExampleEnum: String, CaseIterable {
     case one
     case two
-    case three
+    case three = "Three"
 }
 
 #Preview {
     @Previewable @State var selection = ExampleEnum.one
 
     EnumPicker(title: "Example", sorted: false, selection: $selection)
-    EnumPicker(title: "Example", sorted: true, selection: $selection)
+    EnumPicker(title: "Example", sorted: true, capitalized: true, selection: $selection)
     
     Form {
         EnumPicker(title: "Example", sorted: false, selection: $selection)
-        EnumPicker(title: "Example", sorted: true, selection: $selection)
+        EnumPicker(title: "Example", sorted: true, capitalized: true, selection: $selection)
     }
 }
