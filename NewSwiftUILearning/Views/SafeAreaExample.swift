@@ -20,6 +20,7 @@ import SwiftUI
 /// - SeeAlso:
 ///     * [Placing UI components within the Safe Area Inset](https://www.createwithswift.com/placing-ui-components-within-the-safe-area-inset)
 ///     * [Adding a background to your view](https://www.createwithswift.com/placing-ui-components-within-the-safe-area-inset)
+///     * [The safe area](https://www.swiftuifieldguide.com/layout/safe-area)
 struct SafeAreaExample: View {
     @State private var ignoreSafeArea = true
     @State private var addPadding = false
