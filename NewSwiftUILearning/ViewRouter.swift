@@ -108,6 +108,7 @@ enum ViewRouter: String, CaseIterable {
     case sfSymbolColor = "SF Symbol Colors (16)"
     case shareLink = "ShareLink (16)"
     case slider = "Slider (13)"
+    case spriteKit = "SpriteKit (8)"        // Unsure about the version!
     case stepper = "Stepper (13)"
     case subscriptionView = "SubscriptionView (13)"
     case table = "Table (16)"
@@ -342,6 +343,8 @@ enum ViewRouter: String, CaseIterable {
             ShareLinkExample()
         case .slider:
             SliderExample()
+        case .spriteKit:
+            SnowSceneView()
         case .stepper:
             StepperExample()
         case .subscriptionView:
