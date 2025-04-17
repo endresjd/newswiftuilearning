@@ -126,6 +126,7 @@ enum ViewRouter: String, CaseIterable {
     case transformedShape = "TransformedShape (13)"
     case triggerPattern = "Trigger"
     case typedThrows = "Typed Throws"
+    case visualEffect = "visualEffect (17)"
     case weatherKit = "WeatherKit (16)"
     case zoomNavigationTransition = "Zoom Navigation Transition (18)"
     
@@ -383,6 +384,8 @@ enum ViewRouter: String, CaseIterable {
             TriggerPatternExample()
         case .typedThrows:
             TypedThrowsView()
+        case .visualEffect:
+            VisualEffectExample()
         case .weatherKit:
             WeatherKitExample()
         case .zoomNavigationTransition:
