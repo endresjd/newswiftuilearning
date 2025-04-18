@@ -70,8 +70,12 @@ struct VisualEffectExample: View {
             HStack {
                 Spacer()
                 
+                // Swift 6 warning/error: Main actor-isolated property 'isScaled' can not be referenced from a Sendable closure; this is an error in the Swift 6 language mode
+                // Solution is to capture that variable in the closure [isScaled].
+                //
+                // See: https://stackoverflow.com/questions/79148855/how-to-use-an-state-property-from-a-sendable-closure-in-swiftui
                 Text("Animated")
-                    .visualEffect { initial, geometry in
+                    .visualEffect { [isScaled] initial, geometry in
                         initial.scaleEffect(
                             CGSize(
                                 width: isScaled ? 2 : 1,

@@ -11,7 +11,6 @@ import AsyncAlgorithms
 /// Listen for change using AsyncStream
 ///
 /// - SeeAlso: [How to listen for property changes in an @Observable class using AsyncStreams](https://www.polpiella.dev/observable-property-changes)
-/// - Important: This seems like a non-viable solution that cannot be easily be made to work with Swift 6, at least in a safe manner.  Probably needs to be deleted.
 struct AsyncStreamsObservable: View {
     @State var viewModel = ViewModel()
     
@@ -48,7 +47,7 @@ struct AsyncStreamsObservable: View {
 /// The solution was to make the model a final Sendable
 ///
 /// - Important: Doesn't seem to shutdown when relying on init and deinit.  The deinit is not called when task is active?
-@Observable final class ViewModel: Sendable {
+@Observable final class ViewModel {
     /// The stream and access to its continuation
     ///
     /// A tuple containing the stream and its continuation. The continuation should be passed to
@@ -71,7 +70,7 @@ struct AsyncStreamsObservable: View {
     ///
     /// See: https://www.hackingwithswift.com/quick-start/concurrency/important-do-not-use-an-actor-for-your-swiftui-data-models
     /// for more information.
-    func startListening() async {
+    @MainActor func startListening() async {
         // Read and react to values published to the stream
         //
         // removeDuplicates: Creates an asynchronous sequence that omits repeated elements
