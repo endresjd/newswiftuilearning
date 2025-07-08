@@ -32,7 +32,7 @@ struct AnyLayoutExample: View {
 
         ScrollView {
             Text(horizontalSizeClass == .regular ? "Regular" : "Compact")
-            Text("\(dynamicTypeSize)")
+            Text(String(describing: dynamicTypeSize))
             
             Divider()
 

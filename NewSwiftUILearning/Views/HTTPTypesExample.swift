@@ -28,7 +28,7 @@ struct HTTPTypesExample: View {
     
     var body: some View {
         ScrollView {
-            Text("Status code: \(result)")
+            Text("Status code: \(String(describing: result))")
 
             Divider()
 

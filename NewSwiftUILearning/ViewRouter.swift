@@ -13,6 +13,7 @@ import SwiftUI
 enum ViewRouter: String, CaseIterable {
     case alert = "Alert (15)"
     case angularGradient = "AngularGradient (13)"
+    case animimatableMacro = "Animatable Macro (26)"
     case anyLayout = "AnyLayout (16)"
     case anyShapeExample = "AnyShapeExample (16)"
     case asyncImage = "AsyncImage (15)"
@@ -39,6 +40,7 @@ enum ViewRouter: String, CaseIterable {
     case dragAndDrop = "Drag and Drop (16)"
     case entryMacro = "Entry Macro (18)"
     case environment = "Environment (17)"
+    case fixedWidthIcon = "Fixed Width Icon (26)"
     case groupBox = "GroupBox (14)"
     case editButton = "EditButton (13)"
     case ellipse = "Ellipse (13)"
@@ -56,6 +58,7 @@ enum ViewRouter: String, CaseIterable {
     case heroAnimation = "Hero Animation (18)"
     case httpTypes = "HTTPTypes (13)"
     case imageRenderer = "ImageRenderer (16)"
+    case inAppWebBrowser = "In App Web (26)"
     case inspector = "Inspector (17)"
     case interactiveScrollTarget = "Interactive Scrolling Frame (17)"
     case keyFrameAnimator = "KeyFrameAnimator (17)"
@@ -68,6 +71,7 @@ enum ViewRouter: String, CaseIterable {
     case linearGradient = "LinearGradient (13)"
     case link = "Link (14)"
     case list = "List (13)"
+    case listSectionMargin = "List Section Margin (26)"
     case locationManager = "Location (2)"
     case keyboardExamples = "Keyboard (17ish)"
     case markdown = "Markdown (15)"
@@ -77,6 +81,7 @@ enum ViewRouter: String, CaseIterable {
     case meshGradient = "MeshGradient (18)"
     case multiDatePicker = "MultiDatePicker (16)"
     case navigationSplitView = "NavigationSplitView (16)"
+    case navigationSubTitle = "Navigation Subtitle (26)"
     case navigationStack = "NavigationStack (16)"
     case navigationView = "NavigationViewExample (13) deprecated"
     case observation = "Observation Framework (17)"
@@ -94,16 +99,20 @@ enum ViewRouter: String, CaseIterable {
     case radialGradient = "RadialGradient (13)"
     case renameButton = "RenameButton (16)"
     case requestReview = "Request Review (16)"
+    case richText = "Rich Text edtior (26)"
     case rotatedShape = "RotatedShape (13)"
     case roundedRectangle = "RoundedRectangle (13)"
     case safeArea = "Safe Area (13)"
     case scaledShape = "ScaledShape (13)"
+    case scenePadding = "Scene Padding (15)"
+    case scrollEdgeEffect = "Scroll Edge Effect (26)"
     case scrollPosition = "ScrollPosition (18)"
     case scrollViewIndicators = "Scroll indicators (16)"
     case scrollViewKeyboard = "Scroll dismiss (16)"
     case scrollViewReader = "ScrollViewReader (14)"
     case scrollViewVisibility = "ScrollView Visibility (18)"
     case section = "Section (13)"
+    case sectionIndexLabel = "Section Index Label (26)"
     case secureField = "SecureField (13)"
     case sfSymbolColor = "SF Symbol Colors (16)"
     case shareLink = "ShareLink (16)"
@@ -116,6 +125,8 @@ enum ViewRouter: String, CaseIterable {
     case tabSection = "TabSection (18)"
     case tabView = "TabView (13)"
     case tabView18 = "TabView (18)"
+    case tabViewAccessory = "TabView Accessory (26)"
+    case tabViewMinimize = "TabView Minimize (26)"
     case tappedLocation = "Tapped Location (16)"
     case taskModifier = "Task Modifier (15)"
     case textEditor = "TextEditor (14)"
@@ -124,11 +135,13 @@ enum ViewRouter: String, CaseIterable {
     case textSelection = "Text selection/subviewsOf (18)"
     case timelineView = "TimelineView (15)"
     case toggle = "Toggle (13)"
+    case toolbarSpacer = "Toolbar Spacer (26)"
     case transformedShape = "TransformedShape (13)"
     case triggerPattern = "Trigger"
     case typedThrows = "Typed Throws"
     case visualEffect = "visualEffect (17)"
     case weatherKit = "WeatherKit (16)"
+    case webView = "WebView (18.4)"
     case zoomNavigationTransition = "Zoom Navigation Transition (18)"
     
     /// Name to use when all these are displayed in a list in the interface
@@ -153,6 +166,12 @@ enum ViewRouter: String, CaseIterable {
             BindingExtensions()
         case .angularGradient:
             AngularGradientExample()
+        case .animimatableMacro:
+            if #available(iOS 26, *) {
+                AnimatableMacroExample()
+            } else {
+                FutureFeatureView()
+            }
         case .anyLayout:
             AnyLayoutExample()
         case .anyShapeExample:
@@ -205,6 +224,12 @@ enum ViewRouter: String, CaseIterable {
             EntryMacroView()
         case .environment:
             EnvironmentExample()
+        case .fixedWidthIcon:
+            if #available(iOS 26, *) {
+                FixedWidthLabelIconExample()
+            } else {
+                FutureFeatureView()
+            }
         case .groupBox:
             GroupBoxExampleView()
         case .editButton:
@@ -237,6 +262,12 @@ enum ViewRouter: String, CaseIterable {
             InspectorExample()
         case .imageRenderer:
             ImageRendererExample()
+        case .inAppWebBrowser:
+            if #available(iOS 26.0, *) {
+                InAppBrowserExample()
+            } else {
+                FutureFeatureView()
+            }
         case .keyFrameAnimator:
             KeyframeAnimatorExample()
         case .label:
@@ -257,6 +288,12 @@ enum ViewRouter: String, CaseIterable {
             LinkExample()
         case .list:
             ListExample()
+        case .listSectionMargin:
+            if #available(iOS 26.0, *) {
+                ListSectionMarginExample()
+            } else {
+                FutureFeatureView()
+            }
         case .locationManager:
             LocationManagerExample()
         case .keyboardExamples:
@@ -275,6 +312,12 @@ enum ViewRouter: String, CaseIterable {
             MultiDatePickerExample()
         case .navigationSplitView:
             NavigationSplitViewExample()
+        case .navigationSubTitle:
+            if #available(iOS 26.0, *) {
+                NavigationSubtitleExample()
+            } else {
+                FutureFeatureView()
+            }
         case .navigationStack:
             NavigationStackExample()
         case .navigationView:
@@ -309,6 +352,12 @@ enum ViewRouter: String, CaseIterable {
             RenameButtonExample()
         case .requestReview:
             RequestReviewExample()
+        case .richText:
+            if #available(iOS 26, *) {
+                RichTextExample()
+            } else {
+                FutureFeatureView()
+            }
         case .rotatedShape:
             RotatedShapeExample()
         case .roundedRectangle:
@@ -317,6 +366,14 @@ enum ViewRouter: String, CaseIterable {
             SafeAreaExample()
         case .scaledShape:
             ScaledShapeExample()
+        case .scenePadding:
+            ScenePaddingExample()
+        case .scrollEdgeEffect:
+            if #available(iOS 26.0, *) {
+                ScrollEdgeEffectStyleExample()
+            } else {
+                FutureFeatureView()
+            }
         case .scrollPosition:
             if #available(iOS 18, *) {
                 ScrollPositionExampleView()
@@ -335,6 +392,12 @@ enum ViewRouter: String, CaseIterable {
             ScrollViewVisibility()
         case .section:
             SectionExample()
+        case .sectionIndexLabel:
+            if #available(iOS 26, *) {
+                SectionIndexLabelsExample()
+            } else {
+                FutureFeatureView()
+            }
         case .secureField:
             SecureFieldExample()
         case .sfSymbolColor:
@@ -361,6 +424,18 @@ enum ViewRouter: String, CaseIterable {
             } else {
                 FutureFeatureView()
             }
+        case .tabViewAccessory:
+            if #available(iOS 26.0, *) {
+                TabViewAccessoryExample()
+            } else {
+                FutureFeatureView()
+            }
+        case .tabViewMinimize:
+            if #available(iOS 26.0, *) {
+                TabViewMinimizeExample()
+            } else {
+                FutureFeatureView()
+            }
         case .tappedLocation:
             TapLocationExample()
         case .taskModifier:
@@ -381,6 +456,12 @@ enum ViewRouter: String, CaseIterable {
             TimelineViewExample()
         case .toggle:
             ToggleExample()
+        case .toolbarSpacer:
+            if #available(iOS 26.0, *) {
+                ToolbarSpacerExample()
+            } else {
+                FutureFeatureView()
+            }
         case .transformedShape:
             TransformedShapeExample()
         case .triggerPattern:
@@ -391,6 +472,8 @@ enum ViewRouter: String, CaseIterable {
             VisualEffectExample()
         case .weatherKit:
             WeatherKitExample()
+        case .webView:
+            WebViewExample()
         case .zoomNavigationTransition:
             ZoomNavigationTransitionExample()
         }
