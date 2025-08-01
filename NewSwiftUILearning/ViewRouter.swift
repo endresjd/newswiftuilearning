@@ -14,6 +14,7 @@ enum ViewRouter: String, CaseIterable {
     case alert = "Alert (15)"
     case angularGradient = "AngularGradient (13)"
     case animimatableMacro = "Animatable Macro (26)"
+    case animatableProtocol = "AnimatableProtocl (13)"
     case anyLayout = "AnyLayout (16)"
     case anyShapeExample = "AnyShapeExample (16)"
     case asyncImage = "AsyncImage (15)"
@@ -119,6 +120,7 @@ enum ViewRouter: String, CaseIterable {
     case slider = "Slider (13)"
     case spriteKit = "SpriteKit (8)"        // Unsure about the version!
     case stepper = "Stepper (13)"
+    case stretchyView = "Stretchy View (17)"
     case subscriptionView = "SubscriptionView (13)"
     case table = "Table (16)"
     case tableColumns = "Table (18)"
@@ -172,6 +174,8 @@ enum ViewRouter: String, CaseIterable {
             } else {
                 FutureFeatureView()
             }
+        case .animatableProtocol:
+            AnimatableProtocolExample()
         case .anyLayout:
             AnyLayoutExample()
         case .anyShapeExample:
@@ -410,6 +414,8 @@ enum ViewRouter: String, CaseIterable {
             SnowSceneView()
         case .stepper:
             StepperExample()
+        case .stretchyView:
+            StretchyViewExample()
         case .subscriptionView:
             Text("Same as .onReceive() view modifier")
         case .table:
@@ -473,7 +479,11 @@ enum ViewRouter: String, CaseIterable {
         case .weatherKit:
             WeatherKitExample()
         case .webView:
-            WebViewExample()
+            if #available(iOS 26.0, *) {
+                WebViewExample()
+            } else {
+                FutureFeatureView()
+            }
         case .zoomNavigationTransition:
             ZoomNavigationTransitionExample()
         }
