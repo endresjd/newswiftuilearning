@@ -11,6 +11,7 @@
 		454CF1D22BAB711F00A6AA80 /* HTTPTypes in Frameworks */ = {isa = PBXBuildFile; productRef = 454CF1D12BAB711F00A6AA80 /* HTTPTypes */; };
 		454CF1D42BAB711F00A6AA80 /* HTTPTypesFoundation in Frameworks */ = {isa = PBXBuildFile; productRef = 454CF1D32BAB711F00A6AA80 /* HTTPTypesFoundation */; };
 		457690DB2D96F26B00493941 /* Macplugins in Frameworks */ = {isa = PBXBuildFile; productRef = 457690DA2D96F26B00493941 /* Macplugins */; };
+		45C427972E3EF60700A42AAF /* MacpluginsMacros in Frameworks */ = {isa = PBXBuildFile; productRef = 45C427962E3EF60700A42AAF /* MacpluginsMacros */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,7 @@
 				454CF1D42BAB711F00A6AA80 /* HTTPTypesFoundation in Frameworks */,
 				457690DB2D96F26B00493941 /* Macplugins in Frameworks */,
 				4531D3EE2DA01AA300F3BD28 /* AsyncAlgorithms in Frameworks */,
+				45C427972E3EF60700A42AAF /* MacpluginsMacros in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -137,6 +139,7 @@
 				454CF1D32BAB711F00A6AA80 /* HTTPTypesFoundation */,
 				457690DA2D96F26B00493941 /* Macplugins */,
 				4531D3ED2DA01AA300F3BD28 /* AsyncAlgorithms */,
+				45C427962E3EF60700A42AAF /* MacpluginsMacros */,
 			);
 			productName = NewSwiftUILearning;
 			productReference = 45DFA8682AFFEC6A003A1F54 /* NewSwiftUILearning.app */;
@@ -220,6 +223,7 @@
 				454CF1CE2BAB6F8900A6AA80 /* XCRemoteSwiftPackageReference "swift-http-types" */,
 				45B4AD252C1A13B600552EFF /* XCRemoteSwiftPackageReference "macplugins" */,
 				4531D3EC2DA01AA300F3BD28 /* XCRemoteSwiftPackageReference "swift-async-algorithms" */,
+				45C427952E3EF60700A42AAF /* XCRemoteSwiftPackageReference "SwiftMacros" */,
 			);
 			productRefGroup = 45DFA8692AFFEC6A003A1F54 /* Products */;
 			projectDirPath = "";
@@ -651,6 +655,14 @@
 				minimumVersion = 1.0.2;
 			};
 		};
+		45C427952E3EF60700A42AAF /* XCRemoteSwiftPackageReference "SwiftMacros" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/endresjd/SwiftMacros.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.8;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -673,6 +685,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 45B4AD252C1A13B600552EFF /* XCRemoteSwiftPackageReference "macplugins" */;
 			productName = Macplugins;
+		};
+		45C427962E3EF60700A42AAF /* MacpluginsMacros */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 45C427952E3EF60700A42AAF /* XCRemoteSwiftPackageReference "SwiftMacros" */;
+			productName = MacpluginsMacros;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

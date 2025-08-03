@@ -9,8 +9,10 @@ import SwiftUI
 
 /// A simple attempt at gettng programmatic navigation.  Each case on here can be
 /// referenced to create the view it represents.
+///
+/// - SeeAlso: [How to persist navigation state in SwiftUI](https://tanaschita.com/swiftui-navigation-persist-state)
 @MainActor
-enum ViewRouter: String, CaseIterable {
+enum ViewRouter: String, CaseIterable, Hashable, Codable {
     case alert = "Alert (15)"
     case angularGradient = "AngularGradient (13)"
     case animimatableMacro = "Animatable Macro (26)"

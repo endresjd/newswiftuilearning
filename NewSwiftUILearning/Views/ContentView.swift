@@ -6,6 +6,8 @@
 //
 
 import SwiftUI
+import os
+import MacpluginsMacros
 
 /// Top-level container for the view that shows a list of all views that are defined in the
 /// router enum.
@@ -19,6 +21,7 @@ import SwiftUI
 /// - Requires: iOS 16
 /// - Seealso: [How to add a search bar to filter your data](https://www.hackingwithswift.com/quick-start/swiftui/how-to-add-a-search-bar-to-filter-your-data)
 /// - Seealso: [How to use programmatic navigation in SwiftUI](https://www.hackingwithswift.com/quick-start/swiftui/how-to-use-programmatic-navigation-in-swiftui)
+@OSLogger
 struct ContentView: View {
     /// Holds the selected navigation item that we use to provide the destination
     /// view we will route to.  This is nil by default to indicate there is no routing needed.
@@ -97,6 +100,23 @@ struct ContentView: View {
         }
         .task {
             locationManager.requestWhenInUseAuthorization()
+        }
+        .onAppear() {
+            // Read the saved navigation route from defaults and set the navigation path
+            if let data = UserDefaults.standard.data(forKey: "savedNavigation"),
+               let decodedPath = try? JSONDecoder().decode(ViewRouter.self, from: data) {
+                logger.debug("Restored navigation path")
+                
+                selection = decodedPath
+            }
+        }
+        .onDisappear() {
+            // Save the navigation path to user defaults
+            if let encodedPath = try? JSONEncoder().encode(selection) {
+                UserDefaults.standard.set(encodedPath, forKey: "savedNavigation")
+
+                logger.debug("Saved navigation path")
+            }
         }
     }
     
