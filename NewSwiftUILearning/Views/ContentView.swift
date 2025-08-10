@@ -63,13 +63,13 @@ struct ContentView: View {
         List(searchResults) { view in
             NavigationLink(view.rawValue, value: view)
         }
-        .listStyle(.plain)
         .searchable(text: $searchTerm)
         .navigationDestination(for: ViewRouter.self) { selectedView in
             selectedView
                 .view
                 .navigationTitle(selectedView.name)
         }
+        .navigationTitle("Views")
         .task {
             locationManager.requestWhenInUseAuthorization()
         }
@@ -85,7 +85,7 @@ struct ContentView: View {
                     NavigationLink(view.rawValue, value: view)
                 }
             }
-            .listStyle(.plain)
+            .navigationTitle("Views")
             .searchable(text: $searchTerm)
         } detail: {
             NavigationStack {

@@ -153,13 +153,16 @@ enum ViewRouter: String, CaseIterable, Hashable, Codable {
         rawValue.capitalized
     }
     
-    /// The number of the OS this example applies to or 0 if it could not be determined
-    var version: Int {
-        if let number = Int(rawValue.components(separatedBy: CharacterSet.decimalDigits.inverted).joined()) {
+    /// The number of the OS this example applies to or 1000.0 if it could not be determined
+    var version: Double {
+        let pattern = "[0-9]+(\\.[0-9]+)?"
+        
+        if let match = rawValue.range(of: pattern, options: .regularExpression),
+           let number = Double(rawValue[match]) {
             return number
         }
-
-        return 1000
+        
+        return 1000.0
     }
     
     /// The associated view that the enum value represents
@@ -504,3 +507,4 @@ extension ViewRouter: Identifiable {
         self
     }
 }
+
