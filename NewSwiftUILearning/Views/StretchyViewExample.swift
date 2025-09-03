@@ -35,7 +35,7 @@ struct StretchyViewExample: View {
                     .padding([.top, .horizontal])
             }
         }
-        .ignoresSafeArea(edges: .top)
+        .ignoresSafeArea()
     }
 }
 

@@ -24,6 +24,7 @@ struct MeshGradientExample: View {
                     .yellow, .green, .mint
                 ]
             )
+            .ignoresSafeArea()
         } else {
             FutureFeatureView()
         }

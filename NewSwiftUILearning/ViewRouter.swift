@@ -24,6 +24,7 @@ enum ViewRouter: String, CaseIterable, Hashable, Codable {
     case bindingExtension = "Binding Extension (13)"
     case blendModes = "Blend Modes (13)"
     case buttonBorderShape = "ButtonBorderShape (15)"
+    case buttonRoles = "Button roles (26)"
     case canvas = "Canvas (15)"
     case capsule = "Capsule (13)"
     case chartsProgressView = "Charts Progress View (16)"
@@ -73,6 +74,7 @@ enum ViewRouter: String, CaseIterable, Hashable, Codable {
     case lazyVStack = "LazyVStack (14)"
     case linearGradient = "LinearGradient (13)"
     case link = "Link (14)"
+    case liquidGlass = "Liquid Glass (26)"
     case list = "List (13)"
     case listSectionMargin = "List Section Margin (26)"
     case locationManager = "Location (2)"
@@ -195,6 +197,12 @@ enum ViewRouter: String, CaseIterable, Hashable, Codable {
             BlendModeExamples()
         case .buttonBorderShape:
             ButtonBorderShapeExample()
+        case .buttonRoles:
+            if #available(iOS 26, *) {
+                ButtonRoleExample()
+            } else {
+                FutureFeatureView()
+            }
         case .canvas:
             CanvasExample()
         case .capsule:
@@ -295,6 +303,12 @@ enum ViewRouter: String, CaseIterable, Hashable, Codable {
             LinearGradientExample()
         case .link:
             LinkExample()
+        case .liquidGlass:
+            if #available(iOS 26.0, *) {
+                LiquidGlassExample()
+            } else {
+                FutureFeatureView()
+            }
         case .list:
             ListExample()
         case .listSectionMargin:

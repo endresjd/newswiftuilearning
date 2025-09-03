@@ -19,6 +19,7 @@ struct ScrollPositionExampleView: View {
             ScrollView {
                 ForEach(1..<1000) { item in
                     Text(item.formatted())
+                        .frame(maxWidth: .infinity)
                 }
             }
             .scrollPosition($position)

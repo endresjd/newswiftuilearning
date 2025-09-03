@@ -97,6 +97,7 @@ struct TextSelectionExample: View {
         // Unsure if this can be adequately associated with .onChange() to reformat on
         // the fly and keep the selection in the right place
         TextField("selection", text: $text, selection: $selection)
+            .padding()
     }
 }
 

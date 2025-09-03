@@ -15,7 +15,7 @@ struct TabViewMinimizeExample: View {
                  ScrollView {
                     ForEach(0 ..< 50) { index in
                         Text("\(index)")
-                            .padding()
+                            .frame(maxWidth: .infinity)
                     }
                  }
              }
