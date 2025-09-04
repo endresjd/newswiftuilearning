@@ -31,19 +31,19 @@ private struct MySheetView: View {
                 .navigationTitle("Sheet Title")
                 .toolbar {
                     ToolbarItem(placement: .cancellationAction) {
-                        Button("Close", systemImage: "xmark", role: .close) {
+                        Button(role: .close) {
                             dismiss()
                         }
                     }
                     
                     ToolbarItem(placement: .cancellationAction) {
-                        Button("Destructive", systemImage: "xmark", role: .destructive) {
+                        Button(role: .destructive) {
                             dismiss()
                         }
                     }
                     
                     ToolbarItem(placement: .automatic) {
-                        Button("Dismiss", systemImage: "checkmark", role: .confirm) {
+                        Button(role: .confirm) {
                             dismiss()
                         }
                     }
