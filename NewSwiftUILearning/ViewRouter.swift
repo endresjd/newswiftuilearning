@@ -88,6 +88,7 @@ enum ViewRouter: String, CaseIterable, Hashable, Codable {
     case navigationSplitView = "NavigationSplitView (16)"
     case navigationSubTitle = "Navigation Subtitle (26)"
     case navigationStack = "NavigationStack (16)"
+    case notification = "Notification (12)"
     case navigationView = "NavigationViewExample (13) deprecated"
     case observation = "Observation Framework (17)"
     case offsetShape = "OffsetShape (13)"
@@ -345,6 +346,8 @@ enum ViewRouter: String, CaseIterable, Hashable, Codable {
             NavigationStackExample()
         case .navigationView:
             NavigationViewExample()
+        case .notification:
+            ScheduledNotificationsExamples()
         case .observation:
             LibraryView()
         case .offsetShape:

@@ -7,8 +7,11 @@
 
 import SwiftUI
 import TipKit
+import os
+import MacpluginsMacros
 
 /// Main entry point
+@OSLogger
 @main
 struct NewSwiftUILearningApp: App {
     /// App wide shared content
@@ -34,9 +37,18 @@ struct NewSwiftUILearningApp: App {
                 .onGeometryChange(for: CGSize.self) { geometry in
                     geometry.size
                 } action: { size in
-                    print(size)
-                    
                     modelData.windowSize = size
+                }
+                .task {
+                    let center = UNUserNotificationCenter.current()
+
+                    do {
+                        // provisional: The ability to post noninterrupting notifications provisionally to the Notification Center.
+                        // This wont ask for permission immediately.  It will do it when a notification comes in.
+                        try await center.requestAuthorization(options: [.alert, .sound, .badge, .provisional])
+                    } catch {
+                        logger.error("Failed to request authorization: \(error)")
+                    }
                 }
         }
     }
