@@ -16,14 +16,44 @@ import MacpluginsMacros
 /// - SeeAlso: [Scheduling notifications with time, calendar, and location triggers in iOS](https://tanaschita.com/ios-local-notification-triggers/)
 @OSLogger
 struct ScheduledNotificationsExamples: View {
+    @State private var message = ""
     @State private var status = "Unknown"
-    
+    @State private var secondaryStatus = "Unknown"
+    @State private var checkAgain = false
+    @State private var timeInterval = false
+
     var body: some View {
         ScrollView {
+            Text("Message: \(message)")
             Text("Status: \(status)")
+            Text("Secondary Status: \(secondaryStatus)")
+                .padding(.bottom)
+            
+            Button("Check again") {
+                checkAgain.toggle()
+            }
+            
+            Button("Time interval") {
+                timeInterval = true
+            }
+            .disabled(timeInterval)
         }
-        .task {
+        .task(id: checkAgain) {
+            logger.debug("checkStatus")
+            
             await checkStatus()
+        }
+        .task(id: timeInterval) {
+            guard timeInterval else {
+                return
+            }
+            
+            logger.debug("timeInterval")
+            
+            await checkStatus()
+            await timeInterval()
+
+            timeInterval = false
         }
     }
     
@@ -48,6 +78,17 @@ struct ScheduledNotificationsExamples: View {
         @unknown default:
             status = "@unknown default"
         }
+        
+        switch settings.alertSetting {
+            case .disabled:
+                secondaryStatus = "Disabled"
+            case .enabled:
+                secondaryStatus = "Enabled"
+            case .notSupported:
+                secondaryStatus = "Not supported"
+            @unknown default:
+                secondaryStatus = "Unplanned state"
+            }
     }
     
     /// Schedule a timed notification
@@ -55,8 +96,36 @@ struct ScheduledNotificationsExamples: View {
     /// This shows how to fire a notification after a set number of seconds.
     /// A time interval trigger is the simplest option. It fires after a fixed amount of time has passed,
     /// making it perfect for short-term reminders or countdowns.
-    func timeIntervale() {
+    func timeInterval() async {
+        let center = UNUserNotificationCenter.current()
+        let settings = await center.notificationSettings()
+
+        guard settings.authorizationStatus == .authorized || settings.authorizationStatus == .provisional else {
+            message = "Not authorized"
+            logger.error("\(message)")
+            
+            return
+        }
+        
         let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 10 * 60, repeats: false)
+        let content = UNMutableNotificationContent()
+
+        content.title = "Time interval"
+        content.body = "it's been a minute"
+        
+        let uuidString = UUID().uuidString
+        let request = UNNotificationRequest(identifier: uuidString, content: content, trigger: trigger)
+
+        // Schedule the request with the system.
+        let notificationCenter = UNUserNotificationCenter.current()
+        
+        do {
+            try await notificationCenter.add(request)
+            message = "Success"
+        } catch {
+            logger.error("Failed to schedule notification: \(error, privacy: .public)")
+            message = error.localizedDescription
+        }
     }
     
     /// Schedle a notification at a specific date and time
@@ -64,7 +133,14 @@ struct ScheduledNotificationsExamples: View {
     /// A calendar trigger allows us to schedule notifications based on specific dates and times or repeating intervals.
     /// This is ideal for recurring reminders, like daily health checks or weekly meeting reminders. For example, we
     /// can trigger a notification every morning at 7:30 with the following code
-    func calendarTrigger() {
+    func calendarTrigger() async {
+        let center = UNUserNotificationCenter.current()
+        let settings = await center.notificationSettings()
+
+        guard settings.authorizationStatus == .authorized || settings.authorizationStatus == .provisional else {
+            return
+        }
+
         var dateComponents = DateComponents()
 
         dateComponents.hour = 7
@@ -76,9 +152,16 @@ struct ScheduledNotificationsExamples: View {
     /// Schedule a notification based on location
     ///
     /// A location trigger is a more context-aware option that fires when a user enters or exits a specified geographic region
-    func locationTrigger() {
-        let center = CLLocationCoordinate2D(latitude: 51.3396955, longitude: 12.3730747)
-        let region = CLCircularRegion(center: center, radius: 20 * 1000, identifier: "leipzig")
+    func locationTrigger() async {
+        let center = UNUserNotificationCenter.current()
+        let settings = await center.notificationSettings()
+
+        guard settings.authorizationStatus == .authorized || settings.authorizationStatus == .provisional else {
+            return
+        }
+
+        let point = CLLocationCoordinate2D(latitude: 51.3396955, longitude: 12.3730747)
+        let region = CLCircularRegion(center: point, radius: 20 * 1000, identifier: "leipzig")
 
         region.notifyOnEntry = false
         region.notifyOnExit = true
