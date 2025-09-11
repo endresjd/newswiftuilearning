@@ -88,7 +88,7 @@ enum ViewRouter: String, CaseIterable, Hashable, Codable {
     case navigationSplitView = "NavigationSplitView (16)"
     case navigationSubTitle = "Navigation Subtitle (26)"
     case navigationStack = "NavigationStack (16)"
-    case notification = "Notification (12)"
+    case notification = "Notification (18)"     // 18 because of the concurrency variants
     case navigationView = "NavigationViewExample (13) deprecated"
     case observation = "Observation Framework (17)"
     case offsetShape = "OffsetShape (13)"
@@ -128,7 +128,6 @@ enum ViewRouter: String, CaseIterable, Hashable, Codable {
     case stretchyView = "Stretchy View (17)"
     case subscriptionView = "SubscriptionView (13)"
     case table = "Table (16)"
-    case tableColumns = "Table (18)"
     case tabSection = "TabSection (18)"
     case tabView = "TabView (13)"
     case tabView18 = "TabView (18)"
@@ -442,8 +441,6 @@ enum ViewRouter: String, CaseIterable, Hashable, Codable {
             Text("Same as .onReceive() view modifier")
         case .table:
             TableExample()
-        case .tableColumns:
-            SongCountsTable()   // TODO: Rename?
         case .tabSection, .tabView:
             TabViewExample()
         case .tabView18:

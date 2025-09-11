@@ -62,6 +62,8 @@ struct TableExample: View {
             TableColumn("E-Mail Address", value: \.emailAddress)
         }
 
+        Divider()
+        
         Table(people, sortOrder: $sortOrder) {
             TableColumn("Given Name", value: \.givenName)
             TableColumn("Family Name", value: \.familyName)
@@ -71,6 +73,8 @@ struct TableExample: View {
         .onChange(of: sortOrder, initial: true) {
             people.sort(using: sortOrder)
         }
+
+        Divider()
 
         Table(selectedPeople, selection: $selection, sortOrder: $sortOrder) {
             TableColumn("Given Name", value: \.givenName)

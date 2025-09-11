@@ -7,41 +7,93 @@
 
 import SwiftUI
 import UserNotifications
-import CoreLocation
 import os
 import MacpluginsMacros
+
+private struct LabeledValue: View {
+    var title: String
+    var value: String
+    var titleWidth: CGFloat? = 120
+
+    var body: some View {
+        HStack(alignment: .firstTextBaseline, spacing: 12) {
+            HStack {
+                Spacer(minLength: 0)
+                Text(title)
+                    .foregroundStyle(.secondary)
+                    .multilineTextAlignment(.trailing)
+            }
+            .frame(width: titleWidth, alignment: .trailing)
+
+            Text(value)
+                .frame(maxWidth: .infinity, alignment: .leading)
+        }
+    }
+}
 
 /// Examples of how to schedule notifications
 ///
 /// - SeeAlso: [Scheduling notifications with time, calendar, and location triggers in iOS](https://tanaschita.com/ios-local-notification-triggers/)
 @OSLogger
 struct ScheduledNotificationsExamples: View {
-    @State private var message = ""
-    @State private var status = "Unknown"
-    @State private var secondaryStatus = "Unknown"
     @State private var checkAgain = false
     @State private var timeInterval = false
+    @State private var specificTime = false
+    @State private var location = false
+    @State private var clearNotifications = false
+    @Environment(SharedContent.self) private var shared
+    private let notificationCenter = UNUserNotificationCenter.current()
 
     var body: some View {
+        
         ScrollView {
-            Text("Message: \(message)")
-            Text("Status: \(status)")
-            Text("Secondary Status: \(secondaryStatus)")
-                .padding(.bottom)
-            
-            Button("Check again") {
-                checkAgain.toggle()
+            VStack(spacing: 8) {
+                LabeledValue(title: "Updated", value: shared.lastUpdate.formatted(date: .omitted, time: .shortened))
+                LabeledValue(title: "URL", value: shared.openedURL?.absoluteString ?? "No URL")
+                LabeledValue(title: "Notifications", value: String(shared.notificationCount))
+                LabeledValue(title: "Message", value: shared.message)
+                LabeledValue(title: "Status", value: shared.status)
+                LabeledValue(title: "Secondary", value: shared.secondaryStatus)
             }
+            .padding(.bottom)
             
-            Button("Time interval") {
-                timeInterval = true
+            VStack(spacing: 16) {
+                Button("Check again") {
+                    checkAgain.toggle()
+                }
+                
+                Button("Time interval") {
+                    timeInterval = true
+                }
+                
+                Button("Specific time") {
+                    specificTime = true
+                }
+                
+                Button("Location") {
+                    location = true
+                }
+                
+                Button("Clear everything") {
+                    clearNotifications = true
+                }
             }
-            .disabled(timeInterval)
         }
         .task(id: checkAgain) {
             logger.debug("checkStatus")
             
-            await checkStatus()
+            await shared.checkStatus()
+        }
+        .task(id: clearNotifications) {
+            guard clearNotifications else {
+                return
+            }
+            
+            logger.debug("clearNotifications")
+            
+            await shared.clearAllNotifications()
+
+            clearNotifications = false
         }
         .task(id: timeInterval) {
             guard timeInterval else {
@@ -50,126 +102,37 @@ struct ScheduledNotificationsExamples: View {
             
             logger.debug("timeInterval")
             
-            await checkStatus()
-            await timeInterval()
+            await shared.checkStatus()
+            await shared.timeInterval()
 
             timeInterval = false
         }
-    }
-    
-    /// Checks notification status
-    ///
-    /// Fills in fields of the view to show us notification center status
-    func checkStatus() async {
-        let center = UNUserNotificationCenter.current()
-        let settings = await center.notificationSettings()
-        
-        switch settings.authorizationStatus {
-        case .authorized:
-            status = "authorized"
-        case .denied:
-            status = "denied"
-        case .ephemeral:
-            status = "ephemeral"
-        case .notDetermined:
-            status = "not determined"
-        case .provisional:
-            status = "provisional"
-        @unknown default:
-            status = "@unknown default"
-        }
-        
-        switch settings.alertSetting {
-            case .disabled:
-                secondaryStatus = "Disabled"
-            case .enabled:
-                secondaryStatus = "Enabled"
-            case .notSupported:
-                secondaryStatus = "Not supported"
-            @unknown default:
-                secondaryStatus = "Unplanned state"
+        .task(id: specificTime) {
+            guard specificTime else {
+                return
             }
-    }
-    
-    /// Schedule a timed notification
-    ///
-    /// This shows how to fire a notification after a set number of seconds.
-    /// A time interval trigger is the simplest option. It fires after a fixed amount of time has passed,
-    /// making it perfect for short-term reminders or countdowns.
-    func timeInterval() async {
-        let center = UNUserNotificationCenter.current()
-        let settings = await center.notificationSettings()
-
-        guard settings.authorizationStatus == .authorized || settings.authorizationStatus == .provisional else {
-            message = "Not authorized"
-            logger.error("\(message)")
             
-            return
+            logger.debug("timeInterval")
+            
+            await shared.calendarTrigger()
+
+            specificTime = false
         }
-        
-        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 10 * 60, repeats: false)
-        let content = UNMutableNotificationContent()
+        .task(id: location) {
+            guard location else {
+                return
+            }
+            
+            logger.debug("timeInterval")
+            
+            await shared.locationTrigger()
 
-        content.title = "Time interval"
-        content.body = "it's been a minute"
-        
-        let uuidString = UUID().uuidString
-        let request = UNNotificationRequest(identifier: uuidString, content: content, trigger: trigger)
-
-        // Schedule the request with the system.
-        let notificationCenter = UNUserNotificationCenter.current()
-        
-        do {
-            try await notificationCenter.add(request)
-            message = "Success"
-        } catch {
-            logger.error("Failed to schedule notification: \(error, privacy: .public)")
-            message = error.localizedDescription
+            location = false
         }
-    }
-    
-    /// Schedle a notification at a specific date and time
-    ///
-    /// A calendar trigger allows us to schedule notifications based on specific dates and times or repeating intervals.
-    /// This is ideal for recurring reminders, like daily health checks or weekly meeting reminders. For example, we
-    /// can trigger a notification every morning at 7:30 with the following code
-    func calendarTrigger() async {
-        let center = UNUserNotificationCenter.current()
-        let settings = await center.notificationSettings()
-
-        guard settings.authorizationStatus == .authorized || settings.authorizationStatus == .provisional else {
-            return
-        }
-
-        var dateComponents = DateComponents()
-
-        dateComponents.hour = 7
-        dateComponents.minute = 30
-
-        let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
-    }
-    
-    /// Schedule a notification based on location
-    ///
-    /// A location trigger is a more context-aware option that fires when a user enters or exits a specified geographic region
-    func locationTrigger() async {
-        let center = UNUserNotificationCenter.current()
-        let settings = await center.notificationSettings()
-
-        guard settings.authorizationStatus == .authorized || settings.authorizationStatus == .provisional else {
-            return
-        }
-
-        let point = CLLocationCoordinate2D(latitude: 51.3396955, longitude: 12.3730747)
-        let region = CLCircularRegion(center: point, radius: 20 * 1000, identifier: "leipzig")
-
-        region.notifyOnEntry = false
-        region.notifyOnExit = true
-
-        let trigger = UNLocationNotificationTrigger(region: region, repeats: false)
     }
 }
 
 #Preview {
     ScheduledNotificationsExamples()
 }
+

@@ -26,7 +26,7 @@ struct NewSwiftUILearningApp: App {
 
     /// Library for Apple Observation Example
     @State private var library = Library()
-
+    
     var body: some Scene {
         WindowGroup {
             ContentView()
@@ -38,6 +38,13 @@ struct NewSwiftUILearningApp: App {
                     geometry.size
                 } action: { size in
                     modelData.windowSize = size
+                }
+                .onOpenURL { url in
+                    // This modifier is for universal links.  Needs to have project settings
+                    // modified to support the URL.  (TODO: do this)
+                    logger.debug("onOpenURL: \(url.absoluteString)")
+                    
+                    shared.openedURL = url
                 }
                 .task {
                     let center = UNUserNotificationCenter.current()

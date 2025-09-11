@@ -31,8 +31,6 @@ struct ContentView: View {
     /// on-screen list.
     @State private var searchTerm = ""
     
-    @State private var navPath = NavigationPath()
-
     /// Some of the examples in the router require location information.  This is used
     /// here, the top level, to request authorization for the whole app.
     private let locationManager = LocationManager()
