@@ -7,6 +7,7 @@
 
 import XCTest
 
+@MainActor
 final class NewSwiftUILearningUITests: XCTestCase {
 
     override func setUpWithError() throws {
