@@ -18,15 +18,15 @@ struct ButtonBorderShapeExample: View {
             Button("Capsule") {
             }
             .buttonBorderShape(.capsule)
-            
+
             Button("Circle") {
             }
             .buttonBorderShape(.circle)
-            
+
             Button("Rounded Rectangle") {
             }
             .buttonBorderShape(.roundedRectangle)
-            
+
             Button("Rounded Rectangle Radius") {
             }
             .buttonBorderShape(.roundedRectangle(radius: 45))

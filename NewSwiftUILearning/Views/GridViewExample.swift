@@ -7,9 +7,9 @@
 
 import SwiftUI
 
-/// Several variations of iOS 16's `Grid` and `GridRow`
+/// Several variations of iOS 16's `Grid` and `GridRow`.
 ///
-/// SwiftUI’s Grid view lets us create a static grid of views, with precise control over what goes into each row and column. You mark 
+/// SwiftUI’s Grid view lets us create a static grid of views, with precise control over what goes into each row and column. You mark
 /// out individual rows using GridRow, then optionally also configure how wide each cell should be.
 ///
 /// A Grid view arranges child views in rows and columns. This table-like
@@ -26,7 +26,7 @@ import SwiftUI
 struct GridViewExample: View {
     var body: some View {
         List {
-            Grid() {
+            Grid {
                 // Each view in a GridRow represents a column.
                 //
                 // The grid adds empty cells to the trailing edge of rows that
@@ -36,14 +36,14 @@ struct GridViewExample: View {
                     Text("R 1, C 2")
                     // Color.pink
                 }
-                
+
                 // To prevent a flexible view from taking more space than the
                 // other cells, add the gridCellUnsizedAxes(_:) view modifier
                 // to the view.  Without it the grid will fill the view
                 // horizontally.
                 Divider()
                     .gridCellUnsizedAxes(.horizontal)
-                
+
                 GridRow {
                     Text("R 2, C 1")
                     Text("Row 2, Column 2")
@@ -51,32 +51,32 @@ struct GridViewExample: View {
                 }
             }
             .border(Color.red)
-            
+
             Grid {
                 GridRow {
                     // This insert empty cells at the start
                     Color.clear
                         .gridCellUnsizedAxes([.horizontal, .vertical])
-                    
+
                     ForEach(0..<3) { _ in
                         ColorSquare(color: .pink)
                     }
                 }
-                
+
                 GridRow {
                     // To make a cell span columns.  Seems strange because
                     // it is no longer aligned.
                     ColorSquare(color: .yellow)
                     ColorSquare(color: .yellow)
                 }
-                
+
                 GridRow {
                     ForEach(0..<5) { _ in
                         ColorSquare(color: .mint)
                     }
                 }
             }
-            
+
             // We can control the spacing between cells in both the horizontal
             // and vertical dimensions and set a default alignment for the
             // content in all the grid cells when you initialize the grid using
@@ -107,7 +107,7 @@ struct GridViewExample: View {
                     }
                 }
             }
-            
+
             // To override the default horizontal alignment for specific grid column,
             // you use gridColumnAlignment view modifier on any view of that
             // particular column.
@@ -119,7 +119,7 @@ struct GridViewExample: View {
                 }
                 GridRow {
                     SmallColorSquare(color: .yellow)
-                        .gridColumnAlignment(.center)   // For all first column cells
+                        .gridColumnAlignment(.center) // For all first column cells
 
                     SmallColorSquare(color: .yellow)
                     SmallColorSquare(color: .yellow)
@@ -134,7 +134,6 @@ struct GridViewExample: View {
                     SmallColorSquare(color: .mint)
                     SmallColorSquare(color: .mint)
                     ColorSquare(color: .mint)
-                    
                 }
                 GridRow {
                     SmallColorSquare(color: .purple)
@@ -142,21 +141,21 @@ struct GridViewExample: View {
                     SmallColorSquare(color: .purple)
                     SmallColorSquare(color: .purple)
                     ColorSquare(color: .purple)
-                    
                 }
             }
 
-            Grid(alignment: .topLeading,
+            Grid(
+                alignment: .topLeading,
 
-                 horizontalSpacing: 1,
-                 verticalSpacing: 30) {
+                horizontalSpacing: 1,
+                verticalSpacing: 30
+            ) {
                 GridRow {
                     ForEach(0..<5) { _ in
                         ColorSquare(color: .pink)
                     }
                 }
                 GridRow(alignment: .bottom) {
-
                     SmallColorSquare(color: .yellow)
                     SmallColorSquare(color: .yellow)
                     SmallColorSquare(color: .yellow)
@@ -164,13 +163,11 @@ struct GridViewExample: View {
                     ColorSquare(color: .yellow)
                 }
                 GridRow(alignment: .center) {
-
                     SmallColorSquare(color: .mint)
                     SmallColorSquare(color: .mint)
                     SmallColorSquare(color: .mint)
                     SmallColorSquare(color: .mint)
                     ColorSquare(color: .mint)
-                    
                 }
                 GridRow {
                     SmallColorSquare(color: .purple)
@@ -178,7 +175,6 @@ struct GridViewExample: View {
                     SmallColorSquare(color: .purple)
                     SmallColorSquare(color: .purple)
                     ColorSquare(color: .purple)
-                    
                 }
             }
 
@@ -205,19 +201,17 @@ struct GridViewExample: View {
                     SmallColorSquare(color: .mint)
                     SmallColorSquare(color: .mint)
                     ColorSquare(color: .mint)
-                    
                 }
                 GridRow {
                     SmallColorSquare(color: .purple)
                         .gridCellAnchor(.bottomTrailing)
-                    
+
                     SmallColorSquare(color: .purple)
                         .gridCellAnchor(.bottomLeading)
-                    
+
                     SmallColorSquare(color: .purple)
                     SmallColorSquare(color: .purple)
                     ColorSquare(color: .purple)
-                    
                 }
             }
         }
@@ -226,19 +220,19 @@ struct GridViewExample: View {
 
 private struct ColorSquare: View {
     let color: Color
-    
+
     var body: some View {
         color
-        .frame(width: 50, height: 50)
+            .frame(width: 50, height: 50)
     }
 }
 
 private struct SmallColorSquare: View {
     let color: Color
-    
+
     var body: some View {
         color
-        .frame(width: 10, height: 10)
+            .frame(width: 10, height: 10)
     }
 }
 

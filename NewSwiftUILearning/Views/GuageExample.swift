@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-/// iOS 16's `Gauge` rendered in several different styles
+/// iOS 16's `Gauge` rendered in several different styles.
 ///
 ///  A gauge is a view that shows a current level of a value in relation to a specified finite capacity, very much like a
 ///  fuel gauge in an automobile. Gauge displays are configurable; they can show any combination of the gauge’s
@@ -28,18 +28,18 @@ struct GuageExample: View {
                     Text("Battery Level")
                 }
                 .padding()
-                
+
                 LabeledGauge()
-                
+
                 LabeledGauge()
                     .gaugeStyle(.accessoryCircular)
-                
+
                 LabeledGauge()
                     .gaugeStyle(.accessoryCircularCapacity)
-                
+
                 LabeledGauge()
                     .gaugeStyle(.accessoryLinear)
-                
+
                 LabeledGauge()
                     .gaugeStyle(.accessoryLinearCapacity)
             }

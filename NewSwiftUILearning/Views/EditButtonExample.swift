@@ -16,7 +16,7 @@ struct EditButtonExample: View {
         "Apple",
         "Banana",
         "Papaya",
-        "Mango"
+        "Mango",
     ]
 
     var body: some View {

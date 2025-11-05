@@ -7,22 +7,22 @@
 
 import SwiftUI
 
-/// Attributes for hilighted text
+/// Attributes for hilighted text.
 struct HighlightAttribute: TextAttribute {
 }
 
-/// Renderer
+/// Renderer.
 ///
 /// It can be seen as a simple marker that can be attached to Text view instances. It will be read during rendering to attach certain changes to the text.
 /// It does not need any real implementation, just a type that conforms to the protocol
 struct HighlightTextRenderer: TextRenderer {
     private let style: any ShapeStyle
- 
+
     init(style: any ShapeStyle = .yellow) {
         self.style = style
     }
-    
-    /// Draw the text
+
+    /// Draw the text.
     ///
     /// Let's take a closer look at what is happening here. First, we check if the current run has our custom TextAttribute attached. If it doesn't, we simply draw
     /// the text without making any changes. If the TextAttribute is attached, we proceed to modify the rendering. We obtain the rect where the text will be
@@ -36,17 +36,17 @@ struct HighlightTextRenderer: TextRenderer {
             if run[HighlightAttribute.self] != nil {
                 // The rect of the current run
                 let rect = run.typographicBounds.rect
-     
+
                 // Make a copy of the context so that individual slices
                 // don't affect each other.
                 let copy = context
-     
+
                 // Shape of the highlight, can be customised
                 let shape = RoundedRectangle(cornerRadius: 4, style: .continuous).path(in: rect)
-     
+
                 // Style the shape
                 copy.fill(shape, with: .style(style))
-     
+
                 // Draw
                 copy.draw(run)
             } else {
@@ -70,7 +70,7 @@ extension Text.Layout {
     }
 }
 
-/// Show how to hilight text
+/// Show how to hilight text.
 ///
 /// The steps are:
 /// 1. Text with the custom attribute added
@@ -81,7 +81,7 @@ struct TextRendererExample: View {
     var body: some View {
         let highlight = Text("World")
             .customAttribute(HighlightAttribute())
-        
+
         Text("Hello \(highlight)")
             .textRenderer(HighlightTextRenderer())
     }

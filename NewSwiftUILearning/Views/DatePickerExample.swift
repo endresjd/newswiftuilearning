@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-/// Examples of using iOS 13's DatePicker in multiple styles
+/// Examples of using iOS 13's DatePicker in multiple styles.
 ///
 /// The styles used in this example are
 ///
@@ -25,8 +25,10 @@ struct DatePickerExample: View {
         let calendar = Calendar.current
         let startComponents = DateComponents(year: 2021, month: 12, day: 15)
         let endComponents = DateComponents(year: 2021, month: 12, day: 28, hour: 23, minute: 59, second: 59)
-        
-        return calendar.date(from:startComponents)! ... calendar.date(from:endComponents)!
+        let start = calendar.date(from: startComponents) ?? Date()
+        let end = calendar.date(from: endComponents) ?? Date()
+
+        return start...end
     }()
 
     var body: some View {
@@ -47,9 +49,9 @@ struct DatePickerExample: View {
 
                 DatePicker(
                     "Closed Range",
-                     selection: $closedRangeDate,
-                     in: dateRange,
-                     displayedComponents: [.date, .hourAndMinute]
+                    selection: $closedRangeDate,
+                    in: dateRange,
+                    displayedComponents: [.date, .hourAndMinute]
                 )
             }
             .padding()

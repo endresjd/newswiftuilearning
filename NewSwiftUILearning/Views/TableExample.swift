@@ -8,8 +8,8 @@
 import SwiftUI
 
 /// Tries to show how to show multiple column lists with tables.
-/// 
-/// SwiftUI’s Table view type let us create lists with multiple columns, including selection and sorting. They work 
+///
+/// SwiftUI’s Table view type let us create lists with multiple columns, including selection and sorting. They work
 /// quite differently from regular lists because we pass the Table an array of data to show then specify values to
 /// display using key paths, each time also passing a title to show in the header area.
 ///
@@ -35,21 +35,21 @@ struct TableExample: View {
         Person(givenName: "Juan", familyName: "Chavez", emailAddress: "juanchavez@icloud.com"),
         Person(givenName: "Mei", familyName: "Chen", emailAddress: "meichen@icloud.com"),
         Person(givenName: "Tom", familyName: "Clark", emailAddress: "tomclark@icloud.com"),
-        Person(givenName: "Gita", familyName: "Kumar", emailAddress: "gitakumar@icloud.com")
+        Person(givenName: "Gita", familyName: "Kumar", emailAddress: "gitakumar@icloud.com"),
     ]
 
     @State private var people = [
         Person(givenName: "Juan", familyName: "Chavez", emailAddress: "juanchavez@icloud.com"),
         Person(givenName: "Mei", familyName: "Chen", emailAddress: "meichen@icloud.com"),
         Person(givenName: "Tom", familyName: "Clark", emailAddress: "tomclark@icloud.com"),
-        Person(givenName: "Gita", familyName: "Kumar", emailAddress: "gitakumar@icloud.com")
+        Person(givenName: "Gita", familyName: "Kumar", emailAddress: "gitakumar@icloud.com"),
     ]
 
     @State private var selectedPeople = [
         Person(givenName: "Juan", familyName: "Chavez", emailAddress: "juanchavez@icloud.com"),
         Person(givenName: "Mei", familyName: "Chen", emailAddress: "meichen@icloud.com"),
         Person(givenName: "Tom", familyName: "Clark", emailAddress: "tomclark@icloud.com"),
-        Person(givenName: "Gita", familyName: "Kumar", emailAddress: "gitakumar@icloud.com")
+        Person(givenName: "Gita", familyName: "Kumar", emailAddress: "gitakumar@icloud.com"),
     ]
 
     @State private var sortOrder = [KeyPathComparator(\Person.fullName)]
@@ -63,7 +63,7 @@ struct TableExample: View {
         }
 
         Divider()
-        
+
         Table(people, sortOrder: $sortOrder) {
             TableColumn("Given Name", value: \.givenName)
             TableColumn("Family Name", value: \.familyName)

@@ -5,12 +5,12 @@
 //  Created by John Endres on 10/24/25.
 //
 
-import Testing
 import Combine
+import Testing
+
 @testable import NewSwiftUILearning
 
 struct ComplexObjectTests {
-
     @Test func initialStateTest() async throws {
         let subject = ComplexObject()
         var iterator = subject.$isLoading.values.makeAsyncIterator()
@@ -30,7 +30,7 @@ struct ComplexObjectTests {
 
         // Expect initial emission from init task to be false
         let initial = await iterator.next()
-        
+
         try #require(initial != nil)
         #expect(initial == false, "Initial isLoading should be false")
 
@@ -38,16 +38,16 @@ struct ComplexObjectTests {
         let task = Task { @MainActor in
             try await subject.executeFunction(delay: 0.2)
         }
-        
+
         // Next value should be true (loading started)
         let started = await iterator.next()
-        
+
         try #require(started != nil)
         #expect(started == true, "isLoading should become true when executeFunction starts")
 
         // Next value should be false (loading finished)
         let finished = await iterator.next()
-        
+
         try #require(finished != nil)
         #expect(finished == false, "isLoading should become false when executeFunction completes")
 
@@ -55,4 +55,3 @@ struct ComplexObjectTests {
         _ = try await task.value
     }
 }
-

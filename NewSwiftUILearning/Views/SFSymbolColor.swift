@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-/// Shows dymanic control over coloring of system symbols
+/// Shows dymanic control over coloring of system symbols.
 ///
 /// Some SF Symbols support variable coloring, which means they can have different parts filled based on a fraction between 0 and 1.
 ///

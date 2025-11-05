@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-/// Horizontal scrolling row of words using iOS 14's LazyHStack
+/// Horizontal scrolling row of words using iOS 14's LazyHStack.
 ///
 /// A container view that arranges its child views in a stack that grows
 /// horizontally, creating items only as needed

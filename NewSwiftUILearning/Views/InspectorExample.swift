@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-/// Compares Sheets and Inspectors
+/// Compares Sheets and Inspectors.
 ///
 /// Apply the inspector modifier to declare an inspector with a context-dependent presentation.
 /// For example, an inspector can present as a trailing column in a horizontally regular size class,
@@ -29,11 +29,11 @@ struct InspectorExample: View {
     var body: some View {
         VStack(spacing: 50.0) {
             Text("Inspectors vs. Sheets")
-            
+
             Button("Simple Inspector") {
                 simpleInspector.toggle()
             }
-            
+
             Button("Inspector") {
                 presented.toggle()
             }
@@ -54,41 +54,41 @@ struct InspectorExample: View {
             // navigation modifiers.  Slightly moving the sheet will
             // cause the correct ones to show but then crash soon after.
             // Weird.  Best not to use NavigationStack?
-//            NavigationStack {
-                Form {
-                    LabeledContent("size", value: intrigued.count.formatted())
-                    
-                    // These require an explicit NavigationStack
-                    NavigationLink("Mint", value: Color.mint)
-                    NavigationLink("Pink", value: Color.pink)
-                    
-                    // These don't.  There seems to be some kind of navigation
-                    // setup here, but it's not setup for `.navigationDestination`
-                    // fully
-                    NavigationLink("Teal") { InspectorColorDetail(color: .teal) }
-                    
-                    NavigationLink {
-                        InspectorColorDetail(color: .red)
-                    } label: {
-                        Label("Work Folder", systemImage: "folder")
-                    }
+            //            NavigationStack {
+            Form {
+                LabeledContent("size", value: intrigued.count.formatted())
+
+                // These require an explicit NavigationStack
+                NavigationLink("Mint", value: Color.mint)
+                NavigationLink("Pink", value: Color.pink)
+
+                // These don't.  There seems to be some kind of navigation
+                // setup here, but it's not setup for `.navigationDestination`
+                // fully
+                NavigationLink("Teal") { InspectorColorDetail(color: .teal) }
+
+                NavigationLink {
+                    InspectorColorDetail(color: .red)
+                } label: {
+                    Label("Work Folder", systemImage: "folder")
                 }
-                .inspectorColumnWidth(min: 100, ideal: 150, max: 200)   // Optional
-                .navigationTitle("Inspector")   // No effect with NavigationStack
-                .navigationDestination(for: Color.self) { color in
-                    InspectorColorDetail(color: color)
+            }
+            .inspectorColumnWidth(min: 100, ideal: 150, max: 200) // Optional
+            .navigationTitle("Inspector") // No effect with NavigationStack
+            .navigationDestination(for: Color.self) { color in
+                InspectorColorDetail(color: color)
+            }
+            .toolbar {
+                Spacer()
+
+                Button {
+                    presented.toggle()
+                } label: {
+                    Label("Toggle Inspector", systemImage: "info.circle")
                 }
-                .toolbar {
-                    Spacer()
-                    
-                    Button{
-                        presented.toggle()
-                    } label: {
-                        Label("Toggle Inspector", systemImage: "info.circle")
-                    }
-                }
-//            }
-//            .navigationTitle("Navigation Stack")
+            }
+            //            }
+            //            .navigationTitle("Navigation Stack")
         }
         .sheet(isPresented: $sheet) {
             // The navigation modifiers here do nothing without a
@@ -96,7 +96,7 @@ struct InspectorExample: View {
             NavigationStack {
                 Form {
                     LabeledContent("size", value: intrigued.count.formatted())
-                    
+
                     NavigationLink {
                         InspectorColorDetail(color: .mint)
                     } label: {
@@ -109,7 +109,7 @@ struct InspectorExample: View {
                     Text(String(describing: color))
                 }
             }
-            .navigationTitle("Navigation Stack")   // No effect with NavigationStack
+            .navigationTitle("Navigation Stack") // No effect with NavigationStack
         }
     }
 }

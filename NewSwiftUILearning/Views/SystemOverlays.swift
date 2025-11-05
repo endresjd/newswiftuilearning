@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-/// Show how to hide system indicates like home, multiask, and more
+/// Show how to hide system indicators like home, multiask, and more.
 ///
 /// SwiftUI’s persistentSystemOverlays() modifier lets us show or hide the so-called
 /// “non-transient system views” that are automatically placed over our UI – Apple’s
@@ -18,7 +18,7 @@ import SwiftUI
 /// * The SharePlay indicator
 /// * The Multi-task indicator and Picture-in-picture on iPad
 /// - Remark: This is a request to hide the overlays – it’s down to the system to decide what it actually do
-/// 
+///
 /// - Requires: iOS 16
 /// - Seealso: [How to hide the home indicator and other system UI](https://www.hackingwithswift.com/quick-start/swiftui/how-to-hide-the-home-indicator-and-other-system-ui)
 struct SystemOverlays: View {

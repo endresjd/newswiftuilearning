@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-/// Shows iOS 13's `RoundedRectangle`
+/// Shows iOS 13's `RoundedRectangle`.
 struct RoundedRectangleExample: View {
     var body: some View {
         RoundedRectangle(cornerRadius: 25.0, style: .continuous)

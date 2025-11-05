@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-/// iOS 13's `TabView` example with badges
+/// iOS 13's `TabView` example with badges.
 struct TabViewExample: View {
     var body: some View {
         TabView {
@@ -16,12 +16,12 @@ struct TabViewExample: View {
                 .tabItem {
                     Label("Received", systemImage: "tray.and.arrow.down.fill")
                 }
-            
+
             Text("Sent")
                 .tabItem {
                     Label("Sent", systemImage: "tray.and.arrow.up.fill")
                 }
-            
+
             Text("Account")
                 .badge("!")
                 .tabItem {

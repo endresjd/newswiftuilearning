@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-/// iOS 13's Form with sections for an example settings view
+/// iOS 13's Form with sections for an example settings view.
 ///
 /// A container for grouping controls used for data entry, such as in settings or inspectors.
 ///
@@ -20,13 +20,13 @@ struct FormExample: View {
         case mentions
         case anything
     }
-    
+
     enum ProfileImageSize {
         case large
         case medium
         case small
     }
-    
+
     @State private var notifyMeAbout = NotifyMeAboutType.anything
     @State private var profileImageSize = ProfileImageSize.medium
     @State private var playNotificationSounds = true
@@ -41,7 +41,7 @@ struct FormExample: View {
                         Text("Mentions").tag(NotifyMeAboutType.mentions)
                         Text("Anything").tag(NotifyMeAboutType.anything)
                     }
-                    
+
                     Toggle("Play notification sounds", isOn: $playNotificationSounds)
                     Toggle("Send read receipts", isOn: $sendReadReceipts)
                 }
@@ -51,8 +51,8 @@ struct FormExample: View {
                         Text("Medium").tag(ProfileImageSize.medium)
                         Text("Small").tag(ProfileImageSize.small)
                     }
-                    
-                    Button("Clear Image Cache") {                        
+
+                    Button("Clear Image Cache") {
                     }
                 }
             }

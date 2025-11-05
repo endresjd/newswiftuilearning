@@ -7,11 +7,11 @@
 
 import SwiftUI
 
-/// Bounce a bear around the screen using iOS 17's `keyframeAnimator`
+/// Bounce a bear around the screen using iOS 17's `keyframeAnimator`.
 ///
 /// Loops the given keyframes continuously, updating the view using the modifiers you apply in body.
 ///
-/// Keyframe-based animation is designed to accommodate a specific type of animation where each property is 
+/// Keyframe-based animation is designed to accommodate a specific type of animation where each property is
 /// animated independently. By utilizing keyframes, we can animate individual properties separately, which in turn
 /// offers us greater flexibility and control over our animations
 ///
@@ -37,7 +37,7 @@ struct KeyframeAnimatorExample: View {
         var translation = CGSize.zero
         var opacity = 1.0
     }
-    
+
     var body: some View {
         // The content closure updates every frame while animating, so avoid
         // performing any expensive operations directly within content

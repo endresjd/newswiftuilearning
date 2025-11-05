@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-/// Examples of how to attach a label to a value-bearing view
+/// Examples of how to attach a label to a value-bearing view.
 ///
 /// Shows basic usage of `LabeledContent`along with existing and new content
 /// styles defined above.
@@ -32,7 +32,7 @@ struct LabeledContentExample: View {
                 format: .number.precision(.fractionLength(0))
             )
             .font(.callout)
-            
+
             LabeledContent {
                 Stepper(value: $value, in: 0...10.0) {
                     Text(value.formatted(.number))
@@ -46,14 +46,14 @@ struct LabeledContentExample: View {
 
             LabeledContent("Label 2", value: "Content")
                 .labeledContentStyle(.vertical)
-            
+
             LabeledContent("Label 3", value: "labelsHidden Content")
                 .labelsHidden()
         }
     }
 }
 
-/// Applies the system's accent color to the content of the label
+/// Applies the system's accent color to the content of the label.
 ///
 /// - Requires: iOS 16
 private struct AccentedColorLabeledContentStyle: LabeledContentStyle {
@@ -63,16 +63,16 @@ private struct AccentedColorLabeledContentStyle: LabeledContentStyle {
     }
 }
 
-private extension LabeledContentStyle where Self == AccentedColorLabeledContentStyle {
-    /// Convenience property to create an accented label style
+extension LabeledContentStyle where Self == AccentedColorLabeledContentStyle {
+    /// Convenience property to create an accented label style.
     ///
     /// - Requires: iOS 16
-    static var accented: AccentedColorLabeledContentStyle {
+    fileprivate static var accented: AccentedColorLabeledContentStyle {
         .init()
     }
 }
 
-/// A Label style whose contents are arranged vertically instead of horizontally
+/// A Label style whose contents are arranged vertically instead of horizontally.
 ///
 /// - Requires: iOS 16
 private struct VerticalLabeledContentStyle: LabeledContentStyle {
@@ -84,11 +84,11 @@ private struct VerticalLabeledContentStyle: LabeledContentStyle {
     }
 }
 
-private extension LabeledContentStyle where Self == VerticalLabeledContentStyle {
-    /// Convenience property to create a vertical label style
+extension LabeledContentStyle where Self == VerticalLabeledContentStyle {
+    /// Convenience property to create a vertical label style.
     ///
     /// - Requires: iOS 16
-    static var vertical: VerticalLabeledContentStyle {
+    fileprivate static var vertical: VerticalLabeledContentStyle {
         .init()
     }
 }

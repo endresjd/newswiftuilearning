@@ -9,7 +9,7 @@ import SwiftUI
 
 struct PlaygoundView: View {
     @State private var visible: [Int] = []
-    
+
     var body: some View {
         ScrollView {
             LazyVStack {

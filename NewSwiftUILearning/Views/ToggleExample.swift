@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-/// Shows iOS 13's `Toggle` control
+/// Shows iOS 13's `Toggle` control.
 struct ToggleExample: View {
     @State private var vibrateOnRing = true
 

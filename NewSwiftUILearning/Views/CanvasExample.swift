@@ -7,9 +7,9 @@
 
 import SwiftUI
 
-/// Use a canvas to immediately draw rich and dynamic 2D graphics inside a SwiftUI view in iOS 15
+/// Use a canvas to immediately draw rich and dynamic 2D graphics inside a SwiftUI view in iOS 15.
 ///
-/// Use a canvas to draw rich and dynamic 2D graphics inside a SwiftUI view. The canvas passes a GraphicsContext 
+/// Use a canvas to draw rich and dynamic 2D graphics inside a SwiftUI view. The canvas passes a GraphicsContext
 /// to the closure that you use to perform immediate mode drawing operations. The canvas also passes a CGSize
 /// value that you can use to customize what you draw. For example, you can use the context’s stroke(_:with:lineWidth:)
 /// command to draw a Path instance

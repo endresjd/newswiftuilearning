@@ -7,14 +7,14 @@
 
 import SwiftUI
 
-/// Hero Animations
+/// Hero Animations.
 ///
-/// It enables us to create smooth transitions between views using the same identifier and namespace 
+/// It enables us to create smooth transitions between views using the same identifier and namespace
 /// while navigating from one view to another inside NavigationStack.
 struct HeroAnimationView: View {
     /// Grouping for animations within a view?
     @Namespace private var hero
-    
+
     var body: some View {
         if #available(iOS 18, *) {
             NavigationStack {
@@ -37,4 +37,3 @@ struct HeroAnimationView: View {
 #Preview {
     HeroAnimationView()
 }
-

@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-/// Shows 2 ways to make a view Equatable -- wrapping and view modifier
+/// Shows 2 ways to make a view Equatable -- wrapping and view modifier.
 ///
 /// - Important: This example is contrived and confusing.  Just use `EquatableView` or `.equatable()`,
 ///              conform the view to `Equatable` and optionally provide an `==` function
@@ -31,7 +31,7 @@ import SwiftUI
 ///
 /// **Container views and equatable rendering views**
 ///
-/// It is so easy to add Equatable conformance to your view when it only renders some data. You even 
+/// It is so easy to add Equatable conformance to your view when it only renders some data. You even
 /// don’t need to override == function. You can quickly achieve this behavior by extracting your views
 /// into Container and Rendering views. We already talked multiple times on my blog about Container
 /// and Rendering views. Rendering views simply take some data and render it. That’s it.
@@ -43,45 +43,45 @@ import SwiftUI
 /// - SeeAlso: [Optimizing views in SwiftUI using EquatableView](https://swiftwithmajid.com/2020/01/22/optimizing-views-in-swiftui-using-equatableview/)
 struct EquatableViewExample: View {
     private let sleepData = [
-        "one":[
+        "one": [
             Date()
         ],
-        "two":[
+        "two": [
             Date()
-        ]
+        ],
     ]
     private let sleepKeys = [
         "one",
-        "two"
+        "two",
     ]
-    
+
     var body: some View {
         // This will use the Equatable conformance's function to
         // determine if the view has changed or not, which will
         // then lead to redraw if the are not.
         EquatableView(content: CalendarView(sleeps: sleepData, dates: sleepKeys))
-        
+
         // The other way
         CalendarView(sleeps: sleepData, dates: sleepKeys)
             .equatable()
     }
 }
 
-/// Sleep Data
+/// Sleep Data.
 ///
 /// Used in the example to populate the list
 @Observable
 private class Sleep {
     var first: String
     var second: String
-    
+
     init(first: String, second: String) {
         self.first = first
         self.second = second
     }
 }
 
-/// Used in the example to populate the list
+/// Used in the example to populate the list.
 private struct CalendarView: View {
     let sleeps: [String: [Date]]
     let dates: [String]
@@ -105,7 +105,6 @@ extension CalendarView: Equatable {
         lhs.sleeps.count == rhs.sleeps.count
     }
 }
-
 
 #Preview {
     EquatableViewExample()

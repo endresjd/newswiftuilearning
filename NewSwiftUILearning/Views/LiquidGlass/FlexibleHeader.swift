@@ -1,10 +1,3 @@
-/*
-See the LICENSE.txt file for this sample’s licensing information.
-
-Abstract:
-View modifiers that stretch a view in a scroll view when a person scrolls beyond the top bounds.
-*/
-
 import SwiftUI
 
 @Observable private class FlexibleHeaderGeometry {
@@ -18,7 +11,7 @@ private struct FlexibleHeaderContentModifier: ViewModifier {
 
     func body(content: Content) -> some View {
         let height = (modelData.windowSize.height / 2) - geometry.offset
-        
+
         content
             .frame(height: height)
             .padding(.bottom, geometry.offset)

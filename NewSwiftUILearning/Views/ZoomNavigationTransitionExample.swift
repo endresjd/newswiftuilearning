@@ -16,7 +16,7 @@ struct ZoomNavigationTransitionExample: View {
 struct PartyView: View {
     var party: Party
     @Namespace() var namespace
-    
+
     var body: some View {
         if #available(iOS 18, *) {
             NavigationLink {
@@ -39,7 +39,7 @@ struct PartyView: View {
 
 struct PartyDetailView: View {
     var party: Party
-    
+
     var body: some View {
         Text("PartyDetailView")
     }

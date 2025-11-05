@@ -5,9 +5,9 @@
 //  Created by John Endres on 6/11/24.
 //
 
-import WidgetKit
 import AppIntents
 import SwiftUI
+import WidgetKit
 
 struct ControlExample: View {
     var body: some View {
@@ -43,9 +43,9 @@ class PartyManager {
 
 struct StartPartyIntent: AppIntent {
     static let title: LocalizedStringResource = "Start the Party"
-    
+
     func perform() async throws -> some IntentResult {
-        return .result()
+        .result()
     }
 }
 

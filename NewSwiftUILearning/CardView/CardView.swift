@@ -36,8 +36,8 @@ struct CardView: View {
             .padding(20)
             .multilineTextAlignment(.center)
         }
-//        .frame(height: 250)
-//        .frame(width: 450, height: 250)
+        //        .frame(height: 250)
+        //        .frame(width: 450, height: 250)
     }
 }
 

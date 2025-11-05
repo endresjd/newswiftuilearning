@@ -8,7 +8,7 @@
 import SwiftUI
 import WebKit
 
-/// Give the Web page a policy that says you have to stay on the swift web site
+/// Give the Web page a policy that says you have to stay on the swift web site.
 @available(iOS 26.0, *)
 private struct NavigationDecider: WebPage.NavigationDeciding {
     func decidePolicy(for response: WebPage.NavigationResponse) async -> WKNavigationResponsePolicy {
@@ -27,9 +27,7 @@ private struct NavigationDecider: WebPage.NavigationDeciding {
 /// - SeeAlso: [How to embed web content using WebView](https://www.hackingwithswift.com/quick-start/swiftui/how-to-embed-web-content-using-webview)
 @available(iOS 26.0, *)
 struct WebViewExample: View {
-//    @State private var page = WebPage()
-    
-    /// Extra information about the web view
+    /// Extra information about the web view.
     @State private var page = {
         WebPage(navigationDecider: NavigationDecider())
     }()
@@ -40,7 +38,9 @@ struct WebViewExample: View {
             WebView(page)
         }
         .onAppear {
-            page.load(URLRequest(url: URL(string: "https://www.swift.org")!))
+            if let url = URL(string: "https://www.swift.org") {
+                page.load(URLRequest(url: url))
+            }
         }
     }
 }

@@ -20,7 +20,7 @@ private struct LiquidGlassExampleContents: View {
             Text("Hello, World!")
                 .font(.title)
                 .padding()
-            
+
             // Add Liquid Glass effects to a view
             Text("Hello, World!")
                 .font(.title)
@@ -108,7 +108,7 @@ private struct LiquidGlassExampleContents: View {
     }
 }
 
-/// Shows how to apply it directly
+/// Shows how to apply it directly.
 ///
 /// - SeeAlso: [Applying Liquid Glass to custom views](https://developer.apple.com/documentation/SwiftUI/Applying-Liquid-Glass-to-custom-views)
 @available(iOS 26.0, *)
@@ -121,13 +121,13 @@ struct LiquidGlassExample: View {
             .frame(minWidth: 0, maxWidth: .infinity)
             .edgesIgnoringSafeArea(.all)
     }
-    
+
     var body: some View {
         ZStack {
             // Color.blue.opacity(0.2)
             dogImage
                 .ignoresSafeArea()
-            
+
             ScrollView {
                 LiquidGlassExampleContents()
             }

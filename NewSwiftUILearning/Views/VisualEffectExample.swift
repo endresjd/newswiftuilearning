@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-/// Look at the visualEffect modifer
+/// Look at the visualEffect modifer.
 ///
 /// This modifier applies effects to the view, while providing access to layout information through a geometry proxy.
 /// The visual effect is anything that can change the visual appearance of the view but doesn’t affect its layout.
@@ -18,12 +18,12 @@ import SwiftUI
 /// - Important: Tried to animated some, but referencing properties in the modifier give:
 ///         `Main actor-isolated property 'animated' can not be referenced from a Sendable closure; this is an error in the Swift 6 language mode`
 struct VisualEffectExample: View {
-    /// Show the effect
+    /// Show the effect.
     @State private var showOffsetEffect = false
-    
-    /// This one is a more complicated set of effects
+
+    /// This one is a more complicated set of effects.
     @State private var showMoreComplicatedEffect = false
-    
+
     @State private var isScaled = false
 
     var body: some View {
@@ -50,7 +50,7 @@ struct VisualEffectExample: View {
                         }
                         .padding()
                 }
-            
+
             Text("No Visual Effect")
                 .if(showOffsetEffect) { view in
                     view
@@ -66,10 +66,10 @@ struct VisualEffectExample: View {
                 .if(showMoreComplicatedEffect) { view in
                     view
                 }
-            
+
             HStack {
                 Spacer()
-                
+
                 // Swift 6 warning/error: Main actor-isolated property 'isScaled' can not be referenced from a Sendable closure; this is an error in the Swift 6 language mode
                 // Solution is to capture that variable in the closure [isScaled].
                 //
@@ -84,10 +84,9 @@ struct VisualEffectExample: View {
                         )
                     }
                     .animation(.smooth, value: isScaled)
-                
+
                 Spacer()
             }
-
         }
     }
 }

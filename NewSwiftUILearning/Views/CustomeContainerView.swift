@@ -10,7 +10,7 @@ import SwiftUI
 struct CustomeContainerView: View {
     var body: some View {
         if #available(iOS 18, *) {
-            DisplayBoard() {
+            DisplayBoard {
                 // These are called declared subviews
                 Section("First") {
                     Text("One")
@@ -40,20 +40,20 @@ private struct Song: Identifiable {
 @available(iOS 18.0, *)
 struct DisplayBoard<Content: View>: View {
     @ViewBuilder var content: Content
-    
+
     var body: some View {
         List {
             Section("ForEach(subviewOf:)") {
                 // These is a declared subview.  Iterates over the subviews.
                 ForEach(subviews: content) { subview in
                     let values = subview.containerValues
-                    
+
                     // What's here are called the resolved subviews
                     subview
                         .strikethrough(values.crossedOff)
                 }
             }
-            
+
             Section("Group(subviewsOf:)") {
                 // Like the previous ForEach(subviewOf:) API, this view accepts a view as
                 // input and resolves its subviews.  But instead of iterating over them one
@@ -61,16 +61,16 @@ struct DisplayBoard<Content: View>: View {
                 // of the resolved subviews.
                 Group(subviews: content) { subviews in
                     Text("Count: **\(subviews.count)**")
-                    
+
                     ForEach(subviews) { subview in
                         let values = subview.containerValues
-                        
+
                         subview
                             .strikethrough(values.crossedOff)
                     }
                 }
             }
-            
+
             Section("ForEach(sectionOf:).") {
                 ForEach(sections: content) { section in
                     Group {
@@ -82,13 +82,13 @@ struct DisplayBoard<Content: View>: View {
                         }
                     }
                     .bold()
-                    
+
                     // This is a SubviewsCollection
                     ForEach(section.content) { subview in
                         // Supposed to get the container value attached to a subview
                         // but is not working in this example
                         let values = subview.containerValues
-                        
+
                         // What's here are called the resolved subviews
                         subview
                             .strikethrough(values.crossedOff)
@@ -123,13 +123,13 @@ extension View {
     let songs = [
         Song(name: "Alpha"),
         Song(name: "Beta"),
-        Song(name: "Gamma")
+        Song(name: "Gamma"),
     ]
-    
-    DisplayBoard() {
+
+    DisplayBoard {
         Text("Blah")
             .crossedOff(true)
-        
+
         Section("Static") {
             // These are called declared subviews.
             // The defined a recipe for producing the resolved subviews.
@@ -138,7 +138,7 @@ extension View {
                 .crossedOff(true)
             Text("Three")
         }
-        
+
         Section("Dynamic") {
             ForEach(songs) { song in
                 Text(song.name)

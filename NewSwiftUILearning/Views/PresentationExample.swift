@@ -24,14 +24,14 @@ struct PresentationExample: View {
     @State private var showExact = false
     @State private var showPercentages = false
     @State private var showDragIndicator = true
-    
+
     private let heights = stride(from: 0.1, through: 1.0, by: 0.1).map { PresentationDetent.fraction($0) }
 
     var body: some View {
         Toggle("Show drag indicator", isOn: $showDragIndicator)
             .padding(.horizontal)
             .padding(.bottom)
-        
+
         Button("Show Credits") {
             showingCredits.toggle()
         }
@@ -40,7 +40,7 @@ struct PresentationExample: View {
                 .presentationDetents([.medium, .large])
                 .presentationDragIndicator(showDragIndicator ? .visible : .hidden)
         }
-        
+
         Button("Show fractional") {
             showFractional.toggle()
         }
@@ -49,7 +49,7 @@ struct PresentationExample: View {
                 .presentationDetents([.fraction(0.15)])
                 .presentationDragIndicator(showDragIndicator ? .visible : .hidden)
         }
-        
+
         Button("Show exact") {
             showExact.toggle()
         }
@@ -58,7 +58,7 @@ struct PresentationExample: View {
                 .presentationDetents([.height(300)])
                 .presentationDragIndicator(showDragIndicator ? .visible : .hidden)
         }
-        
+
         Button("Show percentages") {
             showPercentages.toggle()
         }

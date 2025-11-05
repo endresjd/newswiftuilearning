@@ -5,10 +5,10 @@
 //  Created by John Endres on 9/5/25.
 //
 
+import MacpluginsMacros
 import SwiftUI
 import UserNotifications
 import os
-import MacpluginsMacros
 
 private struct LabeledValue: View {
     var title: String
@@ -31,7 +31,7 @@ private struct LabeledValue: View {
     }
 }
 
-/// Examples of how to schedule notifications
+/// Examples of how to schedule notifications.
 ///
 /// - SeeAlso: [Scheduling notifications with time, calendar, and location triggers in iOS](https://tanaschita.com/ios-local-notification-triggers/)
 @OSLogger
@@ -45,7 +45,6 @@ struct ScheduledNotificationsExamples: View {
     private let notificationCenter = UNUserNotificationCenter.current()
 
     var body: some View {
-        
         ScrollView {
             VStack(spacing: 8) {
                 LabeledValue(title: "Updated", value: shared.lastUpdate.formatted(date: .omitted, time: .shortened))
@@ -56,24 +55,24 @@ struct ScheduledNotificationsExamples: View {
                 LabeledValue(title: "Secondary", value: shared.secondaryStatus)
             }
             .padding(.bottom)
-            
+
             VStack(spacing: 16) {
                 Button("Check again") {
                     checkAgain.toggle()
                 }
-                
+
                 Button("Time interval") {
                     timeInterval = true
                 }
-                
+
                 Button("Specific time") {
                     specificTime = true
                 }
-                
+
                 Button("Location") {
                     location = true
                 }
-                
+
                 Button("Clear everything") {
                     clearNotifications = true
                 }
@@ -81,16 +80,16 @@ struct ScheduledNotificationsExamples: View {
         }
         .task(id: checkAgain) {
             logger.debug("checkStatus")
-            
+
             await shared.checkStatus()
         }
         .task(id: clearNotifications) {
             guard clearNotifications else {
                 return
             }
-            
+
             logger.debug("clearNotifications")
-            
+
             await shared.clearAllNotifications()
 
             clearNotifications = false
@@ -99,9 +98,9 @@ struct ScheduledNotificationsExamples: View {
             guard timeInterval else {
                 return
             }
-            
+
             logger.debug("timeInterval")
-            
+
             await shared.checkStatus()
             await shared.timeInterval()
 
@@ -111,9 +110,9 @@ struct ScheduledNotificationsExamples: View {
             guard specificTime else {
                 return
             }
-            
+
             logger.debug("timeInterval")
-            
+
             await shared.calendarTrigger()
 
             specificTime = false
@@ -122,9 +121,9 @@ struct ScheduledNotificationsExamples: View {
             guard location else {
                 return
             }
-            
+
             logger.debug("timeInterval")
-            
+
             await shared.locationTrigger()
 
             location = false
@@ -135,4 +134,3 @@ struct ScheduledNotificationsExamples: View {
 #Preview {
     ScheduledNotificationsExamples()
 }
-

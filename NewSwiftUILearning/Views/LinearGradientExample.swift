@@ -7,9 +7,9 @@
 
 import SwiftUI
 
-/// A box filled with a linear gradient from iOS 13
+/// A box filled with a linear gradient from iOS 13.
 ///
-/// The gradient applies the color function along an axis, as defined by its start and end points. The 
+/// The gradient applies the color function along an axis, as defined by its start and end points. The
 /// gradient maps the unit space points into the bounding rectangle of each shape filled with the gradient.
 ///
 /// - Remark: iOS 16 gives newer shortcuts for gradients line .fill(.blue.gradient)

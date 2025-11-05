@@ -10,7 +10,7 @@ import SwiftUI
 @available(iOS 26.0, *)
 struct NavigationSubtitleExample: View {
     @State private var showSubtitle = true
-    
+
     var body: some View {
         NavigationStack {
             if showSubtitle {
@@ -19,7 +19,7 @@ struct NavigationSubtitleExample: View {
             } else {
                 Text("No subtitle")
             }
-            
+
             Button("Toggle") {
                 showSubtitle.toggle()
             }

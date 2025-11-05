@@ -16,7 +16,7 @@ struct TextFieldExample: View {
     @State private var password = ""
     @State private var givenName = ""
     @State private var familyName = ""
-    
+
     var body: some View {
         Form {
             Section("Simple") {
@@ -31,11 +31,11 @@ struct TextFieldExample: View {
                 .textInputAutocapitalization(.never)
                 .disableAutocorrection(true)
                 .border(.secondary)
-                
+
                 Text(username)
                     .foregroundColor(emailFieldIsFocused ? .red : .blue)
             }
-            
+
             Section("Formatstyle and Name components") {
                 TextField(
                     "Proper name",
@@ -47,10 +47,10 @@ struct TextFieldExample: View {
                 }
                 .disableAutocorrection(true)
                 .border(.secondary)
-                
+
                 Text(nameComponents.debugDescription)
             }
-            
+
             Section("Prompts") {
                 TextField(text: $login, prompt: Text("Username required")) {
                     Text("Username")
@@ -59,7 +59,7 @@ struct TextFieldExample: View {
                     Text("Password")
                 }
             }
-            
+
             Section("No autocorrect") {
                 VStack {
                     TextField(
@@ -75,7 +75,6 @@ struct TextFieldExample: View {
                 }
                 .textFieldStyle(.roundedBorder)
             }
-            
         }
     }
 }

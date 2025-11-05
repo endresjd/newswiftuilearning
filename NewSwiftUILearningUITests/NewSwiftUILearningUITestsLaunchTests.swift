@@ -9,7 +9,6 @@ import XCTest
 
 @MainActor
 final class NewSwiftUILearningUITestsLaunchTests: XCTestCase {
-
     override class var runsForEachTargetApplicationUIConfiguration: Bool {
         true
     }

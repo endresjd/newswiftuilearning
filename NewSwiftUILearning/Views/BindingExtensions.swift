@@ -5,8 +5,8 @@
 //  Created by John Endres on 3/27/25.
 //
 
-import SwiftUI
 import Macplugins
+import SwiftUI
 
 /// Shows how to extend Bindings to reduce boilerplat code in views.
 ///
@@ -31,7 +31,7 @@ struct BindingExtensions: View {
             // Not sure this is the correct usage.  The article didn't give a good example
             Text("\($unknownMessage.unwrapped(defaultValue: "No message Yet").wrappedValue)")
                 .padding(.bottom)
-            
+
             Button("Unknown message") {
                 if unknownMessage == nil {
                     unknownMessage = "Something went wrong"
@@ -39,7 +39,7 @@ struct BindingExtensions: View {
                     unknownMessage = nil
                 }
             }
-            
+
             Button("non-nil") {
                 error = .networkError
             }
@@ -54,7 +54,7 @@ struct BindingExtensions: View {
                     } label: {
                         Text("No")
                     }
-                    
+
                     // This is how to put in a cancel button with
                     // a different title.  Without this, SwiftUI
                     // will add its own Cancel button for you.
@@ -64,11 +64,12 @@ struct BindingExtensions: View {
                     } label: {
                         Text("Yes")
                     }
-                }, message: { argument in
+                },
+                message: { argument in
                     Text(String(describing: argument))
                 }
             )
-            
+
             Button("Brian Kernighan") {
                 message = "Hello, World!"
             }
@@ -82,7 +83,7 @@ struct BindingExtensions: View {
                     // disabled to enabled.  At least in Previews.
                     Button("Hello") {
                     }
-                    
+
                     Button("World") {
                     }
                 },
@@ -90,7 +91,7 @@ struct BindingExtensions: View {
                     Text(message)
                 }
             )
-            
+
             Button("Deprecated Alert") {
                 deprecatedAlert.toggle()
             }

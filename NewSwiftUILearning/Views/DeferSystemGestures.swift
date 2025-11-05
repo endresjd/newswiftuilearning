@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-/// Shows how to gain priority on gestures
+/// Shows how to gain priority on gestures.
 ///
 /// This is a way to prevent the system from responding to a gesture.  In this case, the view wants
 /// to handle vertical gestures.
@@ -27,9 +27,10 @@ struct DeferSystemGestures: View {
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .contentShape(Rectangle())
             .gesture(
-                DragGesture().onChanged { value in
-                    input = value.location.y - value.startLocation.y
-                }
+                DragGesture()
+                    .onChanged { value in
+                        input = value.location.y - value.startLocation.y
+                    }
             )
             .defersSystemGestures(on: .vertical)
     }

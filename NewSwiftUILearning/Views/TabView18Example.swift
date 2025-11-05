@@ -5,31 +5,31 @@
 //  Created by John Endres on 6/11/24.
 //
 
-import SwiftUI
 import Charts
+import SwiftUI
 
 @available(iOS 18.0, *)
 struct TabView18Example: View {
     @State private var customization = TabViewCustomization()
-    
+
     var body: some View {
         TabView {
             Tab("Parties", systemImage: "party.popper") {
                 PartiesView(parties: Party.all)
             }
             .customizationID("karaoke.tab.parties")
-            
+
             Tab("Planning", systemImage: "pencil.and.list.clipboard") {
                 PlanningView()
             }
             .customizationID("karaoke.tab.planning")
-            
+
             TabSection("John") {
                 Tab("Attendance", systemImage: "person.3") {
                     AttendanceView()
                 }
                 .customizationID("karaoke.tab.attendance")
-                
+
                 Tab("Song List", systemImage: "music.note.list") {
                     SongListView()
                 }
@@ -80,7 +80,7 @@ struct SongListView: View {
 struct Party {
     var name: String
     var id = UUID()
-    
+
     // TODO: what if I want this mutable?  If it is var (not let) then this will be a concurrency error in Swift 6
     static let all: [Party] = []
 }

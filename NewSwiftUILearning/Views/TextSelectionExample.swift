@@ -11,36 +11,36 @@ import SwiftUI
 extension ContainerValues {
     @Entry var icon: String = "photo"
 }
- 
+
 @available(iOS 18.0, *)
 struct HeadlinesView: View {
     var body: some View {
         Text("Coming soon: Xcode on Apple Watch")
             .containerValue(\.icon, "applewatch")
-        
+
         Text("Apple announces Swift-compatible toaster")
             .containerValue(\.icon, "swift")
-        
+
         Text("Xcode predicts errors before you make them")
             .containerValue(\.icon, "exclamationmark.triangle")
-        
+
         Text("Apple Intelligence gains sentience, demands a vacation")
             .containerValue(\.icon, "apple.logo")
-        
+
         Text("Swift concurrency made simple")
             .containerValue(\.icon, "sparkles")
     }
 }
- 
+
 @available(iOS 18.0, *)
 struct TextSelectionExample: View {
     @State var text = ""
     @State var selection: TextSelection?
- 
+
     var subString: String {
         if let selection {
             let insertionString = selection.isInsertion ? "[at insertion]" : ""
-            
+
             switch selection.indices {
             case .multiSelection(_):
                 // This is a MacOS case
@@ -51,10 +51,10 @@ struct TextSelectionExample: View {
                 return "New case"
             }
         }
-        
+
         return "No selection"
     }
-    
+
     var body: some View {
         ScrollView {
             Text("Latest News")
@@ -62,7 +62,7 @@ struct TextSelectionExample: View {
                     .largeTitle
                         .bold()
                 )
- 
+
             // This does a relayout of HeadlinesView() to add some styling,
             // color, and images based on added container values.
             //
@@ -85,15 +85,15 @@ struct TextSelectionExample: View {
                 }
             }
         }
- 
+
         Divider()
-        
+
         Text("Hurm")
-        
+
         Text(subString)
-        
+
         Divider()
-        
+
         // Unsure if this can be adequately associated with .onChange() to reformat on
         // the fly and keep the selection in the right place
         TextField("selection", text: $text, selection: $selection)

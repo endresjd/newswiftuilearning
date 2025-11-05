@@ -1,25 +1,18 @@
-/*
-See the LICENSE.txt file for this sample’s licensing information.
-
-Abstract:
-The view that the app uses to edit the title of a book.
-*/
-
 import SwiftUI
 
 struct BookEditView: View {
     /// This is a binding to an observable type.  Used to be @ObservedObject
     @Bindable var book: Book
     @Environment(\.dismiss) private var dismiss
-    
+
     var body: some View {
-        VStack() {
+        VStack {
             TextField("Title", text: $book.title)
                 .textFieldStyle(.roundedBorder)
                 .onSubmit {
                     dismiss()
                 }
-            
+
             Button("Close") {
                 dismiss()
             }

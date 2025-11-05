@@ -18,7 +18,7 @@ struct SectionIndexLabelsExample: View {
                     Text("Row \(number)")
                 }
             }
-            .sectionIndexLabel(letter)  // Content control on the right
+            .sectionIndexLabel(letter) // Content control on the right
         }
     }
 }

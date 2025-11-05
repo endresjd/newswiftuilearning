@@ -5,11 +5,11 @@
 //  Created by John Endres on 4/1/25.
 //
 
+import CoreLocation
+import MacpluginsMacros
 import SwiftUI
 import UserNotifications
-import CoreLocation
 import os
-import MacpluginsMacros
 
 /// Shared content for the whole app.
 ///
@@ -32,20 +32,20 @@ final class SharedContent: NSObject {
 
     override init() {
         super.init()
-        
+
         notificationCenter.delegate = self
     }
-    
+
     deinit {
         logger.debug("SharedContent deinitialized")
     }
-    
+
     /// Demonstrates safe use of withObservationTracking in Swift 6, without capturing non-Sendable values in the closure.
     ///
     /// - Important: As usual, I don't know how to use this in Swift 6.  Xcode is no help.
     func trackSharedText() {
         let currentText = sharedText // Capture value, not reference
-        
+
         withObservationTracking {
             lastUpdate = Date()
             _ = sharedText
@@ -53,14 +53,14 @@ final class SharedContent: NSObject {
             // Hop back to the MainActor to access main-actor isolated state
             Task { @MainActor [self] in
                 print("sharedText changed from \(currentText) to \(self.sharedText)")
-                
+
                 // Recursively observe again, if needed. Use a microtask to avoid stack overflow.
                 trackSharedText()
             }
         }
     }
-    
-    /// Add a notification based on a trigger
+
+    /// Add a notification based on a trigger.
     ///
     /// - Parameters:
     ///   - title: Title for the notification
@@ -72,7 +72,7 @@ final class SharedContent: NSObject {
         content.title = title
         content.body = body
         content.sound = UNNotificationSound.default
-        
+
         let uuidString = UUID().uuidString
         let request = UNNotificationRequest(identifier: uuidString, content: content, trigger: trigger)
 
@@ -85,21 +85,21 @@ final class SharedContent: NSObject {
             message = error.localizedDescription
         }
     }
-    
-    /// Check the pending notification count and update the published value
+
+    /// Check the pending notification count and update the published value.
     func checkNotifications() async {
         let requests = await notificationCenter.pendingNotificationRequests()
-        
+
         notificationCount = requests.count
         lastUpdate = Date()
     }
 
-    /// Checks notification status
+    /// Checks notification status.
     ///
     /// Fills in fields of the view to show us notification center status
     func checkStatus() async {
         let settings = await notificationCenter.notificationSettings()
-        
+
         switch settings.authorizationStatus {
         case .authorized:
             status = "authorized"
@@ -114,22 +114,22 @@ final class SharedContent: NSObject {
         @unknown default:
             status = "@unknown default"
         }
-        
+
         switch settings.alertSetting {
-            case .disabled:
-                secondaryStatus = "Disabled"
-            case .enabled:
-                secondaryStatus = "Enabled"
-            case .notSupported:
-                secondaryStatus = "Not supported"
-            @unknown default:
-                secondaryStatus = "Unplanned state"
-            }
+        case .disabled:
+            secondaryStatus = "Disabled"
+        case .enabled:
+            secondaryStatus = "Enabled"
+        case .notSupported:
+            secondaryStatus = "Not supported"
+        @unknown default:
+            secondaryStatus = "Unplanned state"
+        }
 
         await checkNotifications()
     }
 
-    /// Schedule a timed notification
+    /// Schedule a timed notification.
     ///
     /// This shows how to fire a notification after a set number of seconds.
     /// A time interval trigger is the simplest option. It fires after a fixed amount of time has passed,
@@ -140,19 +140,19 @@ final class SharedContent: NSObject {
         guard settings.authorizationStatus == .authorized || settings.authorizationStatus == .provisional else {
             message = "Not authorized"
             logger.error("\(self.message)")
-            
+
             return
         }
-        
+
         let numberOfMinutes = 1
         let seconds = 60
         let trigger = UNTimeIntervalNotificationTrigger(timeInterval: TimeInterval(numberOfMinutes * seconds), repeats: false)
-        
+
         await add(title: "Time interval", body: "it's been a minute", trigger: trigger)
         await checkStatus()
     }
-    
-    /// Schedle a notification at a specific date and time
+
+    /// Schedle a notification at a specific date and time.
     ///
     /// A calendar trigger allows us to schedule notifications based on specific dates and times or repeating intervals.
     /// This is ideal for recurring reminders, like daily health checks or weekly meeting reminders. For example, we
@@ -173,10 +173,9 @@ final class SharedContent: NSObject {
 
         await add(title: "7:30am", body: "Not sure if hour is 24 hours or not", trigger: trigger)
         await checkStatus()
-
     }
-    
-    /// Schedule a notification based on location
+
+    /// Schedule a notification based on location.
     ///
     /// A location trigger is a more context-aware option that fires when a user enters or exits a specified geographic region
     func locationTrigger() async {
@@ -197,8 +196,8 @@ final class SharedContent: NSObject {
         await add(title: "Leaving?", body: "You left Dublin?", trigger: trigger)
         await checkStatus()
     }
-    
-    /// Clear all notifications
+
+    /// Clear all notifications.
     func clearAllNotifications() async {
         notificationCenter.removeAllPendingNotificationRequests()
         notificationCenter.removeAllDeliveredNotifications()
@@ -206,7 +205,7 @@ final class SharedContent: NSObject {
         message = ""
         status = ""
         secondaryStatus = ""
-        
+
         await checkStatus()
     }
 }
@@ -217,25 +216,25 @@ extension SharedContent: UNUserNotificationCenterDelegate {
         didReceive response: UNNotificationResponse
     ) async {
         logger.debug("userNotificationCenter:didReceive async")
-        
+
         message = "didReceive: \(response.notification.request.content.body)"
 
         await checkStatus()
     }
-    
+
     func userNotificationCenter(
         _ center: UNUserNotificationCenter,
         willPresent notification: UNNotification
     ) async -> UNNotificationPresentationOptions {
         logger.debug("userNotificationCenter:willPresent async")
-        
+
         message = "willPresent: \(notification.request.content.body)"
 
         await checkStatus()
 
         return [.banner, .list, .badge, .sound]
     }
-    
+
     func userNotificationCenter(_ center: UNUserNotificationCenter, openSettingsFor: UNNotification?) {
         logger.debug("userNotificationCenter:openSettingsFor")
         message = "openSettings?"

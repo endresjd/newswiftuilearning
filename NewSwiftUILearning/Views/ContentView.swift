@@ -5,9 +5,9 @@
 //  Created by John Endres on 11/11/23.
 //
 
+import MacpluginsMacros
 import SwiftUI
 import os
-import MacpluginsMacros
 
 /// Top-level container for the view that shows a list of all views that are defined in the
 /// router enum.
@@ -23,26 +23,30 @@ import MacpluginsMacros
 /// - Seealso: [How to use programmatic navigation in SwiftUI](https://www.hackingwithswift.com/quick-start/swiftui/how-to-use-programmatic-navigation-in-swiftui)
 @OSLogger
 struct ContentView: View {
+    /// Selected router view.
+    ///
     /// Holds the selected navigation item that we use to provide the destination
     /// view we will route to.  This is nil by default to indicate there is no routing needed.
     @State private var selection: ViewRouter? = nil
-    
+
     /// Holds the typed in search term that will be used to filter the views in the
     /// on-screen list.
     @State private var searchTerm = ""
-    
+
+    /// Location manager for example.
+    ///
     /// Some of the examples in the router require location information.  This is used
     /// here, the top level, to request authorization for the whole app.
     private let locationManager = LocationManager()
-    
-    /// Returns a list of views that will show in the list based on the value of `searchTerm`
+
+    /// Returns a list of views that will show in the list based on the value of `searchTerm`.
     private var searchResults: [ViewRouter] {
         guard !searchTerm.isEmpty else {
             return ViewRouter.allCases.sorted { left, right in
                 if left.version > right.version {
                     return true
                 }
-                
+
                 return left.name < right.name
             }
         }
@@ -50,11 +54,11 @@ struct ContentView: View {
         let results = ViewRouter.allCases.filter { router in
             router.name.lowercased().contains(searchTerm.lowercased())
         }
-        
+
         return results
     }
-    
-    /// Contents for a navigation view that isn't selection based
+
+    /// Contents for a navigation view that isn't selection based.
     var contents: some View {
         // List doesn't need selection because the next column is determined
         // by the navigationDestination modifier.
@@ -72,8 +76,8 @@ struct ContentView: View {
             locationManager.requestWhenInUseAuthorization()
         }
     }
-    
-    /// Split view where detail is determined by selection
+
+    /// Split view where detail is determined by selection.
     var selectionBody: some View {
         // A selection based split view
         NavigationSplitView {
@@ -99,16 +103,17 @@ struct ContentView: View {
         .task {
             locationManager.requestWhenInUseAuthorization()
         }
-        .onAppear() {
+        .onAppear {
             // Read the saved navigation route from defaults and set the navigation path
             if let data = UserDefaults.standard.data(forKey: "savedNavigation"),
-               let decodedPath = try? JSONDecoder().decode(ViewRouter.self, from: data) {
+                let decodedPath = try? JSONDecoder().decode(ViewRouter.self, from: data)
+            {
                 logger.debug("Restored navigation path")
-                
+
                 selection = decodedPath
             }
         }
-        .onDisappear() {
+        .onDisappear {
             // Save the navigation path to user defaults
             if let encodedPath = try? JSONEncoder().encode(selection) {
                 UserDefaults.standard.set(encodedPath, forKey: "savedNavigation")
@@ -117,8 +122,8 @@ struct ContentView: View {
             }
         }
     }
-    
-    /// Adaptive navigation
+
+    /// Adaptive navigation.
     ///
     /// Selection-based list is not the only way to navigate through columns of the split view. You
     /// can provide destination points by using the navigationDestination view modifier. In this case,
@@ -138,7 +143,7 @@ struct ContentView: View {
             }
         }
     }
-    
+
     var body: some View {
         selectionBody
         // adaptiveBody

@@ -33,7 +33,7 @@ struct AnyLayoutExample: View {
         ScrollView {
             Text(horizontalSizeClass == .regular ? "Regular" : "Compact")
             Text(String(describing: dynamicTypeSize))
-            
+
             Divider()
 
             layout {
@@ -42,9 +42,9 @@ struct AnyLayoutExample: View {
                 Image(systemName: "3.circle")
             }
             .font(.largeTitle)
-            
+
             Divider()
-            
+
             typeLayout {
                 Text("John")
                 Text("Donald")
@@ -61,4 +61,3 @@ struct AnyLayoutExample: View {
 #Preview(traits: .landscapeLeft) {
     AnyLayoutExample()
 }
-

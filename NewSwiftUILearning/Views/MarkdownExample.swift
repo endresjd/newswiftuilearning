@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-/// Show ways to render text using Markdown
+/// Show ways to render text using Markdown.
 ///
 /// * Some of this markdown is using Apple’s Markdown extension syntax: ^[text](name:value, name:value, …)
 /// * Some is from straight up markdown.
@@ -24,10 +24,10 @@ import SwiftUI
 ///     * [Morphology in Swift](https://www.swiftjectivec.com/morphology-in-ios-with-automatic-grammar-agreement/)
 ///     * [MarkdownDecodableAttributedStringKey](https://developer.apple.com/documentation/foundation/markdowndecodableattributedstringkey)
 struct MarkdownExample: View {
-    /// For the stepper to show how to pluralize the stepper name
+    /// For the stepper to show how to pluralize the stepper name.
     @State private var coffeeAmount = 1
-    
-    /// For the messages stepper
+
+    /// For the messages stepper.
     @State private var messages = 1
 
     // These show examples of Apple’s Markdown extension syntax: ^[text](name:value, name:value, …)
@@ -40,12 +40,12 @@ struct MarkdownExample: View {
                 Text("`Monospaced works too`")
                 Text("Visit Apple: [click here](https://apple.com)")
             }
-            
+
             Section("Advanced") {
                 // Don't really understand
                 Text("^[Text with foo & bar attributes](foo: xxx, bar: 123)")
             }
-            
+
             // You can apply the inflect=true attribute to part of the string:
             Section("Pluralization") {
                 Stepper("^[\(coffeeAmount) cup](inflect: true)", value: $coffeeAmount, in: 0...20)
@@ -62,7 +62,7 @@ struct MarkdownExample: View {
 }
 
 extension Text {
-    /// Create a string with proper form for 0 or more values of the string passed in
+    /// Create a string with proper form for 0 or more values of the string passed in.
     ///
     /// As the blog post mentioned, this was figured out by actually looking at the source code
     /// for Foundation to see how it is using the json givin in the morphology parameter (?) in the

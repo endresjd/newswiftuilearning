@@ -16,4 +16,3 @@ struct FunctionPlottingExample: View {
 #Preview {
     FunctionPlottingExample()
 }
-

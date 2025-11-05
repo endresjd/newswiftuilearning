@@ -35,19 +35,27 @@ private struct Tree<Value>: Hashable where Value: Hashable, Value: Sendable {
 ///
 /// - Experiment: See if this came be made to look better with indentation or something
 struct OutlineGroupExample: View {
-    fileprivate let data = FileItem(name: "users", children:
-                [FileItem(name: "user1234", children:
-                            [FileItem(name: "Photos", children:
-                                        [FileItem(name: "photo001.jpg"),
-                                         FileItem(name: "photo002.jpg")]),
-                             FileItem(name: "Movies", children:
-                                        [FileItem(name: "movie001.mp4")]),
-                             FileItem(name: "Documents", children: [])
-                            ]),
-                 FileItem(name: "newuser", children:
-                            [FileItem(name: "Documents", children: [])
-                            ])
-                ])
+    fileprivate let data = FileItem(
+        name: "users",
+        children: [
+            FileItem(
+                name: "user1234",
+                children: [
+                    FileItem(
+                        name: "Photos",
+                        children: [
+                            FileItem(name: "photo001.jpg"),
+                            FileItem(name: "photo002.jpg"),
+                        ]),
+                    FileItem(name: "Movies", children: [FileItem(name: "movie001.mp4")]),
+                    FileItem(name: "Documents", children: []),
+                ]),
+            FileItem(
+                name: "newuser",
+                children: [
+                    FileItem(name: "Documents", children: [])
+                ]),
+        ])
     fileprivate let categories: [Tree<String>] = [
         Tree(
             value: "Clothing",
@@ -60,7 +68,7 @@ struct OutlineGroupExample: View {
                     value: "Jeans",
                     children: [
                         Tree(value: "Regular"),
-                        Tree(value: "Slim")
+                        Tree(value: "Slim"),
                     ]
                 ),
             ]
@@ -73,15 +81,14 @@ struct OutlineGroupExample: View {
                 Tree(value: "Sandals"),
                 Tree(value: "Trainers"),
             ]
-        )
+        ),
     ]
 
     var body: some View {
-//        OutlineGroup(data, children: \.children) { item in
-//            Text("\(item.description)")
-//        }
-//        .padding()
-        
+        //        OutlineGroup(data, children: \.children) { item in
+        //            Text("\(item.description)")
+        //        }
+        //        .padding()
         Spacer()
     }
 }

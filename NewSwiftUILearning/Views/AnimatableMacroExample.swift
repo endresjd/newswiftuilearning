@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-@available(iOS 26.0, *)
+// Rough edge: Will cause the macro to fail.  @available(iOS 26.0, *)
 @Animatable
 struct Wave: Shape {
     var amplitude: Double
@@ -33,7 +33,7 @@ struct Wave: Shape {
     }
 }
 
-/// Show how to animate using this new macro
+/// Show how to animate using this new macro.
 ///
 /// - Before iOS 26 this was a little tricky to use, because we needed to create an animatableData value to represent our animatable value
 /// - If you're targeting iOS 26 or later, this becomes a lot easier thanks to the @Animatable macro, which automatically makes any properties animatable – you should delete animatableData entirely and let the macro do all the work for you.
@@ -52,7 +52,7 @@ struct AnimatableMacroExample: View {
             .onAppear {
                 withAnimation(
                     .linear(duration: 1)
-                    .repeatForever(autoreverses: false)
+                        .repeatForever(autoreverses: false)
                 ) {
                     phase = .pi * 2
                 }

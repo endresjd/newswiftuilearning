@@ -34,7 +34,6 @@ struct MeasurementExamples: View {
         // Any can represent an instance of any type at all, including function types
         //      Reference and value
         // any is used to indicate the use of an existential
-         
         // Kinda sucks we can be more restrictive on the type
         // Also sucks that this couldn't be in a lazy var.  Maybe I don't get those.
         let measurements: [(Any, Any)] = [
@@ -62,7 +61,7 @@ struct MeasurementExamples: View {
             "\(measurement.0) --> \(measurement.1)"
         }
     }
-    
+
     var body: some View {
         ScrollView {
             ForEach(measurements, id: \.self) { measurement in

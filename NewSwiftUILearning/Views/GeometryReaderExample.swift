@@ -23,7 +23,7 @@ private struct InnerView: View {
     var body: some View {
         HStack {
             Text("Left")
-            
+
             GeometryReader { geometry in
                 Text("Center")
                     // .position(x: geometry.size.width / 2, y: geometry.size.height / 2)
@@ -35,7 +35,7 @@ private struct InnerView: View {
                     }
             }
             .background(.orange)
-            
+
             Text("Right")
         }
     }
@@ -45,10 +45,10 @@ private struct OuterView: View {
     var body: some View {
         VStack {
             Text("Top")
-            
+
             InnerView()
                 .background(.green)
-            
+
             Text("Bottom")
         }
     }
@@ -58,7 +58,7 @@ struct GeometryReaderExample: View {
     var body: some View {
         OuterView()
             .background(.red)
-            .coordinateSpace(name: "Custom")    // Used in GeometryReader to get location relative to this view
+            .coordinateSpace(name: "Custom") // Used in GeometryReader to get location relative to this view
     }
 }
 

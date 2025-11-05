@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-/// Simple blue circle.  iOS 13
+/// Simple blue circle.  iOS 13.
 struct CircleExample: View {
     var body: some View {
         Circle()

@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-/// Horizontal scrolling row of emojis using iOS 14's LazyHGrid
+/// Horizontal scrolling row of emojis using iOS 14's LazyHGrid.
 ///
 /// A container view that arranges its child views in a grid that grows
 /// horizontally, creating items only as needed

@@ -44,7 +44,7 @@ struct ScenePaddingExample: View {
                 Button("Button") {
                 }
                 .padding(.vertical)
-                
+
                 Spacer()
             }
             .navigationTitle("Hello World")

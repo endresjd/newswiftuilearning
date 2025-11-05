@@ -5,10 +5,10 @@
 //  Created by John Endres on 12/13/23.
 //
 
-import Foundation
 import CoreLocation
+import Foundation
 
-/// Concurrent wrapper around Location Manager for getting the current location.  
+/// Concurrent wrapper around Location Manager for getting the current location.
 ///
 /// Has 2 functions -- request authorization and the concurrent `currentLocation`
 /// property to return the current location, if known.
@@ -16,12 +16,12 @@ class LocationManager: NSObject {
     /// Instance of the LocationManager from the system.  An instance of this class will
     /// be the delegate to handle events from CLLocationManager
     private let locationManager = CLLocationManager()
-    
-    /// Bridging instance between the delegate/callback code and Swift
+
+    /// Bridging instance between the delegate/callback code and Swift.
     private var continuation: CheckedContinuation<CLLocation, any Error>?
-    
+
     /// Either returns the current location of the device or throws an error with information
-    /// about why it couldn't be determined
+    /// about why it couldn't be determined.
     @MainActor
     var location: CLLocation {
         get async throws {
@@ -31,7 +31,7 @@ class LocationManager: NSObject {
 
             return try await withCheckedThrowingContinuation { continuation in
                 self.continuation = continuation
-                
+
                 locationManager.requestLocation()
             }
         }
@@ -40,9 +40,9 @@ class LocationManager: NSObject {
     override init() {
         super.init()
     }
-    
+
     /// Uses the underlying CLLocationManager to request an "When in use" authorization for
-    /// getting the location
+    /// getting the location.
     func requestWhenInUseAuthorization() {
         switch locationManager.authorizationStatus {
         case .notDetermined:
@@ -51,7 +51,6 @@ class LocationManager: NSObject {
             return
         }
     }
-
 }
 
 extension LocationManager: CLLocationManagerDelegate {
@@ -67,7 +66,7 @@ extension LocationManager: CLLocationManagerDelegate {
             continuation = nil
         }
     }
-    
+
     /// Notes the error received from the location manager and feeds that to the continuation.
     /// After that the async wrapper is cleared
     /// - Parameters:

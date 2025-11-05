@@ -7,9 +7,9 @@
 
 import Foundation
 
-/// pie chart segment
+/// pie chart segment.
 ///
-/// data model that would represent the pie chart segments
+/// data model that would represent the pie chart segments.
 struct ProgressPortion {
     let day: Int
     let portion: Double

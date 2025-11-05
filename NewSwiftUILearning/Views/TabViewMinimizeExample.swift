@@ -10,21 +10,21 @@ import SwiftUI
 @available(iOS 26.0, *)
 struct TabViewMinimizeExample: View {
     var body: some View {
-         TabView {
-             Tab("Numbers", systemImage: "number") {
-                 ScrollView {
-                    ForEach(0 ..< 50) { index in
+        TabView {
+            Tab("Numbers", systemImage: "number") {
+                ScrollView {
+                    ForEach(0..<50) { index in
                         Text("\(index)")
                             .frame(maxWidth: .infinity)
                     }
-                 }
-             }
-             
-             Tab("Alerts", systemImage: "bell") {
-                 Text("Example Text")
-             }
-         }
-         .tabBarMinimizeBehavior(.onScrollDown)
+                }
+            }
+
+            Tab("Alerts", systemImage: "bell") {
+                Text("Example Text")
+            }
+        }
+        .tabBarMinimizeBehavior(.onScrollDown)
     }
 }
 

@@ -7,6 +7,8 @@
 
 import SwiftUI
 
+/// Shows a way to get the tap location in a view.
+///
 /// Shows a way to get the tap location in a view without needing to bridge to UIKit either
 /// relative to the view or relative to other coordinates.
 ///
@@ -20,16 +22,16 @@ import SwiftUI
 /// - Requires: iOS 16
 /// - Seealso: [How to detect the location of a tap inside a view](https://www.hackingwithswift.com/quick-start/swiftui/how-to-detect-the-location-of-a-tap-inside-a-view)
 struct TapLocationExample: View {
-    /// The last tap in the view
+    /// The last tap in the view.
     @State private var tappedLocation: CGPoint?
-    
+
     var body: some View {
         if let tappedLocation {
             Text("Tapped at: \(tappedLocation.debugDescription)")
         } else {
             Text("Not tapped yet")
         }
-        
+
         Circle()
             .fill(.red)
             .frame(width: 100, height: 100)

@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-/// Simple way to share photo information
+/// Simple way to share photo information.
 ///
 /// People tap or click on a share link to present a share interface. The link typically
 /// uses a system-standard appearance; you only need to supply the content to share
@@ -21,12 +21,11 @@ struct Photo: Transferable {
         ProxyRepresentation(exporting: \.image)
     }
 
-
-    public var image: Image
-    public var caption: String
+    var image: Image
+    var caption: String
 }
 
-/// Shows how to use `ShareLink` with a custom `Transferable` struct
+/// Shows how to use `ShareLink` with a custom `Transferable` struct.
 ///
 /// * By default you get a simple “Share” label with the appropriate icon, but you can also provide your own title text, or an entirely custom label
 /// * SwiftUI’s ShareLink view makes it easy to share any kind of data from your app, as long as it conforms to the Transferable protocol.
@@ -37,15 +36,17 @@ struct Photo: Transferable {
 struct ShareLinkExample: View {
     let photo = Photo(image: Image("dog"), caption: "Dog")
     let photoTwo = Photo(image: Image("dog"), caption: "Dog")
+    let url = URL(string: "https://developer.apple.com/xcode/swiftui/")
 
     var body: some View {
         List {
-            ShareLink(item: URL(string: "https://developer.apple.com/xcode/swiftui/")!)
-            ShareLink(item: URL(string: "https://developer.apple.com/xcode/swiftui/")!) {
-                Label("Share", systemImage: "square.and.arrow.up.trianglebadge.exclamationmark")
+            if let url {
+                ShareLink(item: url)
+                ShareLink(item: url) {
+                    Label("Share", systemImage: "square.and.arrow.up.trianglebadge.exclamationmark")
+                }
+                ShareLink("Share URL", item: url)
             }
-            ShareLink("Share URL", item: URL(string: "https://developer.apple.com/xcode/swiftui/")!)
-            
             photo.image
                 .resizable()
                 .aspectRatio(contentMode: .fit)
@@ -57,7 +58,7 @@ struct ShareLinkExample: View {
                             image: photo.image)
                     )
                 }
-            
+
             photoTwo.image
                 .resizable()
                 .aspectRatio(contentMode: .fit)

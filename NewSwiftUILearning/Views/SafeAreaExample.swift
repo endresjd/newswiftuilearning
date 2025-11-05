@@ -22,22 +22,22 @@ import SwiftUI
 ///     * [Adding a background to your view](https://www.createwithswift.com/placing-ui-components-within-the-safe-area-inset)
 ///     * [The safe area](https://www.swiftuifieldguide.com/layout/safe-area)
 struct SafeAreaExample: View {
-    /// Toggle going into the safe area on and off
+    /// Toggle going into the safe area on and off.
     @State private var ignoreSafeArea = true
-    
-    /// Show a view in the top safe area
+
+    /// Show a view in the top safe area.
     @State private var showTop = true
-    
-    /// Show a view in the bottom safe area
+
+    /// Show a view in the bottom safe area.
     @State private var showBottom = true
-    
-    /// The amount of spacing to add to the top and bottom safe areas
+
+    /// The amount of spacing to add to the top and bottom safe areas.
     @State private var padding = 0.0
-    
-    /// Amount of spacing to give the top safe area inset view
+
+    /// Amount of spacing to give the top safe area inset view.
     @State private var topSpacing = 0.0
-    
-    /// Amount of spacing to give the bottom safe area inset view
+
+    /// Amount of spacing to give the bottom safe area inset view.
     @State private var bottomSpacing = 0.0
 
     var body: some View {
@@ -52,7 +52,7 @@ struct SafeAreaExample: View {
                     Toggle("Shade Safe Area", isOn: $ignoreSafeArea)
                     Toggle("Add to top area", isOn: $showTop)
                     Toggle("Add to bottom area", isOn: $showBottom)
-                    
+
                     LabeledContent {
                         Stepper(value: $padding, in: 0...100, step: 5) {
                             Text(padding.formatted(.number))
@@ -60,7 +60,7 @@ struct SafeAreaExample: View {
                     } label: {
                         Text("Safe area padding:")
                     }
-                    
+
                     LabeledContent {
                         Stepper(value: $topSpacing, in: 0...100, step: 5) {
                             Text(topSpacing.formatted(.number))
@@ -68,7 +68,7 @@ struct SafeAreaExample: View {
                     } label: {
                         Text("Top area spacing:")
                     }
-                    
+
                     LabeledContent {
                         Stepper(value: $bottomSpacing, in: 0...100, step: 5) {
                             Text(bottomSpacing.formatted(.number))
@@ -78,7 +78,7 @@ struct SafeAreaExample: View {
                     }
 
                     Spacer()
-                    
+
                     Text("Bottom of view")
                 }
                 .foregroundColor(.white)
@@ -100,7 +100,7 @@ struct SafeAreaExample: View {
                     }
             }
     }
-    
+
     func safeAreaComponent(text: String, symbolName: String) -> some View {
         HStack {
             Text(text)

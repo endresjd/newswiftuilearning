@@ -5,16 +5,16 @@
 //  Created by John Endres on 11/11/23.
 //
 
+import MacpluginsMacros
 import SwiftUI
 import TipKit
 import os
-import MacpluginsMacros
 
-/// Main entry point
+/// Main entry point.
 @OSLogger
 @main
 struct NewSwiftUILearningApp: App {
-    /// App wide shared content
+    /// App wide shared content.
     ///
     /// To illustrate how to pass into the environment using the Observation framework
     @State private var shared = SharedContent()
@@ -24,15 +24,19 @@ struct NewSwiftUILearningApp: App {
     /// Until we move it into the shared object above
     @State private var modelData = FlexibleHeaderModel()
 
-    /// Library for Apple Observation Example
+    /// Library for Apple Observation Example.
     @State private var library = Library()
-    
+
+    /// Monitor for location changes.
+    @State private var location = NewLocationManager()
+
     var body: some Scene {
         WindowGroup {
             ContentView()
                 .environment(shared)
                 .environment(library)
                 .environment(modelData)
+                .environment(location)
                 // Keeps the current window's size for use in scrolling header calculations.
                 .onGeometryChange(for: CGSize.self) { geometry in
                     geometry.size
@@ -43,7 +47,7 @@ struct NewSwiftUILearningApp: App {
                     // This modifier is for universal links.  Needs to have project settings
                     // modified to support the URL.  (TODO: do this)
                     logger.debug("onOpenURL: \(url.absoluteString)")
-                    
+
                     shared.openedURL = url
                 }
                 .task {
@@ -57,11 +61,15 @@ struct NewSwiftUILearningApp: App {
                         logger.error("Failed to request authorization: \(error)")
                     }
                 }
+                .task {
+                    await location.requestUserAuthorization()
+                    await location.startCurrentLocationUpdates()
+                }
         }
     }
-    
+
     init() {
-      // Configure Tip's data container
-      try? Tips.configure()
+        // Configure Tip's data container
+        try? Tips.configure()
     }
 }

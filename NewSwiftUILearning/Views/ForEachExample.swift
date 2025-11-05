@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-/// Shows a simple use of iOS 13's ForEach structure
+/// Shows a simple use of iOS 13's ForEach structure.
 ///
 /// ForEach is a structure that computes views on demand from an underlying collection of identified data.  The
 /// data given to the structure must be identifiable in some way.  This way conforms the underlying struct
@@ -21,15 +21,13 @@ struct ForEachExample: View {
         var id: String { name }
     }
 
-
     private let namedFonts: [NamedFont] = [
         NamedFont(name: "Large Title", font: .largeTitle),
         NamedFont(name: "Title", font: .title),
         NamedFont(name: "Headline", font: .headline),
         NamedFont(name: "Body", font: .body),
-        NamedFont(name: "Caption", font: .caption)
+        NamedFont(name: "Caption", font: .caption),
     ]
-
 
     var body: some View {
         // Use ForEach to provide views based on a RandomAccessCollection of

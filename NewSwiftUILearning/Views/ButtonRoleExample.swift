@@ -10,7 +10,7 @@ import SwiftUI
 @available(iOS 26.0, *)
 struct ButtonRoleExample: View {
     @State private var showSheet = false
-    
+
     var body: some View {
         Button("Show sheet") {
             showSheet.toggle()
@@ -35,13 +35,13 @@ private struct MySheetView: View {
                             dismiss()
                         }
                     }
-                    
+
                     ToolbarItem(placement: .cancellationAction) {
                         Button(role: .destructive) {
                             dismiss()
                         }
                     }
-                    
+
                     ToolbarItem(placement: .automatic) {
                         Button(role: .confirm) {
                             dismiss()

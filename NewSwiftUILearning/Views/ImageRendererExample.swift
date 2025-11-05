@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-/// Shows how to use `ImageRenderer`, an object that creates images from SwiftUI views
+/// Shows how to use `ImageRenderer`, an object that creates images from SwiftUI views.
 ///
 /// The SwiftUI ImageRenderer takes any view as input and outputs a UIImage on iOS, tvOS and watchOS, and an NSImage on macOS
 ///
@@ -18,11 +18,11 @@ struct ImageRendererExample: View {
     var body: some View {
         VStack(spacing: 20) {
             viewToSnapshot("Original")
-            
+
             if let image = snapshot {
                 Image(uiImage: image)
             }
-            
+
             Button(action: generateSnapshot) {
                 Text("Create snapshot")
             }
@@ -37,7 +37,7 @@ extension ImageRendererExample {
             Image(systemName: "globe")
                 .imageScale(.large)
                 .foregroundColor(.accentColor)
-            
+
             Text(title)
         }
     }

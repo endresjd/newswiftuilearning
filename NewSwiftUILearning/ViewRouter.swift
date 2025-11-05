@@ -7,6 +7,8 @@
 
 import SwiftUI
 
+/// ViewRouter.
+///
 /// A simple attempt at gettng programmatic navigation.  Each case on here can be
 /// referenced to create the view it represents.
 ///
@@ -88,8 +90,9 @@ enum ViewRouter: String, CaseIterable, Hashable, Codable {
     case navigationSplitView = "NavigationSplitView (16)"
     case navigationSubTitle = "Navigation Subtitle (26)"
     case navigationStack = "NavigationStack (16)"
-    case notification = "Notification (18)"     // 18 because of the concurrency variants
+    case notification = "Notification (18)" // 18 because of the concurrency variants
     case navigationView = "NavigationViewExample (13) deprecated"
+    case newLocationManager = "NewLocationManagerExample (17)"
     case observation = "Observation Framework (17)"
     case offsetShape = "OffsetShape (13)"
     case outlineGroup = "OutlineGroup (14)"
@@ -123,7 +126,7 @@ enum ViewRouter: String, CaseIterable, Hashable, Codable {
     case sfSymbolColor = "SF Symbol Colors (16)"
     case shareLink = "ShareLink (16)"
     case slider = "Slider (13)"
-    case spriteKit = "SpriteKit (8)"        // Unsure about the version!
+    case spriteKit = "SpriteKit (8)" // Unsure about the version!
     case stepper = "Stepper (13)"
     case stretchyView = "Stretchy View (17)"
     case subscriptionView = "SubscriptionView (13)"
@@ -149,25 +152,26 @@ enum ViewRouter: String, CaseIterable, Hashable, Codable {
     case weatherKit = "WeatherKit (16)"
     case webView = "WebView (18.4)"
     case zoomNavigationTransition = "Zoom Navigation Transition (18)"
-    
-    /// Name to use when all these are displayed in a list in the interface
+
+    /// Name to use when all these are displayed in a list in the interface.
     var name: String {
         rawValue.capitalized
     }
-    
-    /// The number of the OS this example applies to or 1000.0 if it could not be determined
+
+    /// The number of the OS this example applies to or 1000.0 if it could not be determined.
     var version: Double {
         let pattern = "[0-9]+(\\.[0-9]+)?"
-        
+
         if let match = rawValue.range(of: pattern, options: .regularExpression),
-           let number = Double(rawValue[match]) {
+            let number = Double(rawValue[match])
+        {
             return number
         }
-        
+
         return 1000.0
     }
-    
-    /// The associated view that the enum value represents
+
+    /// The associated view that the enum value represents.
     @ViewBuilder
     var view: some View {
         switch self {
@@ -256,7 +260,7 @@ enum ViewRouter: String, CaseIterable, Hashable, Codable {
         case .equatableView:
             EquatableViewExample()
         case .firstAppear:
-            FirstAppearExample();
+            FirstAppearExample()
         case .forEach:
             ForEachExample()
         case .form:
@@ -347,6 +351,8 @@ enum ViewRouter: String, CaseIterable, Hashable, Codable {
             NavigationViewExample()
         case .notification:
             ScheduledNotificationsExamples()
+        case .newLocationManager:
+            NewLocationManagerExample()
         case .observation:
             LibraryView()
         case .offsetShape:
@@ -521,4 +527,3 @@ extension ViewRouter: Identifiable {
         self
     }
 }
-

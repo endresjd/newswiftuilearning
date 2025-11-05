@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-/// Shows 3 colored rectangles and 1 leaf using direct colors.  iOS 17
+/// Shows 3 colored rectangles and 1 leaf using direct colors.  iOS 17.
 ///
 /// The leaf is using a color defined in the app's bundle.  Unsure what's new about
 /// Image or that forgroundStyle.  For `.fill`, the ability to use a direct color or gradient seems
@@ -33,11 +33,11 @@ struct ColorExample: View {
         }
         .frame(height: 200)
         .padding(.bottom)
-        
+
         Image(systemName: "leaf.fill")
             .foregroundStyle(Color.green)
             .padding(.bottom)
-        
+
         Text("\(aqua.description)")
     }
 }

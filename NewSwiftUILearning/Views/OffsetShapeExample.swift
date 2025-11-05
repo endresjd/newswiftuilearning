@@ -17,7 +17,7 @@ struct OffsetShapeExample: View {
         // Not getting this one.
         OffsetShape(shape: Rectangle(), offset: CGSize(width: 10, height: 10))
             .size(width: 200, height: 200)
-        
+
         Rectangle()
             .size(width: 200, height: 200)
     }

@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-/// Modifier to run code the first time a view appears
+/// Modifier to run code the first time a view appears.
 ///
 /// The regular .onAppear is called every time the view comes
 /// into view in the view hierarchy, but sometimes what is wanted is
@@ -26,30 +26,30 @@ struct FirstAppearMofier: ViewModifier {
     /// action is called.  This is the indicator of if it has
     /// been done already or not.
     @State private var hasAppeared = false
-    
-    /// Action to run when the view appears
+
+    /// Action to run when the view appears.
     private let action: () async -> Void
-    
+
     init(_ action: @escaping () async -> Void) {
         self.action = action
     }
-    
+
     func body(content: Content) -> some View {
         content
             .task {
                 guard !hasAppeared else {
                     return
                 }
-                
+
                 hasAppeared = true
-                
+
                 await action()
             }
     }
 }
 
 extension View {
-    /// View modifier to execute code on first appear
+    /// View modifier to execute code on first appear.
     ///
     /// - Parameter action: Closure to run
     /// - Returns: Modified view
@@ -57,7 +57,6 @@ extension View {
         modifier(FirstAppearMofier(action))
     }
 }
-
 
 struct FirstAppearExample: View {
     var body: some View {

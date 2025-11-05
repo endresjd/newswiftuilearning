@@ -7,12 +7,12 @@
 
 import SwiftUI
 
-/// Shows how to controll keyboard dismissal
+/// Shows how to controll keyboard dismissal.
 ///
-/// SwiftUI’s scrollDismissesKeyboard() modifier gives us precise control over how the keyboard should dismiss 
+/// SwiftUI’s scrollDismissesKeyboard() modifier gives us precise control over how the keyboard should dismiss
 /// when the user scrolls around.
 ///
-/// For example, we could place a TextField and TextEditor into a scroll view, and have them both dismiss the 
+/// For example, we could place a TextField and TextEditor into a scroll view, and have them both dismiss the
 /// keyboard interactively like in this example.
 ///
 /// - Remark: This example does not seem to dismiss the way I would expect.

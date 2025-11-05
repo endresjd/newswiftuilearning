@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-/// Shows iOS 16's `RenameButton` control
+/// Shows iOS 16's `RenameButton` control.
 ///
 /// A rename button receives its action from the environment. Use the `renameAction(_:)`
 /// modifier to set the action. The system disables the button if you don’t define an
@@ -28,7 +28,7 @@ struct RenameButtonExample: View {
         Form {
             Text("Text: \(text).")
             Text(isFocused ? "Focused" : "Not focused")
-            
+
             TextField(text: $text) {
                 Text("Prompt")
             }
@@ -36,7 +36,7 @@ struct RenameButtonExample: View {
             .contextMenu {
                 RenameButton()
             }
-            
+
             RenameButton()
                 .renameAction {
                     isFocused = true

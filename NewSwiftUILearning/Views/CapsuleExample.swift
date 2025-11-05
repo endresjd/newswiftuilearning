@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-/// Draws a simple horizontal capsule.  iOS 13
+/// Draws a simple horizontal capsule.  iOS 13.
 struct CapsuleExample: View {
     var body: some View {
         Capsule()

@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-/// Example for container relative frames
+/// Example for container relative frames.
 ///
 /// Basically a way to size a view without having to use GeometryReader
 /// and its side effects.
@@ -32,15 +32,15 @@ struct ContainerRelativeFramesExample: View {
                 .multilineTextAlignment(.leading)
                 .frame(maxWidth: .infinity)
                 .background(Color.pink)
-            
+
             // Kinda feels like a caurosel...
             ScrollView(.horizontal) {
                 LazyHStack(spacing: 1.0) {
                     ForEach(0...2, id: \.self) { item in
                         Rectangle()
                             .fill(.purple)
-                            .aspectRatio(3.0 / 2.0, contentMode: .fit)  // Vertical size
-                            .containerRelativeFrame([.horizontal])      // Horizontal size
+                            .aspectRatio(3.0 / 2.0, contentMode: .fit) // Vertical size
+                            .containerRelativeFrame([.horizontal]) // Horizontal size
                             .overlay {
                                 Text("John")
                             }

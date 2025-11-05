@@ -43,7 +43,7 @@ struct PhaseAnimatorExample: View {
                         .scaleEffect(phase)
                         .opacity(phase == 1 ? 1 : 0)
                 }
-            
+
             VStack(spacing: 50) {
                 PhaseAnimator([0, 1, 3]) { value in
                     Text("Hello, world!")
@@ -80,7 +80,7 @@ struct PhaseAnimatorExample: View {
                     .blur(radius: phase == .start ? 0 : 10)
                     .scaleEffect(phase == .middle ? 3 : 1)
             }
-            
+
             // specify exactly which animation to use for each phase
             Button("Tap Me!") {
                 animationStepTwo += 1

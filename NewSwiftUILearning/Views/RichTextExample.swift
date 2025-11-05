@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-/// Shows how to display a simple rich text editor
+/// Shows how to display a simple rich text editor.
 ///
 /// You can get some more control over things by keeping track of current selection state
 /// and then running transforms on the text based on that selection range.  See the link.
@@ -29,7 +29,7 @@ struct RichTextExample: View {
                         text.transformAttributes(in: &selection) { container in
                             let currentFont = container.font ?? .default
                             let resolved = currentFont.resolve(in: fontResolutionContext)
-                            
+
                             container.font = currentFont.bold(!resolved.isBold)
                         }
                     }
@@ -38,7 +38,7 @@ struct RichTextExample: View {
                         text.transformAttributes(in: &selection) { container in
                             let currentFont = container.font ?? .default
                             let resolved = currentFont.resolve(in: fontResolutionContext)
-                            
+
                             container.font = currentFont.italic(!resolved.isItalic)
                         }
                     }

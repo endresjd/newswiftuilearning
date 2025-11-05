@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-/// A sample login form with iOS 13's `SecureField`
+/// A sample login form with iOS 13's `SecureField`.
 struct SecureFieldExample: View {
     @State private var username: String = ""
     @State private var password: String = ""
@@ -18,10 +18,10 @@ struct SecureFieldExample: View {
                 "User name (email address)",
                 text: $username
             )
-                .autocapitalization(.none)
-                .disableAutocorrection(true)
-                .border(Color(UIColor.separator))
-            
+            .autocapitalization(.none)
+            .disableAutocorrection(true)
+            .border(Color(UIColor.separator))
+
             SecureField(
                 "Password",
                 text: $password
@@ -31,7 +31,7 @@ struct SecureFieldExample: View {
             .border(Color(UIColor.separator))
         }
     }
-    
+
     func handleLogin(username: String, password: String) {
         print(username)
         print(password)

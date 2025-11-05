@@ -12,8 +12,10 @@ struct InAppBrowserExample: View {
     @Environment(\.openURL) var openURL
 
     var body: some View {
-        Button("Visit Apple") {
-            openURL(URL(string: "https://www.apple.com")!, prefersInApp: true)
+        if let url = URL(string: "https://www.apple.com") {
+            Button("Visit Apple") {
+                openURL(url, prefersInApp: true)
+            }
         }
     }
 }

@@ -30,14 +30,12 @@ struct ScrollViewReaderExample: View {
                 }
                 .id(topID)
 
-
                 VStack(spacing: 0) {
                     ForEach(0..<100) { i in
                         color(fraction: Double(i) / 100)
                             .frame(height: 32)
                     }
                 }
-
 
                 Button("Top") {
                     withAnimation {
@@ -48,7 +46,7 @@ struct ScrollViewReaderExample: View {
             }
         }
     }
-    
+
     func color(fraction: Double) -> Color {
         Color(red: fraction, green: 1 - fraction, blue: 0.5)
     }

@@ -7,19 +7,19 @@
 
 import SwiftUI
 
-/// Shows how different scrollTargetBehavior and containerRelativeFrame affect view scrolling
+/// Shows how different scrollTargetBehavior and containerRelativeFrame affect view scrolling.
 ///
 /// - SeeAlso:
 ///     * [Implementing Custom Paging](https://fatbobman.com/en/posts/mastering-swiftui-scrolling-implementing-custom-paging)
 ///     * [New Features of ScrollView in SwiftUI 5](https://fatbobman.com/en/posts/new-features-of-scrollview-in-swiftui5/)
 struct InteractiveContainerRelativeFrameExample: View {
-    /// Choices for the scrolling behavior picker
+    /// Choices for the scrolling behavior picker.
     private enum Behavior: String, CaseIterable {
         case paging = "Paging"
         case aligned = "View Aligned"
         case byOne = "View Aligned by One"
     }
-    
+
     private enum ExampleAlignment: String, CaseIterable {
         case center
         case leading
@@ -27,7 +27,7 @@ struct InteractiveContainerRelativeFrameExample: View {
         case top
         case bottom
         case topLeading = "Top Leading"
-        
+
         var value: Alignment {
             switch self {
             case .center:
@@ -45,12 +45,12 @@ struct InteractiveContainerRelativeFrameExample: View {
             }
         }
     }
-    
+
     private enum ExampleAxis: String, CaseIterable {
         case horizontal
         case vertical
         case both
-        
+
         var value: Axis.Set {
             switch self {
             case .horizontal:
@@ -63,57 +63,57 @@ struct InteractiveContainerRelativeFrameExample: View {
         }
     }
 
-    /// Selected behavior choice
+    /// Selected behavior choice.
     @State private var selectedBehavior = Behavior.paging
-    
-    /// Selected alignment choice
+
+    /// Selected alignment choice.
     @State private var alignment = ExampleAlignment.center
-    
-    /// Selected axis choice
+
+    /// Selected axis choice.
     @State private var axis = ExampleAxis.horizontal
-    
-    /// Spacing for the frame
+
+    /// Spacing for the frame.
     @State private var spacing = 0
-    
-    /// Spacing for the frame
+
+    /// Spacing for the frame.
     @State private var stackSpacing = 0
-    
-    /// Whether to force a height for the view external to this modifier
+
+    /// Whether to force a height for the view external to this modifier.
     @State private var fixedHeight = true
-    
-    /// Whether to force a height for the ScrollView
+
+    /// Whether to force a height for the ScrollView.
     @State private var fixedHeightScrollView = true
-    
-    /// Whether to force a height for the ScrollView
+
+    /// Whether to force a height for the ScrollView.
     @State private var showBorder = true
-    
-    /// Whether to turn on .scrollTargetLayout(isEnabled: isEnabled)
+
+    /// Whether to turn on .scrollTargetLayout(isEnabled: isEnabled).
     ///
     /// One of the blog posts above says this is required when the target behavior
     /// is .viewAligned.  Observation shows that .viewAligned. .paging will scroll
     /// one full view width at a time.
     @State private var layoutEnable = false
-    
-    /// Count value for the frame
+
+    /// Count value for the frame.
     ///
     /// This is how many views are shown at the same time in the stack
     /// in this case.
     @State private var count = 1
-    
-    /// Span value for the frame
+
+    /// Span value for the frame.
     ///
     /// How many elements in the scrollview this takes up.
     /// This is the opposite of count, so if this was 2 and count is 1 then
     /// the element being shown would only show half at a time.
     @State private var span = 1
-    
-    /// Value for content margins
+
+    /// Value for content margins.
     @State private var margins = 0
-    
-    /// Padding to put around the element in the scroll view
+
+    /// Padding to put around the element in the scroll view.
     @State private var horizontalPadding = 0.0
-    
-    /// Scrolling behavior to pass to scrollTargetBehavior
+
+    /// Scrolling behavior to pass to scrollTargetBehavior.
     ///
     /// - Important: Using this as a parameter to .scrollTargetBehavior causes an error.  Unsure why.
     private var behavior: any ScrollTargetBehavior {
@@ -124,7 +124,7 @@ struct InteractiveContainerRelativeFrameExample: View {
             return .viewAligned
         }
     }
-    
+
     @ViewBuilder
     var body: some View {
         Form {
@@ -186,17 +186,17 @@ struct InteractiveContainerRelativeFrameExample: View {
 
             ScrollView(.horizontal) {
                 LazyHStack(spacing: CGFloat(stackSpacing)) {
-                    ForEach(0 ..< 10) { page in
-//                        Rectangle()
-//                            .fill(.background)
-//                            .overlay {
-//                                // ROFL: Use the overlay modifier when you want the modified view to dominate the layout.
-//                                Text(page, format: .number)
-//                                    .font(.title)
-//                                    .foregroundStyle(.red)
-//                                    .padding()
-//                                    .border(.green, width: 2)
-//                            }
+                    ForEach(0..<10) { page in
+                        //                        Rectangle()
+                        //                            .fill(.background)
+                        //                            .overlay {
+                        //                                // ROFL: Use the overlay modifier when you want the modified view to dominate the layout.
+                        //                                Text(page, format: .number)
+                        //                                    .font(.title)
+                        //                                    .foregroundStyle(.red)
+                        //                                    .padding()
+                        //                                    .border(.green, width: 2)
+                        //                            }
                         Text(page, format: .number)
                             .font(.title)
                             .foregroundStyle(.red)

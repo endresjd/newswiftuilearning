@@ -5,19 +5,19 @@
 //  Created by John Endres on 4/14/25.
 //
 
-import SwiftUI
 import AsyncAlgorithms
+import SwiftUI
 
-/// Listen for change using AsyncStream
+/// Listen for change using AsyncStream.
 ///
 /// - SeeAlso: [How to listen for property changes in an @Observable class using AsyncStreams](https://www.polpiella.dev/observable-property-changes)
 struct AsyncStreamsObservable: View {
     @State var viewModel = ViewModel()
-    
+
     var body: some View {
         VStack {
             Text(viewModel.text)
-            
+
             TextField("Type something", text: $viewModel.text)
                 .textFieldStyle(.roundedBorder)
         }
@@ -35,7 +35,7 @@ struct AsyncStreamsObservable: View {
     }
 }
 
-/// Data model for the view
+/// Data model for the view.
 ///
 /// Used to illustrate how to use AsyncStream to watch, listen, and react to
 /// changes to an observed property.  This allows us finer control over the data
@@ -48,19 +48,19 @@ struct AsyncStreamsObservable: View {
 ///
 /// - Important: Doesn't seem to shutdown when relying on init and deinit.  The deinit is not called when task is active?
 @Observable final class ViewModel {
-    /// The stream and access to its continuation
+    /// The stream and access to its continuation.
     ///
     /// A tuple containing the stream and its continuation. The continuation should be passed to
     /// the producer while the stream should be passed to the consumer.
     private let (textStream, continuation) = AsyncStream.makeStream(of: String.self)
-    
+
     var text = "" {
         willSet {
             // Publish a new value to the stream.
             continuation.yield(newValue)
         }
     }
-    
+
     /// Listens to changes to the text field.
     ///
     /// This has to be done this way instead of an embedded Task to make sure that the
@@ -81,25 +81,27 @@ struct AsyncStreamsObservable: View {
         // instance from deinit-ing.  Had to require the view to get involved in the
         // life cycle of this model.
         print("Started waiting")
-        
-        for await text in textStream
+
+        for await text
+            in textStream
             .filter({ !$0.isEmpty })
             .removeDuplicates()
-            .debounce(for: .seconds(0.5)) {
+            .debounce(for: .seconds(0.5))
+        {
             print("✅ Text changed to: \(text)")
         }
-        
+
         print("Ended waiting")
     }
-    
+
     init() {
         print("init called")
     }
-    
+
     deinit {
         // Close down the stream when we are done
         continuation.finish()
-        
+
         print("deinit called")
     }
 }

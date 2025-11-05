@@ -20,8 +20,8 @@ struct FixedWidthLabelIconExample: View {
 
     var body: some View {
         VStack {
-            Button("Example", systemImage: "plus") { }
-            Button("Example", systemImage: "envelope.front") { }
+            Button("Example", systemImage: "plus") {}
+            Button("Example", systemImage: "envelope.front") {}
         }
         .font(.largeTitle)
         .labelReservedIconWidth(iconWidth)

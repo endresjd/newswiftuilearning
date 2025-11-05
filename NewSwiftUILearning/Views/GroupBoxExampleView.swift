@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-/// Examples of various styles of iOS 14's GroupBox views
+/// Examples of various styles of iOS 14's GroupBox views.
 ///
 /// - Experiment: See how the VStack can be properly algined to leading without applying `.frame(maxWidth: .infinity)` to
 ///               every element
@@ -16,9 +16,9 @@ import SwiftUI
 struct GroupBoxExampleView: View {
     @State private var userAgreed = false
     private let agreementText = """
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-    """
-    
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        """
+
     var body: some View {
         ScrollView {
             GroupBox {
@@ -27,10 +27,11 @@ struct GroupBoxExampleView: View {
                 Text("Username: tswift89")
                 Text("City: Nashville")
             }
-            
+
             // Apple's example from the docs
-            GroupBox(label:
-                Label("End-User Agreement", systemImage: "building.columns")
+            GroupBox(
+                label:
+                    Label("End-User Agreement", systemImage: "building.columns")
             ) {
                 ScrollView(.vertical, showsIndicators: true) {
                     Text(agreementText)
@@ -44,16 +45,16 @@ struct GroupBoxExampleView: View {
 
             GroupBox {
                 Text("Outer Content")
-                
+
                 GroupBox {
                     Text("Middle Content")
-                    
+
                     GroupBox {
                         Text("Inner Content")
                     }
                 }
             }
-            
+
             GroupBox("Your account") {
                 VStack(alignment: .leading) {
                     Text("Username: tswift89")

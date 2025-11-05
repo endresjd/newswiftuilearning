@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-/// Illustrated typed throws in Swift 6
+/// Illustrated typed throws in Swift 6.
 ///
 /// Typed throws are a valuable addition to Swift, allowing us to write more predictable code. SDKs, in particular, can benefit
 /// from this feature by better predicting the error to expect. More compile-time checks help us avoid forgetting about handling
@@ -29,17 +29,17 @@ struct UsernameValidator {
         case emptyName
         case nameTooShort(nameLength: Int)
     }
-    
+
     static func validate(name: String) throws(ValidationError) {
         guard !name.isEmpty else {
             throw ValidationError.emptyName
         }
-        
+
         guard name.count > 2 else {
             throw ValidationError.nameTooShort(nameLength: name.count)
         }
     }
-    
+
     static func example(name: String) {
         // To explicitly define the expected error that will be caught
         // write the do/catch in this way.  Note: Specifying the error type
@@ -55,7 +55,7 @@ struct UsernameValidator {
                 print("The submitted name is too short! (\(nameLength))")
             }
         }
-        
+
         // Swift can also infer the kind of error being caught in this case
         do {
             try UsernameValidator.validate(name: name)

@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-/// iOS 13's `Stepper` examples
+/// iOS 13's `Stepper` examples.
 struct StepperExample: View {
     var body: some View {
         List {
@@ -20,23 +20,23 @@ struct StepperExample: View {
 private struct StepperViewOne: View {
     @State private var value = 0
     let colors: [Color] = [.orange, .red, .gray, .blue, .green, .purple, .pink]
-    
+
     func incrementStep() {
         value += 1
-        
+
         if value >= colors.count {
             value = 0
         }
     }
-    
+
     func decrementStep() {
         value -= 1
-        
+
         if value < 0 {
             value = colors.count - 1
         }
     }
-    
+
     var body: some View {
         Stepper {
             Text("Value: \(value) Color: \(colors[value].description)")

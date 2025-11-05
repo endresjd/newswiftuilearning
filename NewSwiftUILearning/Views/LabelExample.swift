@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-/// Various examples of iOS 14's `Label` including defining a `LabelStyle`
+/// Various examples of iOS 14's `Label` including defining a `LabelStyle`.
 ///
 /// One of the most common and recognizable user interface components is the combination
 /// of an icon and a label. This idiom appears across many kinds of apps and shows up in
@@ -23,7 +23,7 @@ struct LabelExample: View {
 
             Label("Lightning title only", systemImage: "bolt.fill")
                 .labelStyle(.titleOnly)
-            
+
             Label("Lightning icon only", systemImage: "bolt.fill")
                 .labelStyle(.iconOnly)
 
@@ -34,7 +34,7 @@ struct LabelExample: View {
 
             Label("Lightning red bordered style", systemImage: "bolt.fill")
                 .labelStyle(RedBorderedLabelStyle())
-            
+
             Label {
                 Text("First Last")
                     .font(.body)
@@ -48,12 +48,11 @@ struct LabelExample: View {
                     .frame(width: 44, height: 44, alignment: .center)
                     .overlay(Text("FL"))
             }
-
         }
     }
 }
 
-/// A Customized label style
+/// A Customized label style.
 private struct RedBorderedLabelStyle: LabelStyle {
     func makeBody(configuration: Configuration) -> some View {
         Label(configuration)

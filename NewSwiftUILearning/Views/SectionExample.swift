@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-/// Shows iOS 13's `Section` view
+/// Shows iOS 13's `Section` view.
 ///
 /// Use Section instances in views like List, Picker, and Form to organize content into
 /// separate sections
@@ -22,7 +22,7 @@ struct SectionExample: View {
                 Text("Row")
             }
             .headerProminence(.increased)
-            
+
             Section(header: Text("Other tasks"), footer: Text("End")) {
                 Text("Row 1")
                 Text("Row 2")

@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-/// Shows iOS 13's `RadialGradient`
+/// Shows iOS 13's `RadialGradient`.
 ///
 /// The gradient applies the color function as the distance from a center point,
 /// scaled to fit within the defined start and end radii. The gradient maps the unit

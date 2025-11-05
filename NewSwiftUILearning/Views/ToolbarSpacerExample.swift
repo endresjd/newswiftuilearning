@@ -7,22 +7,21 @@
 
 import SwiftUI
 
-/// Puts space between buttons in a toolbar
+/// Puts space between buttons in a toolbar.
 ///
 /// If there is no spacer we get one contiguous area with the buttons.  If there is
 /// a spacer, then they both sit in their own bubble.
 @available(iOS 26.0, *)
 struct ToolbarSpacerExample: View {
     @State private var showSpacer = true
-    
+
     var spacerText: String {
-        if showSpacer {
-            return "Hide Spacer"
-        } else {
+        guard showSpacer else {
             return "Show Spacer"
         }
+        return "Hide Spacer"
     }
-    
+
     var body: some View {
         NavigationStack {
             Button(spacerText) {
@@ -30,15 +29,15 @@ struct ToolbarSpacerExample: View {
             }
             .toolbar {
                 ToolbarItem {
-                    Button("Delete", systemImage: "trash", role: .destructive) { }
+                    Button("Delete", systemImage: "trash", role: .destructive) {}
                 }
-                
+
                 if showSpacer {
                     ToolbarSpacer(.fixed)
                 }
-                
+
                 ToolbarItem {
-                    Button("Add", systemImage: "plus") { }
+                    Button("Add", systemImage: "plus") {}
                 }
             }
         }

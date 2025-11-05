@@ -7,47 +7,47 @@
 
 import SwiftUI
 
-/// Turn a String-based enum into a Picker
-/// 
+/// Turn a String-based enum into a Picker.
+///
 /// The enum must be String based and CaseIterable for this to work because
 /// of the Picker's use of ForEach.
-/// 
+///
 ///     enum Example: String, CaseIterable {
 ///         case one
 ///         case two
 ///     }
 struct EnumPicker<T: RawRepresentable & CaseIterable & Hashable>: View where T.AllCases: RandomAccessCollection, T.RawValue == String {
-    /// The title for the picker
+    /// The title for the picker.
     var title: String
-    
-    /// True to sort the cases
+
+    /// True to sort the cases.
     var sorted = false
-    
-    /// If the text value should be capitalized
+
+    /// If the text value should be capitalized.
     var capitalized = false
-    
-    /// Holds the currently selected item
+
+    /// Holds the currently selected item.
     @Binding var selection: T
-    
-    /// Returns all cases of the enum, sorted and capitalized if needed
+
+    /// Returns all cases of the enum, sorted and capitalized if needed.
     private var allCases: T.AllCases {
         if sorted {
-            let result = T.allCases.sorted { left, right -> Bool in
-                if capitalized {
+            let result =
+                T.allCases.sorted { left, right -> Bool in
+                    guard capitalized else {
+                        return left.rawValue < right.rawValue
+                    }
                     return left.rawValue.capitalized < right.rawValue.capitalized
-                } else {
-                    return left.rawValue < right.rawValue
-                }
-            } as? T.AllCases
-            
+                } as? T.AllCases
+
             if let result {
                 return result
             }
         }
-        
+
         return T.allCases
     }
-    
+
     @ViewBuilder
     var body: some View {
         Picker(title, selection: $selection) {
@@ -77,7 +77,7 @@ private enum ExampleEnum: String, CaseIterable {
 
     EnumPicker(title: "Example", sorted: false, selection: $selection)
     EnumPicker(title: "Example", sorted: true, capitalized: true, selection: $selection)
-    
+
     Form {
         EnumPicker(title: "Example", sorted: false, selection: $selection)
         EnumPicker(title: "Example", sorted: true, capitalized: true, selection: $selection)

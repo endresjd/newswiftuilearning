@@ -7,14 +7,14 @@
 
 import SwiftUI
 
-/// A collection of examples of iOS 14's `ProgressView`
+/// A collection of examples of iOS 14's `ProgressView`.
 ///
 /// Use a progress view to show that a task is incomplete but advancing '
 /// toward completion. A progress view can show both determinate (percentage
 /// complete) and indeterminate (progressing or not) types of progress.
 struct ProgressViewExample: View {
     @State private var progress = 0.5
-    let workoutDateRange = Date()...Date().addingTimeInterval(5*60)
+    let workoutDateRange = Date()...Date().addingTimeInterval(5 * 60)
 
     var body: some View {
         List {
@@ -24,9 +24,9 @@ struct ProgressViewExample: View {
                     progress += 0.05
                 }
             }
-            
+
             ProgressView()
-            
+
             // You can also create a progress view that covers a closed range of
             // Date values. As long as the current date is within the range, the
             // progress view automatically updates, filling or depleting the
@@ -34,7 +34,7 @@ struct ProgressViewExample: View {
             ProgressView(timerInterval: workoutDateRange) {
                 Text("Workout")
             }
-            
+
             VStack {
                 ProgressView(value: 0.25) { Text("25% progress") }
                 ProgressView(value: 0.75) { Text("75% progress") }

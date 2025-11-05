@@ -33,21 +33,21 @@ struct ContainerRelativeShapeExample: View {
                 .padding(5)
                 .background(.blue, in: RoundedRectangle(cornerRadius: 30))
 
-             Text("Relative")
-                 .bold()
-                 .padding(22)
-                 .background(ContainerRelativeShape().fill(Color.red))
-                 .padding(5)
-                 .background(ContainerRelativeShape().fill(Color.black))
-                 .padding(5)
-                 .background(ContainerRelativeShape().fill(Color.green))
-                 .padding(5)
-                 .background(ContainerRelativeShape().fill(Color.yellow))
-                 .padding(5)
-                 .background(ContainerRelativeShape().fill(Color.blue))
-                 .background(.clear, in: RoundedRectangle(cornerRadius: 30))    // Curves
-         }
-         .padding()
+            Text("Relative")
+                .bold()
+                .padding(22)
+                .background(ContainerRelativeShape().fill(Color.red))
+                .padding(5)
+                .background(ContainerRelativeShape().fill(Color.black))
+                .padding(5)
+                .background(ContainerRelativeShape().fill(Color.green))
+                .padding(5)
+                .background(ContainerRelativeShape().fill(Color.yellow))
+                .padding(5)
+                .background(ContainerRelativeShape().fill(Color.blue))
+                .background(.clear, in: RoundedRectangle(cornerRadius: 30)) // Curves
+        }
+        .padding()
     }
 }
 

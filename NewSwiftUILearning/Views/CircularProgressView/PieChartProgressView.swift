@@ -5,17 +5,17 @@
 //  Created by John Endres on 3/19/25.
 //
 
-import SwiftUI
 import Charts
+import SwiftUI
 
-/// Pie Chart progress View
+/// Pie Chart progress View.
 ///
 /// Shows a way to show progress by using Swift Charts to make a fancy pie chart
-/// of the data points
+/// of the data points.
 ///
 /// - SeeAlso: [How to build segmented circular progress views in SwiftUI with Swift Charts](https://www.polpiella.dev/swiftui-charts-progress-views/?utm_campaign=This%2BWeek%2Bin%2BSwift&utm_medium=email&utm_source=This_Week_in_Swift_166)
 struct PieChartProgressView: View {
-    /// rollout progress for each day
+    /// rollout progress for each day.
     let portions = [
         ProgressPortion(day: 1, portion: 0.01, rolloutPercentage: 1),
         ProgressPortion(day: 2, portion: 0.01, rolloutPercentage: 2),
@@ -23,12 +23,12 @@ struct PieChartProgressView: View {
         ProgressPortion(day: 4, portion: 0.05, rolloutPercentage: 10),
         ProgressPortion(day: 5, portion: 0.1, rolloutPercentage: 20),
         ProgressPortion(day: 6, portion: 0.3, rolloutPercentage: 50),
-        ProgressPortion(day: 7, portion: 0.5, rolloutPercentage: 100)
+        ProgressPortion(day: 7, portion: 0.5, rolloutPercentage: 100),
     ]
-    
-    /// Current Day
+
+    /// Current Day.
     let day: Int
-    
+
     var body: some View {
         // check if the current day is present in the portions array and extract the rollout
         // percentage. In other words, we only show the chart if the current day is within
@@ -49,7 +49,7 @@ struct PieChartProgressView: View {
                         .minimumScaleFactor(0.5)
                         .padding(.horizontal)
                 }
-                
+
                 // create a Chart view instance with the portions array
                 Chart(portions, id: \.day) { element in
                     // For each portion, we create a SectorMark, which is a piece of the pie chart with the day rollout value

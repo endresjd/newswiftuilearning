@@ -7,12 +7,12 @@
 
 import SwiftUI
 
-/// Simple example of NavigationStack
+/// Simple example of NavigationStack.
 ///
 /// We can use SwiftUI to programmatically push a new view onto a NavigationStack using NavigationLink, meaning
 /// that we can trigger the navigation when we’re ready rather than just when the user tapped a button or list row.
 ///
-/// From iOS 16 and later, we can pass an array of Hashable data directly to the NavigationStack to control which 
+/// From iOS 16 and later, we can pass an array of Hashable data directly to the NavigationStack to control which
 /// data is currently on the stack. For example, this tracks numbers being presented, and starts by immediately pushing
 /// 1, 4, and 8 onto the stack
 ///
@@ -27,7 +27,9 @@ import SwiftUI
 /// - Seealso: [How to use programmatic navigation in SwiftUI](https://www.hackingwithswift.com/quick-start/swiftui/how-to-use-programmatic-navigation-in-swiftui)
 /// - Seealso: [NavigationStack](https://developer.apple.com/documentation/swiftui/navigationstack)
 struct NavigationStackExample: View {
-    /// This is the contents of the stack.  When a number is pushed onto this stack then
+    /// This is the contents of the stack.
+    ///
+    /// When a number is pushed onto this stack then
     /// this array will have that appended to it.  To start at the top, have this be an empty array
     @State private var presentedNumbers = [1, 4, 8]
 
@@ -45,7 +47,7 @@ struct NavigationStackExample: View {
                     Button("Go to Next") {
                         presentedNumbers.append(i + 1)
                     }
-                    
+
                     Button("Go Back") {
                         presentedNumbers.removeLast()
                     }

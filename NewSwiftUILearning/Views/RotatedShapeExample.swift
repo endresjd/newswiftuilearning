@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-/// Shows a rotated rectangle using iOS 13's RotatedShape
+/// Shows a rotated rectangle using iOS 13's RotatedShape.
 ///
 /// A shape with a rotation transform applied to it.
 /// Another one that I don't fully see the need for.  Maybe

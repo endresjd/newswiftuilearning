@@ -7,7 +7,6 @@
 
 import AppIntents
 
-
 /// AppIntent for creating a photo album
 ///
 /// photos is the domain
@@ -18,7 +17,7 @@ import AppIntents
 //struct SystemSearchIntent {
 //    static var searchScopes: [StringSearchScope] = [.general]
 //    var criteria: StringSearchCriteria
-//    
+//
 //    func perform() async throws -> some IntentResult {
 //        .result()
 //    }

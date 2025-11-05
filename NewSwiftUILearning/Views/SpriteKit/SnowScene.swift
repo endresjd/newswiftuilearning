@@ -8,7 +8,7 @@
 import Foundation
 import SpriteKit
 
-/// SnowScene for SpriteKit
+/// SnowScene for SpriteKit.
 ///
 /// In SpriteKit, a scene (SKScene) acts as the root container for all visual content in a 2D space. Think of it as a stage where various elements like sprites,
 /// shapes, and particle effects are added as nodes to create a complete visual experience. Each scene can be thought of as a separate screen or a distinct
@@ -22,11 +22,11 @@ class SnowScene: SKScene {
         guard let snowEmitterNode = snowEmitterNode else {
             return
         }
-        
+
         snowEmitterNode.particleSize = CGSize(width: 50, height: 50)
         snowEmitterNode.particleLifetime = 20
         snowEmitterNode.particleLifetimeRange = 6
-        
+
         addChild(snowEmitterNode)
     }
 
@@ -34,9 +34,8 @@ class SnowScene: SKScene {
         guard let snowEmitterNode = snowEmitterNode else {
             return
         }
-        
-        snowEmitterNode.particlePosition = CGPoint(x: size.width/2, y: size.height)
+
+        snowEmitterNode.particlePosition = CGPoint(x: size.width / 2, y: size.height)
         snowEmitterNode.particlePositionRange = CGVector(dx: size.width, dy: size.height)
     }
 }
-

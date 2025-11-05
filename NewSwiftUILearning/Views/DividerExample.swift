@@ -17,7 +17,7 @@ struct DividerExample: View {
             Divider()
             Text("one")
         }
-        
+
         HStack {
             Text("one")
             Divider()

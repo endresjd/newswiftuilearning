@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-/// Simple instance of iOS 14's `TextEditor`
+/// Simple instance of iOS 14's `TextEditor`.
 ///
 /// This adds some color, line spacing, and a different font as well.
 struct TextEditorExample: View {
