@@ -33,6 +33,11 @@ struct ContentView: View {
     /// on-screen list.
     @State private var searchTerm = ""
 
+    /// State of navigation when using a NavigationStack.
+    ///
+    /// - Important: WHAT THE FUCK?  IF THIS IS ENVIRONMENT THEN THE COMPILER CAN'T FUCKING FIND IT?
+    @State private var pathStore = PathStore()
+
     /// Location manager for example.
     ///
     /// Some of the examples in the router require location information.  This is used
@@ -60,8 +65,6 @@ struct ContentView: View {
 
     /// Contents for a navigation view that isn't selection based.
     var contents: some View {
-        // List doesn't need selection because the next column is determined
-        // by the navigationDestination modifier.
         List(searchResults) { view in
             NavigationLink(view.rawValue, value: view)
         }
@@ -75,31 +78,49 @@ struct ContentView: View {
         .task {
             locationManager.requestWhenInUseAuthorization()
         }
+        .onAppear {
+            // Read the saved navigation route from defaults and set the navigation path
+            if let data = UserDefaults.standard.data(forKey: "savedNavigation"),
+                let decodedPath = try? JSONDecoder().decode(ViewRouter.self, from: data)
+            {
+                logger.debug("Restored navigation path")
+
+                selection = decodedPath
+            }
+        }
+        .onDisappear {
+            // Save the navigation path to user defaults
+            if let encodedPath = try? JSONEncoder().encode(selection) {
+                UserDefaults.standard.set(encodedPath, forKey: "savedNavigation")
+
+                logger.debug("Saved navigation path")
+            }
+        }
     }
 
     /// Split view where detail is determined by selection.
+    @ViewBuilder
     var selectionBody: some View {
         // A selection based split view
         NavigationSplitView {
-            // List needs the selection for the next column
-            List(selection: $selection) {
-                ForEach(searchResults, id: \.self) { view in
-                    NavigationLink(view.rawValue, value: view)
-                }
+            // List needs the selection for the next column.  The
+            // rows are the names of the views.  If this is adaptive
+            // and these are navigation links, we get the same value in the
+            // detail column
+            List(searchResults, selection: $selection) { view in
+                Text(view.name)
             }
             .navigationTitle("Views")
-            .searchable(text: $searchTerm)
         } detail: {
-            NavigationStack {
-                if let selection {
-                    selection
-                        .view
-                        .navigationTitle(selection.name)
-                } else {
-                    ContentUnavailableView("Use sidebar navigation", systemImage: "sidebar.left")
-                }
+            if let selection {
+                selection
+                    .view
+                    .navigationTitle(selection.name)
+            } else {
+                ContentUnavailableView("Use sidebar navigation", systemImage: "sidebar.left")
             }
         }
+        .searchable(text: $searchTerm, placement: .sidebar, prompt: "Find an example")
         .task {
             locationManager.requestWhenInUseAuthorization()
         }
@@ -133,20 +154,72 @@ struct ContentView: View {
     /// NavigationStack.
     ///
     /// - Important: It feels weird for this because the row doesn't select in the first column
+    @ViewBuilder
     var adaptiveBody: some View {
         NavigationSplitView {
-            contents
+            List(searchResults) { view in
+                NavigationLink(view.rawValue, value: view)
+            }
+            .searchable(text: $searchTerm)
+            .navigationDestination(for: ViewRouter.self) { selectedView in
+                selectedView
+                    .view
+                    .navigationTitle(selectedView.name)
+            }
+            .navigationTitle("Views")
+            .task {
+                locationManager.requestWhenInUseAuthorization()
+            }
+            .onAppear {
+                // Read the saved navigation route from defaults and set the navigation path
+                if let data = UserDefaults.standard.data(forKey: "savedNavigation"),
+                    let decodedPath = try? JSONDecoder().decode(ViewRouter.self, from: data)
+                {
+                    logger.debug("Restored navigation path")
+
+                    selection = decodedPath
+                }
+            }
+            .onDisappear {
+                // Save the navigation path to user defaults
+                if let encodedPath = try? JSONEncoder().encode(selection) {
+                    UserDefaults.standard.set(encodedPath, forKey: "savedNavigation")
+
+                    logger.debug("Saved navigation path")
+                }
+            }
         } detail: {
-            // Detail is handled through navigationDestination except for this edge case
-            if selection == nil {
-                ContentUnavailableView("Use sidebar navigation", systemImage: "sidebar.left")
+            ContentUnavailableView("Use sidebar navigation", systemImage: "sidebar.left")
+        }
+        .task {
+            locationManager.requestWhenInUseAuthorization()
+        }
+    }
+
+    @ViewBuilder
+    var stackBody: some View {
+        // TODO: See what .searchable and (path: $pathStore.path) don't get along.
+        NavigationStack {
+            List(searchResults) { view in
+                NavigationLink(view.rawValue, value: view)
+            }
+            .searchable(text: $searchTerm)
+            .navigationDestination(for: ViewRouter.self) { selectedView in
+                selectedView
+                    .view
+                    .navigationTitle(selectedView.name)
+            }
+            .navigationTitle("Views")
+            .task {
+                locationManager.requestWhenInUseAuthorization()
             }
         }
     }
 
     var body: some View {
-        selectionBody
-        // adaptiveBody
+        // stackBody
+        // selectionBody
+        adaptiveBody
     }
 }
 

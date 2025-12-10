@@ -18,7 +18,6 @@ import os
 /// - SeeAlso: [wwdc](https://wwdcnotes.com/documentation/wwdcnotes/wwdc23-10180-discover-streamlined-location-updates/)
 @OSLogger
 @Observable
-@MainActor
 final class NewLocationManager {
     /// Currently provided location.
     ///

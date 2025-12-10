@@ -19,7 +19,6 @@ import os
 /// - SeeAlso: [Migrating from the Observable Object protocol to the Observable macro](https://developer.apple.com/documentation/swiftui/migrating-from-the-observable-object-protocol-to-the-observable-macro)
 @OSLogger
 @Observable
-@MainActor
 final class SharedContent: NSObject {
     var sharedText = "Hello, World!"
     var openedURL: URL?

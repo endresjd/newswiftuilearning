@@ -70,7 +70,7 @@ private struct ProjectionOffsetEffect: GeometryEffect {
 ///
 /// Simple view that animates its movement on the screen when the
 /// horizontal position changes.
-private struct MoveView: View, @MainActor Animatable {
+private struct MoveView: View, Animatable {
     var x: CGFloat
     // Receive animation interpolation via animatableData
     var animatableData: CGFloat {

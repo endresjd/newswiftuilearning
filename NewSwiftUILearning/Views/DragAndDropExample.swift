@@ -130,20 +130,18 @@ struct DragAndDropExample: View {
 /// To support drag operations of model objects, conform a model to the Transferable protocol to
 /// create a transferable item, and implement the transferRepresentation static property. Types like
 /// String, Data, URL, and Image already conform to Transferable, making them easy to use in drag-and-drop operations.
-struct Profile: Codable, Identifiable {
+struct Profile: Codable, Identifiable, Transferable {
     var id: UUID = UUID()
     var name: String
     var phoneNumber: String
-}
 
-extension Profile: Transferable {
-    static var transferRepresentation: some TransferRepresentation {
+    nonisolated static var transferRepresentation: some TransferRepresentation {
         CodableRepresentation(contentType: .profile)
         ProxyRepresentation(exporting: \.name)
     }
 }
 
-extension UTType {
+nonisolated extension UTType {
     static let profile = UTType(exportedAs: "com.macplugins.NewSwiftUILearning.profile")
 }
 

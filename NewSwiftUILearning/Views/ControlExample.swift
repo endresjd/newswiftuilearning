@@ -35,7 +35,7 @@ struct StartPartyControl: ControlWidget {
 // Model code
 
 class PartyManager {
-    @MainActor static let shared = PartyManager()
+    static let shared = PartyManager()
     var nextParty = Party(name: "WWDC Karaoke")
 }
 

@@ -70,7 +70,7 @@ struct AsyncStreamsObservable: View {
     ///
     /// See: https://www.hackingwithswift.com/quick-start/concurrency/important-do-not-use-an-actor-for-your-swiftui-data-models
     /// for more information.
-    @MainActor func startListening() async {
+    func startListening() async {
         // Read and react to values published to the stream
         //
         // removeDuplicates: Creates an asynchronous sequence that omits repeated elements

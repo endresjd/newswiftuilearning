@@ -7,7 +7,7 @@
 
 import Foundation
 
-@Observable @MainActor
+@Observable
 class FlexibleHeaderModel {
     var windowSize: CGSize = .zero
 }

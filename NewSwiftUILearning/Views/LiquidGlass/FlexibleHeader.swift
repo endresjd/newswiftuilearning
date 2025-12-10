@@ -38,7 +38,7 @@ private struct FlexibleHeaderScrollViewModifier: ViewModifier {
 
 extension ScrollView {
     /// A function that returns a view after it applies `FlexibleHeaderScrollViewModifier` to it.
-    @MainActor func flexibleHeaderScrollView() -> some View {
+    func flexibleHeaderScrollView() -> some View {
         modifier(FlexibleHeaderScrollViewModifier())
     }
 }

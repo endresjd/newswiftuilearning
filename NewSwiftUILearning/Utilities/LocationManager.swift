@@ -22,7 +22,6 @@ class LocationManager: NSObject {
 
     /// Either returns the current location of the device or throws an error with information
     /// about why it couldn't be determined.
-    @MainActor
     var location: CLLocation {
         get async throws {
             // Gets rid of a concurrency warning becasue the change is now isolated
